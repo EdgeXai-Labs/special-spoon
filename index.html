@@ -1,0 +1,1311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Engineering Better Food Manufacturing | Industrial Food Processing Machinery</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+            line-height: 1.6;
+            color: #E5E7EB;
+            background: #0F1117;
+        }
+
+        /* ============================================
+           NAVIGATION - Edit company name and menu items
+           ============================================ */
+        .nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(15, 17, 23, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #FBBF24;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #E5E7EB;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #FBBF24;
+        }
+
+        /* ============================================
+           HERO SECTION - Edit headline, description, and stats
+           ============================================ */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            padding-top: 80px;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(15, 17, 23, 0.9), rgba(23, 26, 35, 0.85)),
+                        url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><rect width="100" height="100" fill="%231E222E"/><path d="M0 0L50 50M50 50L100 0M50 50L100 100M50 50L0 100" stroke="%23171A23" stroke-width="1"/></svg>');
+            background-size: cover, 100px 100px;
+            z-index: -1;
+        }
+
+        .hero-content {
+            max-width: 1400px;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            font-weight: 800;
+            color: #FFFFFF;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+        }
+
+        .hero-highlight {
+            color: #FBBF24;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: #9CA3AF;
+            max-width: 800px;
+            margin: 0 auto 3rem;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 6px;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: #FBBF24;
+            color: #0F1117;
+        }
+
+        .btn-primary:hover {
+            background: #F59E0B;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #E5E7EB;
+            border: 2px solid #FBBF24;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(251, 191, 36, 0.1);
+        }
+
+        /* ============================================
+           TRUST BAR - Edit stats and credentials
+           ============================================ */
+        .trust-bar {
+            background: #171A23;
+            padding: 2rem;
+            margin-top: 4rem;
+            border-radius: 8px;
+        }
+
+        .trust-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .trust-item {
+            text-align: center;
+        }
+
+        .trust-item-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #FBBF24;
+            margin-bottom: 0.5rem;
+        }
+
+        .trust-item-text {
+            color: #9CA3AF;
+            font-size: 0.95rem;
+        }
+
+        /* Common Styles */
+        .section {
+            padding: 6rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #FFFFFF;
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: #9CA3AF;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .grid {
+            display: grid;
+            gap: 2rem;
+        }
+
+        .grid-2 {
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        }
+
+        .grid-3 {
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        }
+
+        .grid-4 {
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        }
+
+        .card {
+            background: #171A23;
+            padding: 2rem;
+            border-radius: 8px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(251, 191, 36, 0.1);
+        }
+
+    </style>
+</head>
+<body>
+
+    </style>
+</head>
+<body>
+
+    <!-- ============================================
+         NAVIGATION BAR
+         Edit: Company name in logo, menu links
+         ============================================ -->
+    <nav class="nav">
+        <div class="nav-container">
+            <div class="logo">Your Company Name</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#industries">Industries</a></li>
+                <li><a href="#support">Support</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ============================================
+         HERO SECTION
+         Edit: Headline, subheading, button text
+         ============================================ -->
+    <section id="home" class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <h1>
+                Engineering Better <span class="hero-highlight">Food Manufacturing</span>
+            </h1>
+            <p>
+                We design, manufacture, customize and install industrial food processing machinery
+                that improves productivity, reduces operating costs and delivers consistent product quality.
+            </p>
+            <div class="hero-buttons">
+                <a href="#contact" class="btn btn-primary">Request Quote</a>
+                <a href="#products" class="btn btn-secondary">Explore Machines</a>
+            </div>
+
+            <!-- ============================================
+                 TRUST BAR - Edit numbers and text
+                 ============================================ -->
+            <div class="trust-bar">
+                <div class="trust-grid">
+                    <div class="trust-item">
+                        <div class="trust-item-number">30+ Years</div>
+                        <div class="trust-item-text">Experience</div>
+                    </div>
+                    <div class="trust-item">
+                        <div class="trust-item-number">1000+</div>
+                        <div class="trust-item-text">Machines Installed</div>
+                    </div>
+                    <div class="trust-item">
+                        <div class="trust-item-number">500+</div>
+                        <div class="trust-item-text">Customers</div>
+                    </div>
+                    <div class="trust-item">
+                        <div class="trust-item-number">Made in India</div>
+                        <div class="trust-item-text">Pan India Service</div>
+                    </div>
+                    <div class="trust-item">
+                        <div class="trust-item-number">24×7</div>
+                        <div class="trust-item-text">Customer Support</div>
+                    </div>
+                    <div class="trust-item">
+                        <div class="trust-item-number">ISO</div>
+                        <div class="trust-item-text">Quality Manufacturing</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    </section>
+
+    <!-- ============================================
+         INDUSTRIES WE SERVE SECTION
+         Edit: Industry names and descriptions
+         ============================================ -->
+    <section class="section" style="background: #0F1117;">
+        <div class="section-header">
+            <h2 class="section-title">Industries We Serve</h2>
+            <p class="section-subtitle">
+                Trusted by food manufacturers across multiple industries
+            </p>
+        </div>
+
+        <div class="grid grid-3">
+            <div class="card">
+                <h3 style="color: #FBBF24; font-size: 1.5rem; margin-bottom: 1rem;">🥔 Snack Foods</h3>
+                <ul style="color: #9CA3AF; list-style: none; line-height: 2;">
+                    <li>• Namkeen Manufacturing</li>
+                    <li>• Potato Chips Production</li>
+                    <li>• Banana Chips Lines</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3 style="color: #FBBF24; font-size: 1.5rem; margin-bottom: 1rem;">🍰 Bakery</h3>
+                <ul style="color: #9CA3AF; list-style: none; line-height: 2;">
+                    <li>• Commercial Kitchen Setup</li>
+                    <li>• Cloud Kitchen Equipment</li>
+                    <li>• Central Kitchen Systems</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3 style="color: #FBBF24; font-size: 1.5rem; margin-bottom: 1rem;">🏭 Food Processing</h3>
+                <ul style="color: #9CA3AF; list-style: none; line-height: 2;">
+                    <li>• Industrial Food Plants</li>
+                    <li>• Custom Machinery</li>
+                    <li>• Complete Production Lines</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3 style="color: #FBBF24; font-size: 1.5rem; margin-bottom: 1rem;">🍽️ Hotels & Restaurants</h3>
+                <ul style="color: #9CA3AF; list-style: none; line-height: 2;">
+                    <li>• Commercial Kitchen Equipment</li>
+                    <li>• Large-scale Cooking Systems</li>
+                    <li>• Food Prep Machinery</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3 style="color: #FBBF24; font-size: 1.5rem; margin-bottom: 1rem;">⚙️ Custom Industrial</h3>
+                <ul style="color: #9CA3AF; list-style: none; line-height: 2;">
+                    <li>• Custom Fabrication</li>
+                    <li>• Specialized Equipment</li>
+                    <li>• Engineered Solutions</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3 style="color: #FBBF24; font-size: 1.5rem; margin-bottom: 1rem;">📦 Export Quality</h3>
+                <ul style="color: #9CA3AF; list-style: none; line-height: 2;">
+                    <li>• International Standards</li>
+                    <li>• Food Grade Materials</li>
+                    <li>• Quality Certifications</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    </section>
+
+    <!-- ============================================
+         ABOUT COMPANY SECTION
+         Edit: Company history, founding year, description
+         ============================================ -->
+    <section id="about" class="section" style="background: #171A23;">
+        <div class="section-header">
+            <h2 class="section-title">Manufacturing Innovation Since 1990</h2>
+            <p class="section-subtitle">
+                We are one of India's leading manufacturers of food processing machinery and customized industrial equipment.
+                Every machine is engineered to maximize production efficiency while minimizing operational costs.
+            </p>
+        </div>
+
+        <div style="max-width: 900px; margin: 0 auto; text-align: center; color: #9CA3AF; font-size: 1.1rem; line-height: 1.8;">
+            <p style="margin-bottom: 1.5rem;">
+                We specialize in designing complete production lines, standalone machinery and custom-built equipment
+                according to customer requirements.
+            </p>
+            <p>
+                Our engineering team converts your production challenges into reliable, efficient solutions
+                that deliver measurable ROI.
+            </p>
+        </div>
+    </section>
+
+    <!-- ============================================
+         WHAT WE MANUFACTURE SECTION
+         Edit: Product names and descriptions
+         ============================================ -->
+    <section id="products" class="section" style="background: #0F1117;">
+        <div class="section-header">
+            <h2 class="section-title">What We Manufacture</h2>
+            <p class="section-subtitle">
+                Complete range of food processing machinery and custom solutions
+            </p>
+        </div>
+
+        <div class="grid grid-4">
+            <div class="card">
+                <div style="font-size: 2.5rem; margin-bottom: 1rem;">🥔</div>
+                <h3 style="color: #FFFFFF; margin-bottom: 0.5rem;">Potato Chips Line</h3>
+                <p style="color: #9CA3AF; margin-bottom: 1rem;">Complete automated production line from washing to packaging</p>
+                <a href="#contact" style="color: #FBBF24; text-decoration: none; font-weight: 600;">View Details →</a>
+            </div>
+
+            <div class="card">
+                <div style="font-size: 2.5rem; margin-bottom: 1rem;">🍌</div>
+                <h3 style="color: #FFFFFF; margin-bottom: 0.5rem;">Banana Chips Line</h3>
+                <p style="color: #9CA3AF; margin-bottom: 1rem;">High-efficiency slicing, frying and seasoning system</p>
+                <a href="#contact" style="color: #FBBF24; text-decoration: none; font-weight: 600;">View Details →</a>
+            </div>
+
+            <div class="card">
+                <div style="font-size: 2.5rem; margin-bottom: 1rem;">🥘</div>
+                <h3 style="color: #FFFFFF; margin-bottom: 0.5rem;">Namkeen Line</h3>
+                <p style="color: #9CA3AF; margin-bottom: 1rem;">Complete namkeen manufacturing with mixing and frying</p>
+                <a href="#contact" style="color: #FBBF24; text-decoration: none; font-weight: 600;">View Details →</a>
+            </div>
+
+            <div class="card">
+                <div style="font-size: 2.5rem; margin-bottom: 1rem;">🔥</div>
+                <h3 style="color: #FFFFFF; margin-bottom: 0.5rem;">Automatic Fryer</h3>
+                <p style="color: #9CA3AF; margin-bottom: 1rem;">Energy-efficient continuous frying system</p>
+                <a href="#contact" style="color: #FBBF24; text-decoration: none; font-weight: 600;">View Details →</a>
+            </div>
+
+            <div class="card">
+                <div style="font-size: 2.5rem; margin-bottom: 1rem;">💧</div>
+                <h3 style="color: #FFFFFF; margin-bottom: 0.5rem;">Oil Filter Machine</h3>
+                <p style="color: #9CA3AF; margin-bottom: 1rem;">Extends oil life and reduces operating costs</p>
+                <a href="#contact" style="color: #FBBF24; text-decoration: none; font-weight: 600;">View Details →</a>
+            </div>
+
+            <div class="card">
+                <div style="font-size: 2.5rem; margin-bottom: 1rem;">🧂</div>
+                <h3 style="color: #FFFFFF; margin-bottom: 0.5rem;">Seasoning System</h3>
+                <p style="color: #9CA3AF; margin-bottom: 1rem;">Uniform flavoring and coating application</p>
+                <a href="#contact" style="color: #FBBF24; text-decoration: none; font-weight: 600;">View Details →</a>
+            </div>
+
+            <div class="card">
+                <div style="font-size: 2.5rem; margin-bottom: 1rem;">📦</div>
+                <h3 style="color: #FFFFFF; margin-bottom: 0.5rem;">Packaging Conveyor</h3>
+                <p style="color: #9CA3AF; margin-bottom: 1rem;">Automated product transfer and packaging line</p>
+                <a href="#contact" style="color: #FBBF24; text-decoration: none; font-weight: 600;">View Details →</a>
+            </div>
+
+            <div class="card">
+                <div style="font-size: 2.5rem; margin-bottom: 1rem;">🔄</div>
+                <h3 style="color: #FFFFFF; margin-bottom: 0.5rem;">Industrial Mixer</h3>
+                <p style="color: #9CA3AF; margin-bottom: 1rem;">Heavy-duty mixing for consistent batches</p>
+                <a href="#contact" style="color: #FBBF24; text-decoration: none; font-weight: 600;">View Details →</a>
+            </div>
+
+            <div class="card">
+                <div style="font-size: 2.5rem; margin-bottom: 1rem;">💨</div>
+                <h3 style="color: #FFFFFF; margin-bottom: 0.5rem;">Industrial Dryer</h3>
+                <p style="color: #9CA3AF; margin-bottom: 1rem;">Efficient moisture removal system</p>
+                <a href="#contact" style="color: #FBBF24; text-decoration: none; font-weight: 600;">View Details →</a>
+            </div>
+
+            <div class="card">
+                <div style="font-size: 2.5rem; margin-bottom: 1rem;">🌊</div>
+                <h3 style="color: #FFFFFF; margin-bottom: 0.5rem;">Blanching Machine</h3>
+                <p style="color: #9CA3AF; margin-bottom: 1rem;">Pre-treatment for consistent quality</p>
+                <a href="#contact" style="color: #FBBF24; text-decoration: none; font-weight: 600;">View Details →</a>
+            </div>
+
+            <div class="card">
+                <div style="font-size: 2.5rem; margin-bottom: 1rem;">💧</div>
+                <h3 style="color: #FFFFFF; margin-bottom: 0.5rem;">De-oiling Machine</h3>
+                <p style="color: #9CA3AF; margin-bottom: 1rem;">Removes excess oil after frying</p>
+                <a href="#contact" style="color: #FBBF24; text-decoration: none; font-weight: 600;">View Details →</a>
+            </div>
+
+            <div class="card">
+                <div style="font-size: 2.5rem; margin-bottom: 1rem;">⚙️</div>
+                <h3 style="color: #FFFFFF; margin-bottom: 0.5rem;">Custom Fabrication</h3>
+                <p style="color: #9CA3AF; margin-bottom: 1rem;">Tailored solutions for unique requirements</p>
+                <a href="#contact" style="color: #FBBF24; text-decoration: none; font-weight: 600;">View Details →</a>
+            </div>
+        </div>
+    </section>
+
+    </section>
+
+    <!-- ============================================
+         COMPLETE MANUFACTURING SOLUTIONS
+         Edit: Services offered throughout lifecycle
+         ============================================ -->
+    <section class="section" style="background: #171A23;">
+        <div class="section-header">
+            <h2 class="section-title">Complete Manufacturing Solutions</h2>
+            <p class="section-subtitle">
+                We don't just sell machines. We provide end-to-end manufacturing partnership.
+            </p>
+        </div>
+
+        <div class="grid grid-4">
+            <div class="card">
+                <div style="color: #FBBF24; font-size: 2rem; margin-bottom: 1rem;">📐</div>
+                <h3 style="color: #FFFFFF; margin-bottom: 0.5rem;">Plant Planning</h3>
+                <p style="color: #9CA3AF;">Complete factory layout and workflow design</p>
+            </div>
+
+            <div class="card">
+                <div style="color: #FBBF24; font-size: 2rem; margin-bottom: 1rem;">✏️</div>
+                <h3 style="color: #FFFFFF; margin-bottom: 0.5rem;">Machine Design</h3>
+                <p style="color: #9CA3AF;">Custom engineering based on your requirements</p>
+            </div>
+
+            <div class="card">
+                <div style="color: #FBBF24; font-size: 2rem; margin-bottom: 1rem;">🏭</div>
+                <h3 style="color: #FFFFFF; margin-bottom: 0.5rem;">Manufacturing</h3>
+                <p style="color: #9CA3AF;">In-house fabrication with quality control</p>
+            </div>
+
+            <div class="card">
+                <div style="color: #FBBF24; font-size: 2rem; margin-bottom: 1rem;">🔧</div>
+                <h3 style="color: #FFFFFF; margin-bottom: 0.5rem;">Installation</h3>
+                <p style="color: #9CA3AF;">Complete setup and commissioning</p>
+            </div>
+
+            <div class="card">
+                <div style="color: #FBBF24; font-size: 2rem; margin-bottom: 1rem;">👨‍🏫</div>
+                <h3 style="color: #FFFFFF; margin-bottom: 0.5rem;">Operator Training</h3>
+                <p style="color: #9CA3AF;">Comprehensive hands-on training program</p>
+            </div>
+
+            <div class="card">
+                <div style="color: #FBBF24; font-size: 2rem; margin-bottom: 1rem;">✅</div>
+                <h3 style="color: #FFFFFF; margin-bottom: 0.5rem;">Testing</h3>
+                <p style="color: #9CA3AF;">Performance validation and optimization</p>
+            </div>
+
+            <div class="card">
+                <div style="color: #FBBF24; font-size: 2rem; margin-bottom: 1rem;">🔄</div>
+                <h3 style="color: #FFFFFF; margin-bottom: 0.5rem;">Maintenance</h3>
+                <p style="color: #9CA3AF;">Regular servicing and preventive care</p>
+            </div>
+
+            <div class="card">
+                <div style="color: #FBBF24; font-size: 2rem; margin-bottom: 1rem;">📅</div>
+                <h3 style="color: #FFFFFF; margin-bottom: 0.5rem;">Annual Service</h3>
+                <p style="color: #9CA3AF;">Scheduled maintenance contracts available</p>
+            </div>
+
+            <div class="card">
+                <div style="color: #FBBF24; font-size: 2rem; margin-bottom: 1rem;">⬆️</div>
+                <h3 style="color: #FFFFFF; margin-bottom: 0.5rem;">Machine Upgrade</h3>
+                <p style="color: #9CA3AF;">Technology updates and capacity expansion</p>
+            </div>
+
+            <div class="card">
+                <div style="color: #FBBF24; font-size: 2rem; margin-bottom: 1rem;">🛡️</div>
+                <h3 style="color: #FFFFFF; margin-bottom: 0.5rem;">AMC</h3>
+                <p style="color: #9CA3AF;">Comprehensive annual maintenance contracts</p>
+            </div>
+
+            <div class="card">
+                <div style="color: #FBBF24; font-size: 2rem; margin-bottom: 1rem;">🔩</div>
+                <h3 style="color: #FFFFFF; margin-bottom: 0.5rem;">Spare Parts</h3>
+                <p style="color: #9CA3AF;">Genuine parts with quick dispatch</p>
+            </div>
+
+            <div class="card">
+                <div style="color: #FBBF24; font-size: 2rem; margin-bottom: 1rem;">📞</div>
+                <h3 style="color: #FFFFFF; margin-bottom: 0.5rem;">Technical Support</h3>
+                <p style="color: #9CA3AF;">24/7 expert assistance available</p>
+            </div>
+        </div>
+    </section>
+
+    </section>
+
+    <!-- ============================================
+         WHY CHOOSE OUR MACHINES
+         Edit: Benefits and features - key selling points
+         ============================================ -->
+    <section class="section" style="background: #0F1117;">
+        <div class="section-header">
+            <h2 class="section-title">Why Choose Our Machines</h2>
+            <p class="section-subtitle">
+                Measurable improvements in productivity, cost, and quality
+            </p>
+        </div>
+
+        <div class="grid grid-3">
+            <div class="card">
+                <div style="color: #FBBF24; font-size: 2.5rem; margin-bottom: 1rem;">📈</div>
+                <h3 style="color: #FFFFFF; font-size: 1.3rem; margin-bottom: 0.5rem;">Higher Production</h3>
+                <p style="color: #9CA3AF;">Increase production capacity without increasing manpower</p>
+            </div>
+
+            <div class="card">
+                <div style="color: #FBBF24; font-size: 2.5rem; margin-bottom: 1rem;">💧</div>
+                <h3 style="color: #FFFFFF; font-size: 1.3rem; margin-bottom: 0.5rem;">Lower Oil Consumption</h3>
+                <p style="color: #9CA3AF;">Optimized frying technology reduces edible oil consumption</p>
+            </div>
+
+            <div class="card">
+                <div style="color: #FBBF24; font-size: 2.5rem; margin-bottom: 1rem;">👷</div>
+                <h3 style="color: #FFFFFF; font-size: 1.3rem; margin-bottom: 0.5rem;">Reduced Labour Cost</h3>
+                <p style="color: #9CA3AF;">Automation minimizes manual operations</p>
+            </div>
+
+            <div class="card">
+                <div style="color: #FBBF24; font-size: 2.5rem; margin-bottom: 1rem;">✅</div>
+                <h3 style="color: #FFFFFF; font-size: 1.3rem; margin-bottom: 0.5rem;">Consistent Product Quality</h3>
+                <p style="color: #9CA3AF;">Uniform frying, seasoning and processing every batch</p>
+            </div>
+
+            <div class="card">
+                <div style="color: #FBBF24; font-size: 2.5rem; margin-bottom: 1rem;">⚡</div>
+                <h3 style="color: #FFFFFF; font-size: 1.3rem; margin-bottom: 0.5rem;">Faster Production</h3>
+                <p style="color: #9CA3AF;">Higher output in less time</p>
+            </div>
+
+            <div class="card">
+                <div style="color: #FBBF24; font-size: 2.5rem; margin-bottom: 1rem;">🥇</div>
+                <h3 style="color: #FFFFFF; font-size: 1.3rem; margin-bottom: 0.5rem;">Food Grade Stainless Steel</h3>
+                <p style="color: #9CA3AF;">Corrosion resistant construction</p>
+            </div>
+
+            <div class="card">
+                <div style="color: #FBBF24; font-size: 2.5rem; margin-bottom: 1rem;">🧼</div>
+                <h3 style="color: #FFFFFF; font-size: 1.3rem; margin-bottom: 0.5rem;">Easy Cleaning</h3>
+                <p style="color: #9CA3AF;">Designed for hygienic food production</p>
+            </div>
+
+            <div class="card">
+                <div style="color: #FBBF24; font-size: 2.5rem; margin-bottom: 1rem;">💡</div>
+                <h3 style="color: #FFFFFF; font-size: 1.3rem; margin-bottom: 0.5rem;">Energy Efficient</h3>
+                <p style="color: #9CA3AF;">Lower electricity consumption</p>
+            </div>
+
+            <div class="card">
+                <div style="color: #FBBF24; font-size: 2.5rem; margin-bottom: 1rem;">🔧</div>
+                <h3 style="color: #FFFFFF; font-size: 1.3rem; margin-bottom: 0.5rem;">Low Maintenance</h3>
+                <p style="color: #9CA3AF;">Heavy-duty industrial components</p>
+            </div>
+
+            <div class="card">
+                <div style="color: #FBBF24; font-size: 2.5rem; margin-bottom: 1rem;">⏰</div>
+                <h3 style="color: #FFFFFF; font-size: 1.3rem; margin-bottom: 0.5rem;">Longer Machine Life</h3>
+                <p style="color: #9CA3AF;">Engineered for years of continuous operation</p>
+            </div>
+
+            <div class="card">
+                <div style="color: #FBBF24; font-size: 2.5rem; margin-bottom: 1rem;">🧩</div>
+                <h3 style="color: #FFFFFF; font-size: 1.3rem; margin-bottom: 0.5rem;">Modular Design</h3>
+                <p style="color: #9CA3AF;">Easy expansion in future</p>
+            </div>
+
+            <div class="card">
+                <div style="color: #FBBF24; font-size: 2.5rem; margin-bottom: 1rem;">🎯</div>
+                <h3 style="color: #FFFFFF; font-size: 1.3rem; margin-bottom: 0.5rem;">Easy Operation</h3>
+                <p style="color: #9CA3AF;">Simple user controls</p>
+            </div>
+
+            <div class="card">
+                <div style="color: #FBBF24; font-size: 2.5rem; margin-bottom: 1rem;">⚙️</div>
+                <h3 style="color: #FFFFFF; font-size: 1.3rem; margin-bottom: 0.5rem;">Custom Manufacturing</h3>
+                <p style="color: #9CA3AF;">Machine built according to customer requirements</p>
+            </div>
+
+            <div class="card">
+                <div style="color: #FBBF24; font-size: 2.5rem; margin-bottom: 1rem;">🛡️</div>
+                <h3 style="color: #FFFFFF; font-size: 1.3rem; margin-bottom: 0.5rem;">Safety Features</h3>
+                <p style="color: #9CA3AF;">Emergency stop, protection systems, food safety</p>
+            </div>
+
+            <div class="card">
+                <div style="color: #FBBF24; font-size: 2.5rem; margin-bottom: 1rem;">💪</div>
+                <h3 style="color: #FFFFFF; font-size: 1.3rem; margin-bottom: 0.5rem;">Reliable Performance</h3>
+                <p style="color: #9CA3AF;">Designed for continuous industrial production</p>
+            </div>
+        </div>
+    </section>
+
+    </section>
+
+    <!-- ============================================
+         OLD WAY VS NEW WAY COMPARISON
+         Edit: Comparison points to highlight automation benefits
+         ============================================ -->
+    <section class="section" style="background: #171A23;">
+        <div class="section-header">
+            <h2 class="section-title">Why Automation?</h2>
+            <p class="section-subtitle">
+                See the measurable difference automation makes to your operation
+            </p>
+        </div>
+
+        <div style="max-width: 1000px; margin: 0 auto; background: #0F1117; border-radius: 8px; overflow: hidden;">
+            <table style="width: 100%; border-collapse: collapse;">
+                <thead>
+                    <tr style="background: #1E222E;">
+                        <th style="padding: 1.5rem; text-align: left; color: #FBBF24; font-size: 1.2rem; border-bottom: 2px solid #FBBF24;">Traditional Method</th>
+                        <th style="padding: 1.5rem; text-align: left; color: #FBBF24; font-size: 1.2rem; border-bottom: 2px solid #FBBF24;">Our Automated Machines</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="border-bottom: 1px solid #1E222E;">
+                        <td style="padding: 1.5rem; color: #F87171;">❌ More workers required</td>
+                        <td style="padding: 1.5rem; color: #34D399;">✅ Less manpower needed</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #1E222E;">
+                        <td style="padding: 1.5rem; color: #F87171;">❌ High oil usage</td>
+                        <td style="padding: 1.5rem; color: #34D399;">✅ Low oil consumption</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #1E222E;">
+                        <td style="padding: 1.5rem; color: #F87171;">❌ Slow production</td>
+                        <td style="padding: 1.5rem; color: #34D399;">✅ High production capacity</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #1E222E;">
+                        <td style="padding: 1.5rem; color: #F87171;">❌ Product inconsistency</td>
+                        <td style="padding: 1.5rem; color: #34D399;">✅ Uniform quality every batch</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #1E222E;">
+                        <td style="padding: 1.5rem; color: #F87171;">❌ Higher wastage</td>
+                        <td style="padding: 1.5rem; color: #34D399;">✅ Less product wastage</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #1E222E;">
+                        <td style="padding: 1.5rem; color: #F87171;">❌ Frequent breakdown</td>
+                        <td style="padding: 1.5rem; color: #34D399;">✅ Reliable operation</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #1E222E;">
+                        <td style="padding: 1.5rem; color: #F87171;">❌ Difficult cleaning</td>
+                        <td style="padding: 1.5rem; color: #34D399;">✅ Easy cleaning & hygiene</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 1.5rem; color: #F87171;">❌ High operating cost</td>
+                        <td style="padding: 1.5rem; color: #34D399;">✅ Lower operating cost</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    </section>
+
+    <!-- ============================================
+         CUSTOMER SUPPORT SECTION - KEY DIFFERENTIATOR
+         Edit: Support services and promises
+         ============================================ -->
+    <section id="support" class="section" style="background: #0F1117;">
+        <div class="section-header">
+            <h2 class="section-title">Support Doesn't End After Delivery</h2>
+            <p class="section-subtitle">
+                Our relationship starts after installation. We believe every customer deserves fast, reliable
+                and expert support throughout the machine's lifecycle.
+            </p>
+        </div>
+
+        <div style="max-width: 900px; margin: 0 auto 4rem; text-align: center; padding: 2rem; background: #171A23; border-radius: 8px; border-left: 4px solid #FBBF24;">
+            <h3 style="color: #FBBF24; font-size: 1.5rem; margin-bottom: 1rem;">Our Service Promise</h3>
+            <p style="color: #E5E7EB; font-size: 1.1rem; line-height: 1.8;">
+                We understand that downtime costs money. That's why we've built a dedicated support system
+                to keep your production running smoothly. Fast response, expert technicians, genuine parts,
+                and lifetime technical guidance — because your success is our success.
+            </p>
+        </div>
+
+        <div class="grid grid-3">
+            <div class="card">
+                <div style="color: #FBBF24; font-size: 2.5rem; margin-bottom: 1rem;">🔧</div>
+                <h3 style="color: #FFFFFF; font-size: 1.3rem; margin-bottom: 0.5rem;">Installation Support</h3>
+                <p style="color: #9CA3AF;">Complete machine commissioning at your facility</p>
+            </div>
+
+            <div class="card">
+                <div style="color: #FBBF24; font-size: 2.5rem; margin-bottom: 1rem;">👨‍🏫</div>
+                <h3 style="color: #FFFFFF; font-size: 1.3rem; margin-bottom: 0.5rem;">Operator Training</h3>
+                <p style="color: #9CA3AF;">Hands-on training for your team members</p>
+            </div>
+
+            <div class="card">
+                <div style="color: #FBBF24; font-size: 2.5rem; margin-bottom: 1rem;">📹</div>
+                <h3 style="color: #FFFFFF; font-size: 1.3rem; margin-bottom: 0.5rem;">Video Assistance</h3>
+                <p style="color: #9CA3AF;">Visual troubleshooting guides and demos</p>
+            </div>
+
+            <div class="card">
+                <div style="color: #FBBF24; font-size: 2.5rem; margin-bottom: 1rem;">📞</div>
+                <h3 style="color: #FFFFFF; font-size: 1.3rem; margin-bottom: 0.5rem;">Phone Support</h3>
+                <p style="color: #9CA3AF;">Direct access to technical experts</p>
+            </div>
+
+            <div class="card">
+                <div style="color: #FBBF24; font-size: 2.5rem; margin-bottom: 1rem;">💬</div>
+                <h3 style="color: #FFFFFF; font-size: 1.3rem; margin-bottom: 0.5rem;">WhatsApp Support</h3>
+                <p style="color: #9CA3AF;">Quick response through messaging</p>
+            </div>
+
+            <div class="card">
+                <div style="color: #FBBF24; font-size: 2.5rem; margin-bottom: 1rem;">🖥️</div>
+                <h3 style="color: #FFFFFF; font-size: 1.3rem; margin-bottom: 0.5rem;">Remote Troubleshooting</h3>
+                <p style="color: #9CA3AF;">Diagnose and fix issues remotely</p>
+            </div>
+
+            <div class="card">
+                <div style="color: #FBBF24; font-size: 2.5rem; margin-bottom: 1rem;">🚗</div>
+                <h3 style="color: #FFFFFF; font-size: 1.3rem; margin-bottom: 0.5rem;">On-site Service</h3>
+                <p style="color: #9CA3AF;">Field engineers available pan India</p>
+            </div>
+
+            <div class="card">
+                <div style="color: #FBBF24; font-size: 2.5rem; margin-bottom: 1rem;">🔄</div>
+                <h3 style="color: #FFFFFF; font-size: 1.3rem; margin-bottom: 0.5rem;">Preventive Maintenance</h3>
+                <p style="color: #9CA3AF;">Scheduled checks to prevent breakdowns</p>
+            </div>
+
+            <div class="card">
+                <div style="color: #FBBF24; font-size: 2.5rem; margin-bottom: 1rem;">📅</div>
+                <h3 style="color: #FFFFFF; font-size: 1.3rem; margin-bottom: 0.5rem;">Annual Maintenance Contracts</h3>
+                <p style="color: #9CA3AF;">Comprehensive AMC plans available</p>
+            </div>
+
+            <div class="card">
+                <div style="color: #FBBF24; font-size: 2.5rem; margin-bottom: 1rem;">🔩</div>
+                <h3 style="color: #FFFFFF; font-size: 1.3rem; margin-bottom: 0.5rem;">Spare Parts Availability</h3>
+                <p style="color: #9CA3AF;">Genuine parts with quick dispatch</p>
+            </div>
+
+            <div class="card">
+                <div style="color: #FBBF24; font-size: 2.5rem; margin-bottom: 1rem;">📈</div>
+                <h3 style="color: #FFFFFF; font-size: 1.3rem; margin-bottom: 0.5rem;">Performance Optimization</h3>
+                <p style="color: #9CA3AF;">Continuous improvement support</p>
+            </div>
+
+            <div class="card">
+                <div style="color: #FBBF24; font-size: 2.5rem; margin-bottom: 1rem;">🚨</div>
+                <h3 style="color: #FFFFFF; font-size: 1.3rem; margin-bottom: 0.5rem;">Emergency Breakdown Support</h3>
+                <p style="color: #9CA3AF;">Rapid response for critical issues</p>
+            </div>
+
+            <div class="card">
+                <div style="color: #FBBF24; font-size: 2.5rem; margin-bottom: 1rem;">⬆️</div>
+                <h3 style="color: #FFFFFF; font-size: 1.3rem; margin-bottom: 0.5rem;">Machine Upgrades</h3>
+                <p style="color: #9CA3AF;">Technology updates and enhancements</p>
+            </div>
+
+            <div class="card">
+                <div style="color: #FBBF24; font-size: 2.5rem; margin-bottom: 1rem;">⏱️</div>
+                <h3 style="color: #FFFFFF; font-size: 1.3rem; margin-bottom: 0.5rem;">24 Hour Response</h3>
+                <p style="color: #9CA3AF;">Get help when you need it most</p>
+            </div>
+
+            <div class="card">
+                <div style="color: #FBBF24; font-size: 2.5rem; margin-bottom: 1rem;">🎓</div>
+                <h3 style="color: #FFFFFF; font-size: 1.3rem; margin-bottom: 0.5rem;">Lifetime Technical Guidance</h3>
+                <p style="color: #9CA3AF;">We're with you for the long run</p>
+            </div>
+        </div>
+
+        <div style="max-width: 800px; margin: 4rem auto 0; padding: 2.5rem; background: linear-gradient(135deg, #1E222E, #171A23); border-radius: 8px; text-align: center; border: 2px solid #FBBF24;">
+            <h3 style="color: #FBBF24; font-size: 1.8rem; margin-bottom: 1rem;">Why Our Support Stands Out</h3>
+            <p style="color: #E5E7EB; font-size: 1.1rem; line-height: 1.8; margin-bottom: 1.5rem;">
+                Unlike competitors who disappear after installation, we've built our reputation on reliable after-sales service.
+                Our dedicated service team ensures your machines run at peak performance year after year.
+            </p>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-top: 2rem;">
+                <div>
+                    <div style="color: #FBBF24; font-size: 2rem; font-weight: 700;">Pan India</div>
+                    <div style="color: #9CA3AF;">Service Network</div>
+                </div>
+                <div>
+                    <div style="color: #FBBF24; font-size: 2rem; font-weight: 700;">Dedicated</div>
+                    <div style="color: #9CA3AF;">Service Engineers</div>
+                </div>
+                <div>
+                    <div style="color: #FBBF24; font-size: 2rem; font-weight: 700;">Quick</div>
+                    <div style="color: #9CA3AF;">Spare Dispatch</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    </section>
+
+    <!-- ============================================
+         CUSTOM MACHINE DEVELOPMENT
+         Edit: Custom engineering capabilities
+         ============================================ -->
+    <section class="section" style="background: #171A23;">
+        <div class="section-header">
+            <h2 class="section-title">Need a Machine That Doesn't Exist?</h2>
+            <p class="section-subtitle">
+                Our engineering team designs and manufactures custom food processing machinery
+                based on your production requirements.
+            </p>
+        </div>
+
+        <div style="max-width: 900px; margin: 0 auto; text-align: center;">
+            <div style="padding: 3rem; background: #0F1117; border-radius: 8px; border-left: 4px solid #FBBF24;">
+                <h3 style="color: #FBBF24; font-size: 1.8rem; margin-bottom: 1.5rem;">We Convert Your Production Challenges Into Engineered Solutions</h3>
+                <p style="color: #E5E7EB; font-size: 1.2rem; line-height: 1.8; margin-bottom: 2rem;">
+                    Every food manufacturer has unique requirements. Standard machines don't always fit.
+                    That's where our custom engineering team steps in. We design, prototype, test and manufacture
+                    machinery specifically for your production needs.
+                </p>
+                <a href="#contact" class="btn btn-primary">Discuss Your Requirement</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         TESTIMONIALS / CASE STUDIES
+         Edit: Customer success stories and metrics
+         ============================================ -->
+    <section class="section" style="background: #0F1117;">
+        <div class="section-header">
+            <h2 class="section-title">Success Stories</h2>
+            <p class="section-subtitle">
+                Real results from real customers
+            </p>
+        </div>
+
+        <div class="grid grid-2">
+            <div class="card" style="background: #171A23; border-left: 4px solid #FBBF24;">
+                <div style="margin-bottom: 1.5rem;">
+                    <div style="color: #FBBF24; font-size: 1.2rem; font-weight: 600;">Snack Food Manufacturer, Gujarat</div>
+                    <div style="color: #9CA3AF; font-size: 0.9rem;">Potato Chips Production Line</div>
+                </div>
+                <p style="color: #E5E7EB; line-height: 1.8; margin-bottom: 1.5rem;">
+                    "After installing the automated chips line, our production increased by 60% while our oil
+                    consumption dropped by 30%. The machine reliability and after-sales support have been excellent."
+                </p>
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; padding-top: 1rem; border-top: 1px solid #1E222E;">
+                    <div>
+                        <div style="color: #FBBF24; font-size: 1.5rem; font-weight: 700;">+60%</div>
+                        <div style="color: #9CA3AF; font-size: 0.9rem;">Production</div>
+                    </div>
+                    <div>
+                        <div style="color: #FBBF24; font-size: 1.5rem; font-weight: 700;">-30%</div>
+                        <div style="color: #9CA3AF; font-size: 0.9rem;">Oil Cost</div>
+                    </div>
+                    <div>
+                        <div style="color: #FBBF24; font-size: 1.5rem; font-weight: 700;">8 Months</div>
+                        <div style="color: #9CA3AF; font-size: 0.9rem;">ROI</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card" style="background: #171A23; border-left: 4px solid #FBBF24;">
+                <div style="margin-bottom: 1.5rem;">
+                    <div style="color: #FBBF24; font-size: 1.2rem; font-weight: 600;">Namkeen Producer, Rajasthan</div>
+                    <div style="color: #9CA3AF; font-size: 0.9rem;">Automatic Fryer System</div>
+                </div>
+                <p style="color: #E5E7EB; line-height: 1.8; margin-bottom: 1.5rem;">
+                    "The machine quality is outstanding and the support team has been incredibly responsive.
+                    We've reduced our labor requirement by 40% and product quality is much more consistent now."
+                </p>
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; padding-top: 1rem; border-top: 1px solid #1E222E;">
+                    <div>
+                        <div style="color: #FBBF24; font-size: 1.5rem; font-weight: 700;">-40%</div>
+                        <div style="color: #9CA3AF; font-size: 0.9rem;">Labour</div>
+                    </div>
+                    <div>
+                        <div style="color: #FBBF24; font-size: 1.5rem; font-weight: 700;">100%</div>
+                        <div style="color: #9CA3AF; font-size: 0.9rem;">Consistency</div>
+                    </div>
+                    <div>
+                        <div style="color: #FBBF24; font-size: 1.5rem; font-weight: 700;">3 Years</div>
+                        <div style="color: #9CA3AF; font-size: 0.9rem;">No Breakdown</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    </section>
+
+    <!-- ============================================
+         FREQUENTLY ASKED QUESTIONS
+         Edit: Common questions and answers
+         ============================================ -->
+    <section class="section" style="background: #171A23;">
+        <div class="section-header">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <p class="section-subtitle">
+                Everything you need to know about our machines and services
+            </p>
+        </div>
+
+        <div style="max-width: 900px; margin: 0 auto;">
+            <div style="background: #0F1117; padding: 2rem; border-radius: 8px; margin-bottom: 1.5rem; border-left: 4px solid #FBBF24;">
+                <h3 style="color: #FBBF24; font-size: 1.2rem; margin-bottom: 1rem;">Can you customize machines according to our requirements?</h3>
+                <p style="color: #E5E7EB; line-height: 1.8;">
+                    Yes, absolutely. Custom machine design is one of our core strengths. Our engineering team can modify
+                    existing designs or create completely new machines based on your production needs, space constraints,
+                    and output requirements.
+                </p>
+            </div>
+
+            <div style="background: #0F1117; padding: 2rem; border-radius: 8px; margin-bottom: 1.5rem; border-left: 4px solid #FBBF24;">
+                <h3 style="color: #FBBF24; font-size: 1.2rem; margin-bottom: 1rem;">Do you provide installation and commissioning?</h3>
+                <p style="color: #E5E7EB; line-height: 1.8;">
+                    Yes, we provide complete installation and commissioning services. Our technicians will set up the machine
+                    at your facility, test it, and ensure it's running at optimal performance before handover.
+                </p>
+            </div>
+
+            <div style="background: #0F1117; padding: 2rem; border-radius: 8px; margin-bottom: 1.5rem; border-left: 4px solid #FBBF24;">
+                <h3 style="color: #FBBF24; font-size: 1.2rem; margin-bottom: 1rem;">Do you provide operator training?</h3>
+                <p style="color: #E5E7EB; line-height: 1.8;">
+                    Yes, comprehensive operator training is included. We train your team on machine operation, basic troubleshooting,
+                    cleaning procedures, and safety protocols. Training materials and manuals are also provided.
+                </p>
+            </div>
+
+            <div style="background: #0F1117; padding: 2rem; border-radius: 8px; margin-bottom: 1.5rem; border-left: 4px solid #FBBF24;">
+                <h3 style="color: #FBBF24; font-size: 1.2rem; margin-bottom: 1rem;">Do you provide spare parts?</h3>
+                <p style="color: #E5E7EB; line-height: 1.8;">
+                    Yes, we maintain inventory of all critical spare parts and can dispatch them quickly across India.
+                    All parts are genuine and manufactured to the same quality standards as the original machine.
+                </p>
+            </div>
+
+            <div style="background: #0F1117; padding: 2rem; border-radius: 8px; margin-bottom: 1.5rem; border-left: 4px solid #FBBF24;">
+                <h3 style="color: #FBBF24; font-size: 1.2rem; margin-bottom: 1rem;">What is the warranty period?</h3>
+                <p style="color: #E5E7EB; line-height: 1.8;">
+                    We provide a standard warranty on all machines. The warranty period varies by machine type and is clearly
+                    specified in the quotation. Extended warranty and AMC options are also available.
+                </p>
+            </div>
+
+            <div style="background: #0F1117; padding: 2rem; border-radius: 8px; margin-bottom: 1.5rem; border-left: 4px solid #FBBF24;">
+                <h3 style="color: #FBBF24; font-size: 1.2rem; margin-bottom: 1rem;">What is the typical delivery time?</h3>
+                <p style="color: #E5E7EB; line-height: 1.8;">
+                    Delivery time depends on the machine type and customization level. Standard machines typically take 4-8 weeks,
+                    while custom-designed equipment may take 8-12 weeks. Exact timelines are confirmed during quotation.
+                </p>
+            </div>
+
+            <div style="background: #0F1117; padding: 2rem; border-radius: 8px; margin-bottom: 1.5rem; border-left: 4px solid #FBBF24;">
+                <h3 style="color: #FBBF24; font-size: 1.2rem; margin-bottom: 1rem;">Do you export machines internationally?</h3>
+                <p style="color: #E5E7EB; line-height: 1.8;">
+                    Yes, we export to multiple countries. Our machines meet international food processing standards and we can
+                    handle export documentation, packaging, and shipping logistics.
+                </p>
+            </div>
+
+            <div style="background: #0F1117; padding: 2rem; border-radius: 8px; margin-bottom: 1.5rem; border-left: 4px solid #FBBF24;">
+                <h3 style="color: #FBBF24; font-size: 1.2rem; margin-bottom: 1rem;">Do you offer Annual Maintenance Contracts (AMC)?</h3>
+                <p style="color: #E5E7EB; line-height: 1.8;">
+                    Yes, we offer comprehensive AMC plans that include scheduled preventive maintenance, priority support,
+                    discounted spare parts, and free inspections. AMC ensures your machine runs at peak performance year-round.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    </section>
+
+    <!-- ============================================
+         CONTACT SECTION
+         Edit: Contact details, address, phone, email
+         ============================================ -->
+    <section id="contact" class="section" style="background: #0F1117;">
+        <div class="section-header">
+            <h2 class="section-title">Get In Touch</h2>
+            <p class="section-subtitle">
+                Ready to improve your production? Let's discuss your requirements.
+            </p>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 3rem; max-width: 1200px; margin: 0 auto;">
+
+            <!-- Contact Form -->
+            <div style="background: #171A23; padding: 2.5rem; border-radius: 8px;">
+                <h3 style="color: #FBBF24; font-size: 1.5rem; margin-bottom: 1.5rem;">Quick Inquiry</h3>
+                <form style="display: flex; flex-direction: column; gap: 1.5rem;">
+                    <div>
+                        <label style="color: #9CA3AF; display: block; margin-bottom: 0.5rem;">Your Name</label>
+                        <input type="text" placeholder="Enter your name"
+                               style="width: 100%; padding: 0.75rem; background: #0F1117; border: 1px solid #1E222E; border-radius: 6px; color: #E5E7EB; font-size: 1rem;">
+                    </div>
+                    <div>
+                        <label style="color: #9CA3AF; display: block; margin-bottom: 0.5rem;">Phone Number</label>
+                        <input type="tel" placeholder="Enter your phone"
+                               style="width: 100%; padding: 0.75rem; background: #0F1117; border: 1px solid #1E222E; border-radius: 6px; color: #E5E7EB; font-size: 1rem;">
+                    </div>
+                    <div>
+                        <label style="color: #9CA3AF; display: block; margin-bottom: 0.5rem;">Email Address</label>
+                        <input type="email" placeholder="Enter your email"
+                               style="width: 100%; padding: 0.75rem; background: #0F1117; border: 1px solid #1E222E; border-radius: 6px; color: #E5E7EB; font-size: 1rem;">
+                    </div>
+                    <div>
+                        <label style="color: #9CA3AF; display: block; margin-bottom: 0.5rem;">Machine Type</label>
+                        <select style="width: 100%; padding: 0.75rem; background: #0F1117; border: 1px solid #1E222E; border-radius: 6px; color: #E5E7EB; font-size: 1rem;">
+                            <option>Select Machine Type</option>
+                            <option>Potato Chips Line</option>
+                            <option>Banana Chips Line</option>
+                            <option>Namkeen Line</option>
+                            <option>Automatic Fryer</option>
+                            <option>Custom Machine</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label style="color: #9CA3AF; display: block; margin-bottom: 0.5rem;">Your Requirements</label>
+                        <textarea placeholder="Tell us about your production needs..." rows="4"
+                                  style="width: 100%; padding: 0.75rem; background: #0F1117; border: 1px solid #1E222E; border-radius: 6px; color: #E5E7EB; font-size: 1rem; resize: vertical;"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Submit Inquiry</button>
+                </form>
+            </div>
+
+            <!-- Contact Information -->
+            <div>
+                <div style="background: #171A23; padding: 2.5rem; border-radius: 8px; margin-bottom: 2rem;">
+                    <h3 style="color: #FBBF24; font-size: 1.5rem; margin-bottom: 1.5rem;">Contact Information</h3>
+
+                    <div style="margin-bottom: 1.5rem;">
+                        <div style="color: #FBBF24; font-weight: 600; margin-bottom: 0.5rem;">📍 Factory Address</div>
+                        <p style="color: #E5E7EB; line-height: 1.8;">
+                            Your Factory Address Line 1<br>
+                            City, State - PIN Code<br>
+                            India
+                        </p>
+                    </div>
+
+                    <div style="margin-bottom: 1.5rem;">
+                        <div style="color: #FBBF24; font-weight: 600; margin-bottom: 0.5rem;">📞 Phone</div>
+                        <p style="color: #E5E7EB; line-height: 1.8;">
+                            +91 XXXXX XXXXX<br>
+                            +91 XXXXX XXXXX
+                        </p>
+                    </div>
+
+                    <div style="margin-bottom: 1.5rem;">
+                        <div style="color: #FBBF24; font-weight: 600; margin-bottom: 0.5rem;">💬 WhatsApp</div>
+                        <p style="color: #E5E7EB; line-height: 1.8;">
+                            +91 XXXXX XXXXX
+                        </p>
+                    </div>
+
+                    <div style="margin-bottom: 1.5rem;">
+                        <div style="color: #FBBF24; font-weight: 600; margin-bottom: 0.5rem;">📧 Email</div>
+                        <p style="color: #E5E7EB; line-height: 1.8;">
+                            info@yourcompany.com<br>
+                            sales@yourcompany.com
+                        </p>
+                    </div>
+
+                    <div>
+                        <div style="color: #FBBF24; font-weight: 600; margin-bottom: 0.5rem;">⏰ Working Hours</div>
+                        <p style="color: #E5E7EB; line-height: 1.8;">
+                            Monday - Saturday: 9:00 AM - 6:00 PM<br>
+                            Sunday: Closed<br>
+                            <span style="color: #FBBF24;">24/7 Emergency Support Available</span>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Map Placeholder -->
+                <div style="background: #171A23; padding: 1rem; border-radius: 8px; text-align: center;">
+                    <div style="background: #0F1117; padding: 3rem 2rem; border-radius: 6px; border: 2px dashed #1E222E;">
+                        <div style="color: #FBBF24; font-size: 2rem; margin-bottom: 1rem;">🗺️</div>
+                        <p style="color: #9CA3AF;">Google Maps Location</p>
+                        <p style="color: #6B7280; font-size: 0.9rem; margin-top: 0.5rem;">
+                            Replace this with your actual Google Maps embed code
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    </section>
+
+    <!-- ============================================
+         FOOTER
+         Edit: Footer links, copyright, social media
+         ============================================ -->
+    <footer style="background: #0A0C10; padding: 4rem 2rem 2rem; border-top: 1px solid #1E222E;">
+        <div style="max-width: 1400px; margin: 0 auto;">
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 3rem; margin-bottom: 3rem;">
+
+                <!-- Company Info -->
+                <div>
+                    <div style="color: #FBBF24; font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem;">Your Company Name</div>
+                    <p style="color: #9CA3AF; line-height: 1.8; margin-bottom: 1.5rem;">
+                        Leading manufacturer of industrial food processing machinery and custom equipment solutions.
+                        Engineering excellence since 1990.
+                    </p>
+                    <div style="display: flex; gap: 1rem;">
+                        <a href="#" style="color: #9CA3AF; font-size: 1.5rem; transition: color 0.3s;">📘</a>
+                        <a href="#" style="color: #9CA3AF; font-size: 1.5rem; transition: color 0.3s;">📷</a>
+                        <a href="#" style="color: #9CA3AF; font-size: 1.5rem; transition: color 0.3s;">🔗</a>
+                        <a href="#" style="color: #9CA3AF; font-size: 1.5rem; transition: color 0.3s;">📹</a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 style="color: #FBBF24; font-size: 1.2rem; margin-bottom: 1.5rem;">Products</h4>
+                    <ul style="list-style: none; line-height: 2.5;">
+                        <li><a href="#products" style="color: #9CA3AF; text-decoration: none; transition: color 0.3s;">Potato Chips Line</a></li>
+                        <li><a href="#products" style="color: #9CA3AF; text-decoration: none; transition: color 0.3s;">Banana Chips Line</a></li>
+                        <li><a href="#products" style="color: #9CA3AF; text-decoration: none; transition: color 0.3s;">Namkeen Line</a></li>
+                        <li><a href="#products" style="color: #9CA3AF; text-decoration: none; transition: color 0.3s;">Automatic Fryer</a></li>
+                        <li><a href="#products" style="color: #9CA3AF; text-decoration: none; transition: color 0.3s;">Custom Machinery</a></li>
+                    </ul>
+                </div>
+
+                <!-- Company -->
+                <div>
+                    <h4 style="color: #FBBF24; font-size: 1.2rem; margin-bottom: 1.5rem;">Company</h4>
+                    <ul style="list-style: none; line-height: 2.5;">
+                        <li><a href="#about" style="color: #9CA3AF; text-decoration: none; transition: color 0.3s;">About Us</a></li>
+                        <li><a href="#industries" style="color: #9CA3AF; text-decoration: none; transition: color 0.3s;">Industries</a></li>
+                        <li><a href="#support" style="color: #9CA3AF; text-decoration: none; transition: color 0.3s;">Support</a></li>
+                        <li><a href="#" style="color: #9CA3AF; text-decoration: none; transition: color 0.3s;">Careers</a></li>
+                        <li><a href="#contact" style="color: #9CA3AF; text-decoration: none; transition: color 0.3s;">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Support -->
+                <div>
+                    <h4 style="color: #FBBF24; font-size: 1.2rem; margin-bottom: 1.5rem;">Support</h4>
+                    <ul style="list-style: none; line-height: 2.5;">
+                        <li><a href="#" style="color: #9CA3AF; text-decoration: none; transition: color 0.3s;">Installation</a></li>
+                        <li><a href="#" style="color: #9CA3AF; text-decoration: none; transition: color 0.3s;">Training</a></li>
+                        <li><a href="#" style="color: #9CA3AF; text-decoration: none; transition: color 0.3s;">Spare Parts</a></li>
+                        <li><a href="#" style="color: #9CA3AF; text-decoration: none; transition: color 0.3s;">AMC</a></li>
+                        <li><a href="#" style="color: #9CA3AF; text-decoration: none; transition: color 0.3s;">FAQs</a></li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <!-- Bottom Bar -->
+            <div style="border-top: 1px solid #1E222E; padding-top: 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+                <p style="color: #6B7280;">
+                    © 2024 Your Company Name. All rights reserved.
+                </p>
+                <div style="display: flex; gap: 2rem;">
+                    <a href="#" style="color: #6B7280; text-decoration: none; transition: color 0.3s;">Privacy Policy</a>
+                    <a href="#" style="color: #6B7280; text-decoration: none; transition: color 0.3s;">Terms of Service</a>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+    <!-- Smooth Scroll Script -->
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add scroll effect to navigation
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('.nav');
+            if (window.scrollY > 50) {
+                nav.style.background = 'rgba(15, 17, 23, 0.98)';
+            } else {
+                nav.style.background = 'rgba(15, 17, 23, 0.95)';
+            }
+        });
+    </script>
+
+</body>
+</html>
