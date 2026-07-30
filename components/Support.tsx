@@ -14,7 +14,7 @@ const stages = [
     title: 'We Install It For You',
     tagline: 'Our engineers commission the machine on your floor',
     icon: '🔧',
-    color: '#3B82F6',
+    color: '#DC2626',
     items: [
       { icon: '🔧', label: 'Complete Commissioning' },
       { icon: '👨‍🏫', label: 'Operator Training' },
@@ -28,7 +28,7 @@ const stages = [
     title: 'We Are One Call Away',
     tagline: 'Four ways to reach a real technician, not a call centre',
     icon: '📞',
-    color: '#10B981',
+    color: '#16A34A',
     items: [
       { icon: '📞', label: 'Direct Phone Line' },
       { icon: '💬', label: 'WhatsApp Support' },
@@ -42,7 +42,7 @@ const stages = [
     title: 'We Prevent The Breakdown',
     tagline: 'Scheduled service so problems never reach your line',
     icon: '🔄',
-    color: '#F59E0B',
+    color: '#D97706',
     items: [
       { icon: '🔄', label: 'Preventive Maintenance' },
       { icon: '📅', label: 'AMC Plans' },
@@ -56,7 +56,7 @@ const stages = [
     title: 'We Show Up Fast',
     tagline: 'Line stopped? That becomes our emergency too',
     icon: '🚨',
-    color: '#EF4444',
+    color: '#B91C1C',
     items: [
       { icon: '🚨', label: 'Emergency Breakdown' },
       { icon: '⏱️', label: '24 Hour Response' },
@@ -68,16 +68,26 @@ const stages = [
 
 /* ---- Headline numbers ---- */
 const stats = [
-  { value: 24, suffix: 'h', label: 'Response Time', sub: 'Anywhere in India', color: '#EF4444' },
-  { value: 100, suffix: '%', label: 'Genuine Spares', sub: 'Direct from our plant', color: '#F59E0B' },
-  { value: 30, suffix: '+', label: 'Years Supporting', sub: 'Machines still running', color: '#10B981' },
-  { value: 500, suffix: '+', label: 'Plants Serviced', sub: 'Across 20+ states', color: '#3B82F6' },
+  { value: 24, suffix: 'h', label: 'Response Time', sub: 'Anywhere in India', color: '#DC2626' },
+  { value: 100, suffix: '%', label: 'Genuine Spares', sub: 'Direct from our plant', color: '#D97706' },
+  { value: 30, suffix: '+', label: 'Years Supporting', sub: 'Machines still running', color: '#16A34A' },
+  { value: 500, suffix: '+', label: 'Plants Serviced', sub: 'Across 20+ states', color: '#0F172A' },
+]
+
+/* ---- What happens after you report a problem ---- */
+const responseClock = [
+  { t: '0 min', title: 'You Reach Us', desc: 'Call or WhatsApp — a person picks up', icon: '📞' },
+  { t: '15 min', title: 'Engineer Assigned', desc: 'Your case gets a named technician', icon: '👨‍🔧' },
+  { t: '2 hrs', title: 'Remote Diagnosis', desc: 'Most issues solved over video', icon: '🖥️' },
+  { t: '24 hrs', title: 'On-Site If Needed', desc: 'Field engineer reaches your plant', icon: '🚚' },
 ]
 
 const STAGE_MS = 4200
+const CLOCK_MS = 1600
 
 export default function Support() {
   const [activeStage, setActiveStage] = useState(0)
+  const [clockStep, setClockStep] = useState(0)
   const [paused, setPaused] = useState(false)
   const [visible, setVisible] = useState(false)
   const sectionRef = useRef<HTMLElement | null>(null)
@@ -99,13 +109,13 @@ export default function Support() {
           observer.disconnect()
         }
       },
-      { threshold: 0.15 }
+      { threshold: 0.12 }
     )
     observer.observe(node)
     return () => observer.disconnect()
   }, [])
 
-  /* Auto-advance the journey */
+  /* Auto-advance the lifecycle journey */
   useEffect(() => {
     if (paused || !visible) return
     const timer = setTimeout(() => {
@@ -113,6 +123,16 @@ export default function Support() {
     }, STAGE_MS)
     return () => clearTimeout(timer)
   }, [activeStage, paused, visible])
+
+  /* Response clock ticks forward, then resets and replays */
+  useEffect(() => {
+    if (!visible) return
+    const timer = setTimeout(
+      () => setClockStep((s) => (s + 1) % (responseClock.length + 1)),
+      clockStep === responseClock.length ? CLOCK_MS * 1.5 : CLOCK_MS
+    )
+    return () => clearTimeout(timer)
+  }, [clockStep, visible])
 
   const active = stages[activeStage]
 
@@ -126,9 +146,9 @@ export default function Support() {
     >
       {/* Radar sweep backdrop — reads as "always monitoring" */}
       <div className="sp-backdrop" aria-hidden="true">
-        <div className="sp-radar" style={{ borderColor: `${active.color}22` }} />
-        <div className="sp-radar sp-radar-2" style={{ borderColor: `${active.color}18` }} />
-        <div className="sp-glow" style={{ background: `radial-gradient(circle, ${active.color}26 0%, transparent 62%)` }} />
+        <div className="sp-radar" style={{ borderColor: `${active.color}20` }} />
+        <div className="sp-radar sp-radar-2" style={{ borderColor: `${active.color}16` }} />
+        <div className="sp-glow" style={{ background: `radial-gradient(circle, ${active.color}14 0%, transparent 62%)` }} />
       </div>
 
       {/* Header */}
@@ -148,7 +168,7 @@ export default function Support() {
       {/* Headline numbers with count-up */}
       <div className="sp-stats">
         {stats.map((s, i) => (
-          <div className="sp-stat" key={s.label} style={{ transitionDelay: `${i * 110}ms`, borderColor: `${s.color}33` }}>
+          <div className="sp-stat" key={s.label} style={{ transitionDelay: `${i * 110}ms` }}>
             <div className="sp-stat-num" style={{ color: s.color }}>
               <CountUp to={s.value} start={visible} duration={1400 + i * 200} />
               <span className="sp-stat-suffix">{s.suffix}</span>
@@ -160,8 +180,67 @@ export default function Support() {
         ))}
       </div>
 
-      {/* ---------- Journey ---------- */}
+      {/* ---------- Response clock ---------- */}
+      <div className="sp-clock-block">
+        <div className="sp-block-head">
+          <span className="sp-block-tag">If Your Line Stops Today</span>
+          <h3 className="sp-block-title">This Is What Happens Next</h3>
+        </div>
+
+        <div className="sp-clock">
+          <div className="sp-clock-line">
+            <div
+              className="sp-clock-fill"
+              style={
+                {
+                  ['--fill' as string]: `${(Math.min(clockStep, responseClock.length) / responseClock.length) * 100}%`,
+                } as React.CSSProperties
+              }
+            />
+          </div>
+
+          {responseClock.map((c, i) => {
+            const reached = clockStep > i
+            return (
+              <div className={`sp-tick ${reached ? 'is-reached' : ''}`} key={c.t}>
+                <span className="sp-tick-dot">
+                  <span className="sp-tick-icon">{c.icon}</span>
+                  {reached && <span className="sp-tick-ring" />}
+                </span>
+                <span className="sp-tick-time">{c.t}</span>
+                <span className="sp-tick-title">{c.title}</span>
+                <span className="sp-tick-desc">{c.desc}</span>
+              </div>
+            )
+          })}
+        </div>
+      </div>
+
+      {/* ---------- Downtime comparison ---------- */}
+      <div className="sp-compare">
+        <div className="sp-compare-row">
+          <span className="sp-compare-label">Typical supplier</span>
+          <div className="sp-compare-track">
+            <span className="sp-compare-bar sp-bad" />
+          </div>
+          <span className="sp-compare-value sp-bad-text">3–5 days lost</span>
+        </div>
+        <div className="sp-compare-row">
+          <span className="sp-compare-label">With our service team</span>
+          <div className="sp-compare-track">
+            <span className="sp-compare-bar sp-good" />
+          </div>
+          <span className="sp-compare-value sp-good-text">Same day, mostly</span>
+        </div>
+      </div>
+
+      {/* ---------- Lifecycle journey ---------- */}
       <div className="sp-journey">
+        <div className="sp-block-head">
+          <span className="sp-block-tag">Full Machine Lifecycle</span>
+          <h3 className="sp-block-title">We Stay With You Throughout</h3>
+        </div>
+
         {/* Stage rail */}
         <div className="sp-rail">
           <div className="sp-rail-line">
@@ -169,7 +248,7 @@ export default function Support() {
               className="sp-rail-fill"
               style={{
                 width: `${((activeStage + 1) / stages.length) * 100}%`,
-                background: `linear-gradient(90deg, #3B82F6, ${active.color})`,
+                background: `linear-gradient(90deg, #DC2626, ${active.color})`,
               }}
             />
           </div>
@@ -187,9 +266,9 @@ export default function Support() {
                 <span
                   className="sp-node-dot"
                   style={{
-                    borderColor: isActive || isDone ? st.color : 'rgba(255,255,255,0.2)',
-                    background: isActive ? `${st.color}22` : isDone ? st.color : 'rgba(255,255,255,0.04)',
-                    boxShadow: isActive ? `0 0 0 6px ${st.color}1F, 0 0 24px ${st.color}66` : 'none',
+                    borderColor: isActive || isDone ? st.color : 'var(--border)',
+                    background: isActive ? `${st.color}12` : isDone ? st.color : '#FFFFFF',
+                    boxShadow: isActive ? `0 0 0 6px ${st.color}14, 0 8px 22px ${st.color}33` : '0 2px 8px rgba(15,23,42,0.05)',
                   }}
                 >
                   <span className="sp-node-icon">{isDone ? '✓' : st.icon}</span>
@@ -206,12 +285,15 @@ export default function Support() {
         <div
           className="sp-panel"
           key={active.key}
-          style={{ borderColor: `${active.color}44`, boxShadow: `0 24px 70px rgba(0,0,0,0.35), inset 0 0 60px ${active.color}0D` }}
+          style={{
+            borderColor: `${active.color}33`,
+            boxShadow: `0 24px 70px rgba(15, 23, 42, 0.07), inset 0 0 60px ${active.color}06`,
+          }}
         >
           <div className="sp-panel-head">
             <span
               className="sp-panel-icon"
-              style={{ background: `${active.color}1A`, borderColor: active.color, boxShadow: `0 0 30px ${active.color}44` }}
+              style={{ background: `${active.color}12`, borderColor: active.color, boxShadow: `0 8px 26px ${active.color}2E` }}
             >
               {active.icon}
             </span>
@@ -231,11 +313,11 @@ export default function Support() {
                 key={it.label}
                 style={{
                   animationDelay: `${0.12 + i * 0.09}s`,
-                  borderColor: `${active.color}2E`,
-                  background: `${active.color}0A`,
+                  borderColor: `${active.color}26`,
+                  background: `${active.color}08`,
                 }}
               >
-                <span className="sp-item-icon" style={{ background: `${active.color}1F` }}>
+                <span className="sp-item-icon" style={{ background: `${active.color}18` }}>
                   {it.icon}
                 </span>
                 <span className="sp-item-label">{it.label}</span>
@@ -283,8 +365,8 @@ export default function Support() {
           overflow: hidden;
           padding: 3.5rem 1rem 3rem;
           background:
-            radial-gradient(ellipse at 20% 0%, rgba(59,130,246,0.10) 0%, transparent 55%),
-            linear-gradient(180deg, #0B132B 0%, #0F1B38 50%, #0B132B 100%);
+            radial-gradient(ellipse at 20% 0%, rgba(220,38,38,0.05) 0%, transparent 55%),
+            radial-gradient(circle at center, #F8FAFC 0%, #E2E8F0 100%);
         }
 
         /* ---------- Backdrop ---------- */
@@ -323,10 +405,10 @@ export default function Support() {
           align-items: center;
           gap: 0.5rem;
           padding: 0.35rem 0.9rem;
-          border: 1px solid rgba(16,185,129,0.35);
+          border: 1px solid rgba(22,163,74,0.22);
           border-radius: 50px;
-          background: rgba(16,185,129,0.10);
-          color: #34D399;
+          background: rgba(22,163,74,0.08);
+          color: #16A34A;
           font-size: 0.7rem;
           font-weight: 700;
           letter-spacing: 1.4px;
@@ -336,25 +418,44 @@ export default function Support() {
         .sp-live-dot {
           width: 7px; height: 7px;
           border-radius: 50%;
-          background: #10B981;
-          box-shadow: 0 0 0 0 rgba(16,185,129,0.7);
+          background: #16A34A;
+          box-shadow: 0 0 0 0 rgba(22,163,74,0.7);
           animation: spPing 1.8s ease-out infinite;
         }
         @keyframes spPing {
-          0%   { box-shadow: 0 0 0 0 rgba(16,185,129,0.65); }
-          70%  { box-shadow: 0 0 0 9px rgba(16,185,129,0); }
-          100% { box-shadow: 0 0 0 0 rgba(16,185,129,0); }
+          0%   { box-shadow: 0 0 0 0 rgba(22,163,74,0.65); }
+          70%  { box-shadow: 0 0 0 9px rgba(22,163,74,0); }
+          100% { box-shadow: 0 0 0 0 rgba(22,163,74,0); }
         }
 
         .sp-title {
           font-size: 1.85rem;
           font-weight: 800;
           line-height: 1.22;
-          color: #fff;
+          color: var(--text-primary);
           margin: 0 0 0.6rem;
         }
 
-        .sp-subtitle { color: #94A3B8; font-size: 0.98rem; margin: 0; }
+        .sp-subtitle { color: var(--text-secondary); font-size: 0.98rem; margin: 0; }
+
+        /* ---------- Shared block heading ---------- */
+        .sp-block-head { text-align: center; margin-bottom: 1.75rem; }
+        .sp-block-tag {
+          display: inline-block;
+          font-size: 0.66rem;
+          font-weight: 800;
+          letter-spacing: 1.6px;
+          text-transform: uppercase;
+          color: var(--accent);
+          margin-bottom: 0.4rem;
+        }
+        .sp-block-title {
+          font-size: 1.3rem;
+          font-weight: 800;
+          color: var(--text-primary);
+          margin: 0;
+          line-height: 1.3;
+        }
 
         /* ---------- Stats ---------- */
         .sp-stats {
@@ -364,17 +465,17 @@ export default function Support() {
           grid-template-columns: repeat(2, 1fr);
           gap: 0.75rem;
           max-width: 1080px;
-          margin: 0 auto 3rem;
+          margin: 0 auto 3.5rem;
         }
 
         .sp-stat {
           position: relative;
           overflow: hidden;
           padding: 1.1rem 0.9rem 1.2rem;
-          border: 1px solid;
+          border: 1px solid var(--border);
           border-radius: 18px;
-          background: rgba(255,255,255,0.035);
-          backdrop-filter: blur(10px);
+          background: #FFFFFF;
+          box-shadow: 0 6px 22px rgba(15,23,42,0.04);
           opacity: 0;
           transform: translateY(22px);
           transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.22,1,0.36,1);
@@ -396,9 +497,9 @@ export default function Support() {
           margin-top: 0.4rem;
           font-size: 0.82rem;
           font-weight: 700;
-          color: #E2E8F0;
+          color: var(--text-primary);
         }
-        .sp-stat-sub { font-size: 0.7rem; color: #64748B; margin-top: 0.1rem; }
+        .sp-stat-sub { font-size: 0.7rem; color: var(--text-secondary); margin-top: 0.1rem; }
 
         .sp-stat-bar {
           position: absolute;
@@ -407,6 +508,161 @@ export default function Support() {
           transition: width 1.2s ease 0.4s;
         }
         .sp-section.is-visible .sp-stat-bar { width: 100%; }
+
+        /* ---------- Response clock ---------- */
+        .sp-clock-block {
+          position: relative;
+          z-index: 2;
+          max-width: 1080px;
+          margin: 0 auto 2.5rem;
+        }
+
+        .sp-clock {
+          position: relative;
+          display: grid;
+          grid-template-columns: 1fr;
+          gap: 0.75rem;
+        }
+
+        /* Mobile: vertical spine */
+        .sp-clock-line {
+          position: absolute;
+          left: 23px;
+          top: 12px;
+          bottom: 12px;
+          width: 2px;
+          background: var(--border);
+          border-radius: 2px;
+          overflow: hidden;
+        }
+        .sp-clock-fill {
+          position: absolute;
+          left: 0; top: 0;
+          width: 100%;
+          height: var(--fill, 0%);
+          background: linear-gradient(180deg, #DC2626, #16A34A);
+          transition: height 0.7s cubic-bezier(0.22,1,0.36,1);
+        }
+
+        .sp-tick {
+          position: relative;
+          display: grid;
+          grid-template-columns: 48px 1fr;
+          grid-template-areas:
+            "dot time"
+            "dot title"
+            "dot desc";
+          align-items: center;
+          column-gap: 0.85rem;
+          padding: 0.5rem 0;
+          opacity: 0.45;
+          transition: opacity 0.5s ease;
+        }
+        .sp-tick.is-reached { opacity: 1; }
+
+        .sp-tick-dot {
+          grid-area: dot;
+          position: relative;
+          width: 48px; height: 48px;
+          border-radius: 50%;
+          border: 2px solid var(--border);
+          background: #FFFFFF;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transition: all 0.5s cubic-bezier(0.175,0.885,0.32,1.27);
+        }
+        .sp-tick.is-reached .sp-tick-dot {
+          border-color: var(--accent);
+          background: rgba(220,38,38,0.07);
+          transform: scale(1.08);
+        }
+        .sp-tick-icon { font-size: 1.15rem; line-height: 1; }
+
+        .sp-tick-ring {
+          position: absolute;
+          inset: -4px;
+          border-radius: 50%;
+          border: 2px solid var(--accent);
+          animation: spTickRing 1.4s ease-out infinite;
+        }
+        @keyframes spTickRing {
+          0%   { transform: scale(0.85); opacity: 0.7; }
+          100% { transform: scale(1.35); opacity: 0; }
+        }
+
+        .sp-tick-time {
+          grid-area: time;
+          font-size: 0.68rem;
+          font-weight: 800;
+          letter-spacing: 1.2px;
+          text-transform: uppercase;
+          color: var(--accent);
+        }
+        .sp-tick-title {
+          grid-area: title;
+          font-size: 0.95rem;
+          font-weight: 700;
+          color: var(--text-primary);
+        }
+        .sp-tick-desc {
+          grid-area: desc;
+          font-size: 0.8rem;
+          color: var(--text-secondary);
+          line-height: 1.4;
+        }
+
+        /* ---------- Downtime comparison ---------- */
+        .sp-compare {
+          position: relative;
+          z-index: 2;
+          max-width: 1080px;
+          margin: 0 auto 3.5rem;
+          padding: 1.25rem 1.1rem;
+          border: 1px solid var(--border);
+          border-radius: 20px;
+          background: #FFFFFF;
+          box-shadow: 0 6px 22px rgba(15,23,42,0.04);
+          display: grid;
+          gap: 0.9rem;
+        }
+
+        .sp-compare-row {
+          display: grid;
+          grid-template-columns: 1fr;
+          gap: 0.35rem;
+          align-items: center;
+        }
+
+        .sp-compare-label {
+          font-size: 0.8rem;
+          font-weight: 700;
+          color: var(--text-secondary);
+        }
+
+        .sp-compare-track {
+          height: 12px;
+          border-radius: 12px;
+          background: rgba(15,23,42,0.05);
+          overflow: hidden;
+        }
+
+        .sp-compare-bar {
+          display: block;
+          height: 100%;
+          width: 0;
+          border-radius: 12px;
+          transition: width 1.4s cubic-bezier(0.22,1,0.36,1) 0.3s;
+        }
+        .sp-bad  { background: linear-gradient(90deg, #F87171, #B91C1C); }
+        .sp-good { background: linear-gradient(90deg, #4ADE80, #16A34A); }
+
+        .sp-section.is-visible .sp-bad  { width: 92%; }
+        .sp-section.is-visible .sp-good { width: 22%; }
+
+        .sp-compare-value { font-size: 0.85rem; font-weight: 800; }
+        .sp-bad-text  { color: #B91C1C; }
+        .sp-good-text { color: #16A34A; }
 
         /* ---------- Journey ---------- */
         .sp-journey {
@@ -431,7 +687,7 @@ export default function Support() {
           left: 12%;
           right: 12%;
           height: 2px;
-          background: rgba(255,255,255,0.10);
+          background: var(--border);
           border-radius: 2px;
           overflow: hidden;
         }
@@ -461,21 +717,20 @@ export default function Support() {
           display: flex;
           align-items: center;
           justify-content: center;
-          backdrop-filter: blur(8px);
           transition: all 0.5s cubic-bezier(0.175,0.885,0.32,1.27);
         }
         .sp-node.is-active .sp-node-dot { transform: scale(1.14); }
         .sp-node:hover .sp-node-dot { transform: scale(1.08); }
 
         .sp-node-icon { font-size: 1.15rem; line-height: 1; }
-        .sp-node.is-done .sp-node-icon { color: #0B132B; font-weight: 900; }
+        .sp-node.is-done .sp-node-icon { color: #fff; font-weight: 900; }
 
         .sp-node-step {
           font-size: 0.64rem;
           font-weight: 700;
           letter-spacing: 0.8px;
           text-transform: uppercase;
-          color: #64748B;
+          color: var(--text-secondary);
           transition: color 0.4s ease;
           text-align: center;
         }
@@ -483,11 +738,10 @@ export default function Support() {
         /* Active panel */
         .sp-panel {
           position: relative;
-          border: 1px solid;
+          border: 1px solid var(--border);
           border-radius: 24px;
           padding: 1.5rem 1.25rem 1.75rem;
-          background: linear-gradient(160deg, rgba(255,255,255,0.055) 0%, rgba(255,255,255,0.02) 100%);
-          backdrop-filter: blur(14px);
+          background: #FFFFFF;
           animation: spPanelIn 0.6s cubic-bezier(0.22,1,0.36,1) both;
         }
 
@@ -524,11 +778,11 @@ export default function Support() {
         .sp-panel-title {
           font-size: 1.35rem;
           font-weight: 800;
-          color: #fff;
+          color: var(--text-primary);
           margin: 0 0 0.3rem;
           line-height: 1.25;
         }
-        .sp-panel-tag { font-size: 0.88rem; color: #94A3B8; margin: 0; line-height: 1.5; }
+        .sp-panel-tag { font-size: 0.88rem; color: var(--text-secondary); margin: 0; line-height: 1.5; }
 
         .sp-items {
           display: grid;
@@ -559,12 +813,12 @@ export default function Support() {
           justify-content: center;
           font-size: 1.05rem;
         }
-        .sp-item-label { font-size: 0.86rem; font-weight: 600; color: #E2E8F0; }
+        .sp-item-label { font-size: 0.86rem; font-weight: 600; color: var(--text-primary); }
 
         .sp-progress {
           margin-top: 1.35rem;
           height: 3px;
-          background: rgba(255,255,255,0.08);
+          background: var(--border);
           border-radius: 3px;
           overflow: hidden;
         }
@@ -591,8 +845,8 @@ export default function Support() {
         }
         .sp-promise-text {
           font-size: 1.05rem;
-          font-weight: 600;
-          color: #E2E8F0;
+          font-weight: 700;
+          color: var(--text-primary);
           margin: 0 0 1.25rem;
           line-height: 1.5;
         }
@@ -612,22 +866,29 @@ export default function Support() {
         .sp-btn-primary {
           background: linear-gradient(135deg, #DC2626, #EF4444);
           color: #fff;
-          box-shadow: 0 10px 28px rgba(220,38,38,0.35);
+          box-shadow: 0 10px 28px rgba(220,38,38,0.28);
         }
-        .sp-btn-primary:hover { transform: translateY(-3px); box-shadow: 0 16px 36px rgba(220,38,38,0.45); }
+        .sp-btn-primary:hover { transform: translateY(-3px); box-shadow: 0 16px 36px rgba(220,38,38,0.38); }
 
         .sp-btn-ghost {
-          background: rgba(255,255,255,0.06);
-          color: #E2E8F0;
-          border: 1px solid rgba(255,255,255,0.18);
+          background: #FFFFFF;
+          color: var(--text-primary);
+          border: 1px solid var(--border);
+          box-shadow: 0 4px 16px rgba(15,23,42,0.05);
         }
-        .sp-btn-ghost:hover { background: rgba(255,255,255,0.12); transform: translateY(-3px); }
+        .sp-btn-ghost:hover { transform: translateY(-3px); box-shadow: 0 10px 26px rgba(15,23,42,0.09); }
 
         /* ============================================
            TABLET (>= 640px)
            ============================================ */
         @media (min-width: 640px) {
           .sp-items { grid-template-columns: 1fr 1fr; }
+
+          .sp-compare-row {
+            grid-template-columns: 190px 1fr 130px;
+            gap: 1rem;
+          }
+          .sp-compare-value { text-align: right; }
         }
 
         /* ============================================
@@ -637,9 +898,35 @@ export default function Support() {
           .sp-section { padding: 5rem 2rem 4rem; }
           .sp-title { font-size: 2.6rem; }
           .sp-subtitle { font-size: 1.1rem; }
+          .sp-block-title { font-size: 1.7rem; }
           .sp-stats { grid-template-columns: repeat(4, 1fr); gap: 1rem; }
           .sp-stat { padding: 1.4rem 1.2rem 1.5rem; }
           .sp-stat-num { font-size: 2.4rem; }
+
+          /* Clock becomes a horizontal timeline */
+          .sp-clock { grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+          .sp-clock-line {
+            left: 12%; right: 12%;
+            top: 24px; bottom: auto;
+            width: auto; height: 2px;
+          }
+          .sp-clock-fill {
+            width: var(--fill, 0%);
+            height: 100%;
+            background: linear-gradient(90deg, #DC2626, #16A34A);
+            transition: width 0.7s cubic-bezier(0.22,1,0.36,1);
+          }
+          .sp-tick {
+            grid-template-columns: 1fr;
+            grid-template-areas: "dot" "time" "title" "desc";
+            justify-items: center;
+            text-align: center;
+            row-gap: 0.3rem;
+            padding: 0;
+          }
+
+          .sp-compare { padding: 1.75rem 1.75rem; }
+
           .sp-node-dot { width: 58px; height: 58px; }
           .sp-node-icon { font-size: 1.4rem; }
           .sp-node-step { font-size: 0.7rem; }
@@ -671,9 +958,10 @@ export default function Support() {
            REDUCED MOTION
            ============================================ */
         @media (prefers-reduced-motion: reduce) {
-          .sp-radar, .sp-live-dot, .sp-panel-icon { animation: none !important; }
+          .sp-radar, .sp-live-dot, .sp-panel-icon, .sp-tick-ring { animation: none !important; }
           .sp-panel, .sp-item, .sp-progress-fill { animation: none !important; }
           .sp-stat { opacity: 1 !important; transform: none !important; }
+          .sp-tick { opacity: 1 !important; }
         }
       `}} />
     </section>
