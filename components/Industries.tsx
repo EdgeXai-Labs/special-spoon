@@ -92,18 +92,18 @@ export default function Industries() {
       className="section bg-card"
       style={{
         padding: '3rem 1rem',
-        background: 'radial-gradient(circle at center, #111827 0%, #030712 100%)',
-        color: '#ffffff',
+        background: 'radial-gradient(circle at center, #F8FAFC 0%, #E2E8F0 100%)',
+        color: 'var(--text-primary)',
         overflow: 'hidden',
         position: 'relative',
       }}
     >
       {/* Header */}
       <div style={{ textAlign: 'center', marginBottom: '3rem', position: 'relative', zIndex: 10 }}>
-        <h2 className="section-title" style={{ fontSize: '2.5rem', fontWeight: '800', color: '#fff' }}>
+        <h2 className="section-title" style={{ fontSize: '2.5rem', fontWeight: '800', color: 'var(--text-primary)' }}>
           Industries We Serve
         </h2>
-        <p className="section-subtitle" style={{ color: '#94a3b8', fontSize: '1.1rem', marginTop: '0.5rem' }}>
+        <p className="section-subtitle" style={{ color: 'var(--text-secondary)', fontSize: '1.1rem', marginTop: '0.5rem' }}>
           Delivering specialized machinery solutions across diverse food manufacturing sectors
         </p>
       </div>
@@ -137,21 +137,21 @@ export default function Industries() {
             style={{
               position: 'absolute',
               background: idx === activeIdx
-                ? `linear-gradient(135deg, ${ind.color}22, rgba(10, 15, 30, 0.95))`
-                : 'rgba(15, 23, 42, 0.8)',
-              border: `2px solid ${idx === activeIdx ? ind.color : 'rgba(51, 65, 85, 0.6)'}`,
+                ? `linear-gradient(135deg, ${ind.color}15, rgba(255, 255, 255, 0.95))`
+                : 'rgba(255, 255, 255, 0.8)',
+              border: `2px solid ${idx === activeIdx ? ind.color : 'rgba(15, 23, 42, 0.15)'}`,
               borderRadius: '60px',
               padding: '0.75rem 1.5rem',
               display: 'flex',
               flexDirection: 'column',
               alignItems: 'center',
               gap: '0.3rem',
-              color: '#fff',
+              color: idx === activeIdx ? ind.color : 'var(--text-secondary)',
               cursor: 'pointer',
               transition: 'all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.27)',
               boxShadow: idx === activeIdx
-                ? `0 0 28px ${ind.color}88, 0 6px 24px rgba(0,0,0,0.5)`
-                : '0 2px 12px rgba(0,0,0,0.4)',
+                ? `0 0 28px ${ind.color}33, 0 6px 24px rgba(0,0,0,0.06)`
+                : '0 2px 12px rgba(0,0,0,0.04)',
               backdropFilter: 'blur(10px)',
               minWidth: '120px',
               textAlign: 'center',
@@ -162,7 +162,7 @@ export default function Industries() {
             <span style={{
               fontSize: '0.78rem',
               fontWeight: '700',
-              color: idx === activeIdx ? '#ffffff' : '#94a3b8',
+              color: idx === activeIdx ? ind.color : 'var(--text-secondary)',
               letterSpacing: '0.3px',
               whiteSpace: 'nowrap',
             }}>
@@ -179,11 +179,11 @@ export default function Industries() {
             position: 'absolute',
             width: '360px',
             padding: '2.5rem 2rem',
-            background: 'linear-gradient(135deg, rgba(30, 41, 59, 0.9) 0%, rgba(10, 15, 30, 0.97) 100%)',
+            background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 250, 252, 0.98) 100%)',
             backdropFilter: 'blur(20px)',
             borderRadius: '28px',
             border: `2px solid ${active.color}`,
-            boxShadow: `0 0 60px ${active.color}44, inset 0 0 25px ${active.color}18`,
+            boxShadow: `0 10px 40px rgba(0, 0, 0, 0.05), inset 0 0 25px ${active.color}05`,
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
@@ -196,7 +196,7 @@ export default function Industries() {
             position: 'absolute',
             inset: '-6px',
             borderRadius: '34px',
-            background: `radial-gradient(circle, ${active.color}2a 0%, transparent 70%)`,
+            background: `radial-gradient(circle, ${active.color}15 0%, transparent 70%)`,
             zIndex: -1,
             animation: 'indCorePulse 2s infinite ease-in-out',
           }} />
@@ -206,14 +206,14 @@ export default function Industries() {
             width: '86px',
             height: '86px',
             borderRadius: '50%',
-            background: 'rgba(10, 15, 30, 0.85)',
+            background: 'rgba(255, 255, 255, 0.9)',
             border: `3px solid ${active.color}`,
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
             fontSize: '2.8rem',
             marginBottom: '1rem',
-            boxShadow: `0 0 28px ${active.color}80`,
+            boxShadow: `0 8px 20px ${active.color}33`,
           }}>
             <span className="ind-float-icon">{active.icon}</span>
           </div>
@@ -231,7 +231,7 @@ export default function Industries() {
           </span>
 
           {/* Industry Title */}
-          <h3 style={{ fontSize: '1.7rem', fontWeight: '800', color: '#ffffff', marginBottom: '1rem' }}>
+          <h3 style={{ fontSize: '1.7rem', fontWeight: '800', color: 'var(--text-primary)', marginBottom: '1rem' }}>
             {active.title}
           </h3>
 
@@ -245,9 +245,9 @@ export default function Industries() {
                   alignItems: 'center',
                   gap: '0.6rem',
                   padding: '0.4rem 0',
-                  color: '#cbd5e1',
+                  color: 'var(--text-secondary)',
                   fontSize: '0.9rem',
-                  borderBottom: i < active.services.length - 1 ? '1px solid rgba(255,255,255,0.06)' : 'none',
+                  borderBottom: i < active.services.length - 1 ? '1px solid rgba(0,0,0,0.06)' : 'none',
                   animation: `indItemFadeIn 0.4s ease ${i * 0.08}s both`,
                 }}
               >
@@ -284,7 +284,7 @@ export default function Industries() {
               width: '12px',
               height: '12px',
               borderRadius: '50%',
-              background: idx === activeIdx ? active.color : '#1e293b',
+              background: idx === activeIdx ? active.color : '#cbd5e1',
               border: 'none',
               cursor: 'pointer',
               transition: 'all 0.3s ease',
@@ -295,7 +295,7 @@ export default function Industries() {
         ))}
       </div>
 
-      <style>{`
+      <style dangerouslySetInnerHTML={{ __html: `
         /* Industries Orbital Stage — Responsive */
         .ind-orbit-stage {
           height: 560px;
@@ -399,7 +399,7 @@ export default function Industries() {
             height: 480px;
           }
         }
-      `}</style>
+      `}} />
     </section>
   )
 }

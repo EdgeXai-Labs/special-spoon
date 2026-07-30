@@ -77,18 +77,18 @@ export default function Benefits() {
       className="section bg-dark benefits-section"
       style={{
         padding: '3rem 1rem',
-        background: 'radial-gradient(circle at center, #0f172a 0%, #020617 100%)',
-        color: '#ffffff',
+        background: 'radial-gradient(circle at center, #F8FAFC 0%, #E2E8F0 100%)',
+        color: 'var(--text-primary)',
         overflow: 'hidden',
         position: 'relative'
       }}
     >
       {/* Header */}
       <div className="section-header" style={{ textAlign: 'center', marginBottom: '3rem', position: 'relative', zIndex: 10 }}>
-        <h2 className="section-title" style={{ fontSize: '2.5rem', fontWeight: '800', color: '#fff' }}>
+        <h2 className="section-title" style={{ fontSize: '2.5rem', fontWeight: '800', color: 'var(--text-primary)' }}>
           Why Choose Our Machines
         </h2>
-        <p className="section-subtitle" style={{ color: '#94a3b8', fontSize: '1.1rem', marginTop: '0.5rem' }}>
+        <p className="section-subtitle" style={{ color: 'var(--text-secondary)', fontSize: '1.1rem', marginTop: '0.5rem' }}>
           Measurable improvements in productivity, cost, and quality
         </p>
       </div>
@@ -129,20 +129,20 @@ export default function Benefits() {
             style={{
               position: 'absolute',
               background: idx === activeIdx
-                ? `linear-gradient(135deg, ${b.color}22, rgba(15, 23, 42, 0.95))`
-                : 'rgba(15, 23, 42, 0.75)',
-              border: `2px solid ${idx === activeIdx ? b.color : 'rgba(51, 65, 85, 0.6)'}`,
+                ? `linear-gradient(135deg, ${b.color}15, rgba(255, 255, 255, 0.95))`
+                : 'rgba(255, 255, 255, 0.8)',
+              border: `2px solid ${idx === activeIdx ? b.color : 'rgba(15, 23, 42, 0.15)'}`,
               borderRadius: '50px',
               padding: '0.5rem 1.1rem',
               display: 'flex',
               alignItems: 'center',
               gap: '0.5rem',
-              color: '#fff',
+              color: idx === activeIdx ? b.color : 'var(--text-secondary)',
               cursor: 'pointer',
               transition: 'all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.27)',
               boxShadow: idx === activeIdx
-                ? `0 0 22px ${b.color}99, 0 4px 20px rgba(0,0,0,0.5)`
-                : '0 2px 12px rgba(0,0,0,0.4)',
+                ? `0 0 22px ${b.color}33, 0 4px 20px rgba(0,0,0,0.06)`
+                : '0 2px 12px rgba(0,0,0,0.04)',
               backdropFilter: 'blur(8px)',
               whiteSpace: 'nowrap',
               ...getSatelliteStyle(idx)
@@ -152,7 +152,7 @@ export default function Benefits() {
             <span style={{
               fontSize: '0.78rem',
               fontWeight: '700',
-              color: idx === activeIdx ? '#ffffff' : '#94a3b8',
+              color: idx === activeIdx ? b.color : 'var(--text-secondary)',
               letterSpacing: '0.3px'
             }}>
               {b.title}
@@ -168,11 +168,11 @@ export default function Benefits() {
             position: 'absolute',
             width: '380px',
             padding: '2.5rem 2rem',
-            background: 'linear-gradient(135deg, rgba(30, 41, 59, 0.85) 0%, rgba(15, 23, 42, 0.95) 100%)',
+            background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 250, 252, 0.98) 100%)',
             backdropFilter: 'blur(16px)',
             borderRadius: '28px',
             border: `2px solid ${active.color}`,
-            boxShadow: `0 0 50px ${active.color}40, inset 0 0 20px ${active.color}20`,
+            boxShadow: `0 10px 40px rgba(0, 0, 0, 0.05), inset 0 0 20px ${active.color}05`,
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
@@ -186,7 +186,7 @@ export default function Benefits() {
               position: 'absolute',
               inset: '-4px',
               borderRadius: '32px',
-              background: `radial-gradient(circle, ${active.color}33 0%, transparent 70%)`,
+              background: `radial-gradient(circle, ${active.color}15 0%, transparent 70%)`,
               zIndex: -1,
               animation: 'corePulse 2s infinite ease-in-out'
             }} 
@@ -197,14 +197,14 @@ export default function Benefits() {
             width: '90px',
             height: '90px',
             borderRadius: '50%',
-            background: `rgba(15, 23, 42, 0.8)`,
+            background: `rgba(255, 255, 255, 0.9)`,
             border: `3px solid ${active.color}`,
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
             fontSize: '3rem',
             marginBottom: '1rem',
-            boxShadow: `0 0 25px ${active.color}80`
+            boxShadow: `0 8px 20px ${active.color}33`
           }}>
             <span className="floating-icon">{active.icon}</span>
           </div>
@@ -222,12 +222,12 @@ export default function Benefits() {
           </span>
 
           {/* Title */}
-          <h3 style={{ fontSize: '1.8rem', fontWeight: '800', color: '#ffffff', marginBottom: '0.5rem' }}>
+          <h3 style={{ fontSize: '1.8rem', fontWeight: '800', color: 'var(--text-primary)', marginBottom: '0.5rem' }}>
             {active.title}
           </h3>
 
           {/* Description */}
-          <p style={{ color: '#94a3b8', fontSize: '1.05rem', lineHeight: '1.5', margin: 0 }}>
+          <p style={{ color: 'var(--text-secondary)', fontSize: '1.05rem', lineHeight: '1.5', margin: 0 }}>
             {active.desc}
           </p>
         </div>
@@ -259,7 +259,7 @@ export default function Benefits() {
               width: '12px',
               height: '12px',
               borderRadius: '50%',
-              background: idx === activeIdx ? active.color : '#1e293b',
+              background: idx === activeIdx ? active.color : '#cbd5e1',
               border: 'none',
               cursor: 'pointer',
               transition: 'all 0.3s ease',
@@ -272,7 +272,7 @@ export default function Benefits() {
       </div>
 
       {/* Embedded Dynamic CSS for Orbit Physics & Converging Animations */}
-      <style>{`
+      <style dangerouslySetInnerHTML={{ __html: `
         /* ======================================
            BENEFITS ORBITAL SECTION – RESPONSIVE
            ====================================== */
@@ -404,7 +404,7 @@ export default function Benefits() {
             height: 500px;
           }
         }
-      `}</style>
+      `}} />
     </section>
   )
 }

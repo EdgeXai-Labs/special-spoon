@@ -6,10 +6,11 @@ import About from '@/components/About'
 import Products from '@/components/Products'
 import Solutions from '@/components/Solutions'
 import Benefits from '@/components/Benefits'
-import ManufacturingProcess from '@/components/ManufacturingProcess'
+// import ManufacturingProcess from '@/components/ManufacturingProcess'
 import Comparison from '@/components/Comparison'
 import Support from '@/components/Support'
 import CustomMachine from '@/components/CustomMachine'
+import TestimonialSlider from '@/components/TestimonialSlider'
 import Testimonials from '@/components/Testimonials'
 import FAQ from '@/components/FAQ'
 import Contact from '@/components/Contact'
@@ -27,10 +28,11 @@ export default function Home() {
         <Products />
         <Solutions />
         <Benefits />
-        <ManufacturingProcess />
+        {/* <ManufacturingProcess /> */}
         <Comparison />
         <Support />
         <CustomMachine />
+        <TestimonialSlider />
         <Testimonials />
         <FAQ />
         <Contact />

@@ -1,77 +1,718 @@
+'use client'
+
+import React, { useEffect, useRef, useState } from 'react'
+
+/* ============================================================
+   SUPPORT STAGES — EDIT HERE
+   The 15 support services grouped into 4 lifecycle stages so a
+   visitor can scan the whole promise in a few seconds.
+   ============================================================ */
+const stages = [
+  {
+    key: 'install',
+    step: 'Day 1',
+    title: 'We Install It For You',
+    tagline: 'Our engineers commission the machine on your floor',
+    icon: '🔧',
+    color: '#3B82F6',
+    items: [
+      { icon: '🔧', label: 'Complete Commissioning' },
+      { icon: '👨‍🏫', label: 'Operator Training' },
+      { icon: '📹', label: 'Video Demos & Guides' },
+      { icon: '📋', label: 'Handover Checklist' },
+    ],
+  },
+  {
+    key: 'reach',
+    step: 'Any Day',
+    title: 'We Are One Call Away',
+    tagline: 'Four ways to reach a real technician, not a call centre',
+    icon: '📞',
+    color: '#10B981',
+    items: [
+      { icon: '📞', label: 'Direct Phone Line' },
+      { icon: '💬', label: 'WhatsApp Support' },
+      { icon: '🖥️', label: 'Remote Diagnosis' },
+      { icon: '🚗', label: 'On-Site Visit' },
+    ],
+  },
+  {
+    key: 'maintain',
+    step: 'Every Month',
+    title: 'We Prevent The Breakdown',
+    tagline: 'Scheduled service so problems never reach your line',
+    icon: '🔄',
+    color: '#F59E0B',
+    items: [
+      { icon: '🔄', label: 'Preventive Maintenance' },
+      { icon: '📅', label: 'AMC Plans' },
+      { icon: '🔩', label: 'Genuine Spare Parts' },
+      { icon: '📈', label: 'Performance Tuning' },
+    ],
+  },
+  {
+    key: 'emergency',
+    step: 'Worst Day',
+    title: 'We Show Up Fast',
+    tagline: 'Line stopped? That becomes our emergency too',
+    icon: '🚨',
+    color: '#EF4444',
+    items: [
+      { icon: '🚨', label: 'Emergency Breakdown' },
+      { icon: '⏱️', label: '24 Hour Response' },
+      { icon: '⬆️', label: 'Machine Upgrades' },
+      { icon: '🎓', label: 'Lifetime Guidance' },
+    ],
+  },
+]
+
+/* ---- Headline numbers ---- */
+const stats = [
+  { value: 24, suffix: 'h', label: 'Response Time', sub: 'Anywhere in India', color: '#EF4444' },
+  { value: 100, suffix: '%', label: 'Genuine Spares', sub: 'Direct from our plant', color: '#F59E0B' },
+  { value: 30, suffix: '+', label: 'Years Supporting', sub: 'Machines still running', color: '#10B981' },
+  { value: 500, suffix: '+', label: 'Plants Serviced', sub: 'Across 20+ states', color: '#3B82F6' },
+]
+
+const STAGE_MS = 4200
+
 export default function Support() {
-  const services = [
-    { icon: '🔧', title: 'Installation Support', desc: 'Complete machine commissioning at your facility' },
-    { icon: '👨‍🏫', title: 'Operator Training', desc: 'Hands-on training for your team members' },
-    { icon: '📹', title: 'Video Assistance', desc: 'Visual troubleshooting guides and demos' },
-    { icon: '📞', title: 'Phone Support', desc: 'Direct access to technical experts' },
-    { icon: '💬', title: 'WhatsApp Support', desc: 'Quick response through messaging' },
-    { icon: '🖥️', title: 'Remote Troubleshooting', desc: 'Diagnose and fix issues remotely' },
-    { icon: '🚗', title: 'On-site Service', desc: 'Field engineers available pan India' },
-    { icon: '🔄', title: 'Preventive Maintenance', desc: 'Scheduled checks to prevent breakdowns' },
-    { icon: '📅', title: 'Annual Maintenance Contracts', desc: 'Comprehensive AMC plans available' },
-    { icon: '🔩', title: 'Spare Parts Availability', desc: 'Genuine parts with quick dispatch' },
-    { icon: '📈', title: 'Performance Optimization', desc: 'Continuous improvement support' },
-    { icon: '🚨', title: 'Emergency Breakdown Support', desc: 'Rapid response for critical issues' },
-    { icon: '⬆️', title: 'Machine Upgrades', desc: 'Technology updates and enhancements' },
-    { icon: '⏱️', title: '24 Hour Response', desc: 'Get help when you need it most' },
-    { icon: '🎓', title: 'Lifetime Technical Guidance', desc: "We're with you for the long run" },
-  ]
+  const [activeStage, setActiveStage] = useState(0)
+  const [paused, setPaused] = useState(false)
+  const [visible, setVisible] = useState(false)
+  const sectionRef = useRef<HTMLElement | null>(null)
+
+  /* Reveal + start counters when the section scrolls into view */
+  useEffect(() => {
+    const node = sectionRef.current
+    if (!node) return
+
+    if (typeof IntersectionObserver === 'undefined') {
+      setVisible(true)
+      return
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          setVisible(true)
+          observer.disconnect()
+        }
+      },
+      { threshold: 0.15 }
+    )
+    observer.observe(node)
+    return () => observer.disconnect()
+  }, [])
+
+  /* Auto-advance the journey */
+  useEffect(() => {
+    if (paused || !visible) return
+    const timer = setTimeout(() => {
+      setActiveStage((s) => (s + 1) % stages.length)
+    }, STAGE_MS)
+    return () => clearTimeout(timer)
+  }, [activeStage, paused, visible])
+
+  const active = stages[activeStage]
 
   return (
-    <section id="support" className="section bg-dark">
-      <div className="section-header">
-        <h2 className="section-title">Support Doesn&apos;t End After Delivery</h2>
-        <p className="section-subtitle">
-          Our relationship starts after installation. We believe every customer deserves fast, reliable
-          and expert support throughout the machine&apos;s lifecycle.
-        </p>
+    <section
+      id="support"
+      ref={sectionRef}
+      className={`sp-section ${visible ? 'is-visible' : ''}`}
+      onMouseEnter={() => setPaused(true)}
+      onMouseLeave={() => setPaused(false)}
+    >
+      {/* Radar sweep backdrop — reads as "always monitoring" */}
+      <div className="sp-backdrop" aria-hidden="true">
+        <div className="sp-radar" style={{ borderColor: `${active.color}22` }} />
+        <div className="sp-radar sp-radar-2" style={{ borderColor: `${active.color}18` }} />
+        <div className="sp-glow" style={{ background: `radial-gradient(circle, ${active.color}26 0%, transparent 62%)` }} />
       </div>
 
-      <div className="feature-box" style={{ marginBottom: '1.5rem' }}>
-        <h3>Our Service Promise</h3>
-        <p>
-          We understand that downtime costs money. That&apos;s why we&apos;ve built a dedicated support system
-          to keep your production running smoothly. Fast response, expert technicians, genuine parts,
-          and lifetime technical guidance — because your success is our success.
-        </p>
+      {/* Header */}
+      <div className="sp-header">
+        <span className="sp-live">
+          <span className="sp-live-dot" />
+          Support Desk Active
+        </span>
+        <h2 className="sp-title">
+          Support Doesn&apos;t End
+          <br />
+          <span style={{ color: active.color, transition: 'color 0.8s ease' }}>After Delivery</span>
+        </h2>
+        <p className="sp-subtitle">Most suppliers vanish after installation. That is where we start.</p>
       </div>
 
-      <div className="grid grid-3">
-        {services.map((service, index) => (
-          <div key={index} className="card">
-            <div style={{ color: 'var(--accent)', fontSize: '2rem', marginBottom: '0.5rem' }}>
-              {service.icon}
+      {/* Headline numbers with count-up */}
+      <div className="sp-stats">
+        {stats.map((s, i) => (
+          <div className="sp-stat" key={s.label} style={{ transitionDelay: `${i * 110}ms`, borderColor: `${s.color}33` }}>
+            <div className="sp-stat-num" style={{ color: s.color }}>
+              <CountUp to={s.value} start={visible} duration={1400 + i * 200} />
+              <span className="sp-stat-suffix">{s.suffix}</span>
             </div>
-            <h3 style={{ color: '#FFFFFF', fontSize: '1.15rem', marginBottom: '0.25rem' }}>
-              {service.title}
-            </h3>
-            <p style={{ color: 'var(--text-secondary)' }}>{service.desc}</p>
+            <div className="sp-stat-label">{s.label}</div>
+            <div className="sp-stat-sub">{s.sub}</div>
+            <span className="sp-stat-bar" style={{ background: s.color }} />
           </div>
         ))}
       </div>
 
-      <div className="support-highlight">
-        <h3>Why Our Support Stands Out</h3>
-        <p>
-          Unlike competitors who disappear after installation, we&apos;ve built our reputation on reliable
-          after-sales service. Our dedicated service team ensures your machines run at peak performance
-          year after year.
-        </p>
-        <div className="support-stats">
-          <div className="support-stat">
-            <div className="support-stat-number">Pan India</div>
-            <div className="support-stat-label">Service Network</div>
+      {/* ---------- Journey ---------- */}
+      <div className="sp-journey">
+        {/* Stage rail */}
+        <div className="sp-rail">
+          <div className="sp-rail-line">
+            <div
+              className="sp-rail-fill"
+              style={{
+                width: `${((activeStage + 1) / stages.length) * 100}%`,
+                background: `linear-gradient(90deg, #3B82F6, ${active.color})`,
+              }}
+            />
           </div>
-          <div className="support-stat">
-            <div className="support-stat-number">Dedicated</div>
-            <div className="support-stat-label">Service Engineers</div>
+
+          {stages.map((st, i) => {
+            const isActive = i === activeStage
+            const isDone = i < activeStage
+            return (
+              <button
+                key={st.key}
+                className={`sp-node ${isActive ? 'is-active' : ''} ${isDone ? 'is-done' : ''}`}
+                onClick={() => setActiveStage(i)}
+                aria-label={st.title}
+              >
+                <span
+                  className="sp-node-dot"
+                  style={{
+                    borderColor: isActive || isDone ? st.color : 'rgba(255,255,255,0.2)',
+                    background: isActive ? `${st.color}22` : isDone ? st.color : 'rgba(255,255,255,0.04)',
+                    boxShadow: isActive ? `0 0 0 6px ${st.color}1F, 0 0 24px ${st.color}66` : 'none',
+                  }}
+                >
+                  <span className="sp-node-icon">{isDone ? '✓' : st.icon}</span>
+                </span>
+                <span className="sp-node-step" style={{ color: isActive ? st.color : undefined }}>
+                  {st.step}
+                </span>
+              </button>
+            )
+          })}
+        </div>
+
+        {/* Active stage panel */}
+        <div
+          className="sp-panel"
+          key={active.key}
+          style={{ borderColor: `${active.color}44`, boxShadow: `0 24px 70px rgba(0,0,0,0.35), inset 0 0 60px ${active.color}0D` }}
+        >
+          <div className="sp-panel-head">
+            <span
+              className="sp-panel-icon"
+              style={{ background: `${active.color}1A`, borderColor: active.color, boxShadow: `0 0 30px ${active.color}44` }}
+            >
+              {active.icon}
+            </span>
+            <div>
+              <div className="sp-panel-step" style={{ color: active.color }}>
+                Stage {activeStage + 1} of {stages.length} · {active.step}
+              </div>
+              <h3 className="sp-panel-title">{active.title}</h3>
+              <p className="sp-panel-tag">{active.tagline}</p>
+            </div>
           </div>
-          <div className="support-stat">
-            <div className="support-stat-number">Quick</div>
-            <div className="support-stat-label">Spare Dispatch</div>
+
+          <div className="sp-items">
+            {active.items.map((it, i) => (
+              <div
+                className="sp-item"
+                key={it.label}
+                style={{
+                  animationDelay: `${0.12 + i * 0.09}s`,
+                  borderColor: `${active.color}2E`,
+                  background: `${active.color}0A`,
+                }}
+              >
+                <span className="sp-item-icon" style={{ background: `${active.color}1F` }}>
+                  {it.icon}
+                </span>
+                <span className="sp-item-label">{it.label}</span>
+              </div>
+            ))}
+          </div>
+
+          {/* Auto-advance progress */}
+          <div className="sp-progress">
+            <span
+              key={`${activeStage}-${paused}`}
+              className={`sp-progress-fill ${paused ? 'is-paused' : ''}`}
+              style={{ background: active.color, animationDuration: `${STAGE_MS}ms` }}
+            />
           </div>
         </div>
       </div>
+
+      {/* Closing promise + contact rail */}
+      <div className="sp-promise">
+        <p className="sp-promise-text">
+          Downtime costs money. Our job is to make sure you never lose a shift.
+        </p>
+        <div className="sp-actions">
+          <a href="tel:+919999999999" className="sp-btn sp-btn-primary">
+            📞 Call Service Desk
+          </a>
+          <a
+            href="https://wa.me/919999999999"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="sp-btn sp-btn-ghost"
+          >
+            💬 WhatsApp Us
+          </a>
+        </div>
+      </div>
+
+      <style dangerouslySetInnerHTML={{ __html: `
+        /* ============================================
+           SUPPORT & SERVICE — ANIMATED JOURNEY
+           ============================================ */
+        .sp-section {
+          position: relative;
+          overflow: hidden;
+          padding: 3.5rem 1rem 3rem;
+          background:
+            radial-gradient(ellipse at 20% 0%, rgba(59,130,246,0.10) 0%, transparent 55%),
+            linear-gradient(180deg, #0B132B 0%, #0F1B38 50%, #0B132B 100%);
+        }
+
+        /* ---------- Backdrop ---------- */
+        .sp-backdrop { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
+
+        .sp-radar {
+          position: absolute;
+          top: 50%; left: 50%;
+          width: 620px; height: 620px;
+          margin: -310px 0 0 -310px;
+          border: 1px solid;
+          border-radius: 50%;
+          animation: spRadar 4s ease-out infinite;
+          transition: border-color 0.8s ease;
+        }
+        .sp-radar-2 { animation-delay: 2s; }
+
+        @keyframes spRadar {
+          0%   { transform: scale(0.35); opacity: 0.9; }
+          100% { transform: scale(1.6); opacity: 0; }
+        }
+
+        .sp-glow {
+          position: absolute;
+          top: 50%; left: 50%;
+          width: 900px; height: 900px;
+          margin: -450px 0 0 -450px;
+          transition: background 0.9s ease;
+        }
+
+        /* ---------- Header ---------- */
+        .sp-header { position: relative; z-index: 2; text-align: center; margin-bottom: 2.5rem; }
+
+        .sp-live {
+          display: inline-flex;
+          align-items: center;
+          gap: 0.5rem;
+          padding: 0.35rem 0.9rem;
+          border: 1px solid rgba(16,185,129,0.35);
+          border-radius: 50px;
+          background: rgba(16,185,129,0.10);
+          color: #34D399;
+          font-size: 0.7rem;
+          font-weight: 700;
+          letter-spacing: 1.4px;
+          text-transform: uppercase;
+          margin-bottom: 1.1rem;
+        }
+        .sp-live-dot {
+          width: 7px; height: 7px;
+          border-radius: 50%;
+          background: #10B981;
+          box-shadow: 0 0 0 0 rgba(16,185,129,0.7);
+          animation: spPing 1.8s ease-out infinite;
+        }
+        @keyframes spPing {
+          0%   { box-shadow: 0 0 0 0 rgba(16,185,129,0.65); }
+          70%  { box-shadow: 0 0 0 9px rgba(16,185,129,0); }
+          100% { box-shadow: 0 0 0 0 rgba(16,185,129,0); }
+        }
+
+        .sp-title {
+          font-size: 1.85rem;
+          font-weight: 800;
+          line-height: 1.22;
+          color: #fff;
+          margin: 0 0 0.6rem;
+        }
+
+        .sp-subtitle { color: #94A3B8; font-size: 0.98rem; margin: 0; }
+
+        /* ---------- Stats ---------- */
+        .sp-stats {
+          position: relative;
+          z-index: 2;
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 0.75rem;
+          max-width: 1080px;
+          margin: 0 auto 3rem;
+        }
+
+        .sp-stat {
+          position: relative;
+          overflow: hidden;
+          padding: 1.1rem 0.9rem 1.2rem;
+          border: 1px solid;
+          border-radius: 18px;
+          background: rgba(255,255,255,0.035);
+          backdrop-filter: blur(10px);
+          opacity: 0;
+          transform: translateY(22px);
+          transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.22,1,0.36,1);
+        }
+        .sp-section.is-visible .sp-stat { opacity: 1; transform: translateY(0); }
+
+        .sp-stat-num {
+          display: flex;
+          align-items: baseline;
+          gap: 0.1rem;
+          font-size: 1.9rem;
+          font-weight: 800;
+          line-height: 1;
+          font-variant-numeric: tabular-nums;
+        }
+        .sp-stat-suffix { font-size: 1.1rem; font-weight: 700; }
+
+        .sp-stat-label {
+          margin-top: 0.4rem;
+          font-size: 0.82rem;
+          font-weight: 700;
+          color: #E2E8F0;
+        }
+        .sp-stat-sub { font-size: 0.7rem; color: #64748B; margin-top: 0.1rem; }
+
+        .sp-stat-bar {
+          position: absolute;
+          left: 0; bottom: 0;
+          height: 2px; width: 0;
+          transition: width 1.2s ease 0.4s;
+        }
+        .sp-section.is-visible .sp-stat-bar { width: 100%; }
+
+        /* ---------- Journey ---------- */
+        .sp-journey {
+          position: relative;
+          z-index: 2;
+          max-width: 1080px;
+          margin: 0 auto;
+        }
+
+        /* Stage rail */
+        .sp-rail {
+          position: relative;
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          gap: 0.25rem;
+          margin-bottom: 1.75rem;
+        }
+
+        .sp-rail-line {
+          position: absolute;
+          top: 24px;
+          left: 12%;
+          right: 12%;
+          height: 2px;
+          background: rgba(255,255,255,0.10);
+          border-radius: 2px;
+          overflow: hidden;
+        }
+        .sp-rail-fill {
+          height: 100%;
+          border-radius: 2px;
+          transition: width 0.7s cubic-bezier(0.22,1,0.36,1), background 0.7s ease;
+        }
+
+        .sp-node {
+          position: relative;
+          z-index: 1;
+          background: none;
+          border: none;
+          padding: 0;
+          cursor: pointer;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 0.5rem;
+        }
+
+        .sp-node-dot {
+          width: 48px; height: 48px;
+          border: 2px solid;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          backdrop-filter: blur(8px);
+          transition: all 0.5s cubic-bezier(0.175,0.885,0.32,1.27);
+        }
+        .sp-node.is-active .sp-node-dot { transform: scale(1.14); }
+        .sp-node:hover .sp-node-dot { transform: scale(1.08); }
+
+        .sp-node-icon { font-size: 1.15rem; line-height: 1; }
+        .sp-node.is-done .sp-node-icon { color: #0B132B; font-weight: 900; }
+
+        .sp-node-step {
+          font-size: 0.64rem;
+          font-weight: 700;
+          letter-spacing: 0.8px;
+          text-transform: uppercase;
+          color: #64748B;
+          transition: color 0.4s ease;
+          text-align: center;
+        }
+
+        /* Active panel */
+        .sp-panel {
+          position: relative;
+          border: 1px solid;
+          border-radius: 24px;
+          padding: 1.5rem 1.25rem 1.75rem;
+          background: linear-gradient(160deg, rgba(255,255,255,0.055) 0%, rgba(255,255,255,0.02) 100%);
+          backdrop-filter: blur(14px);
+          animation: spPanelIn 0.6s cubic-bezier(0.22,1,0.36,1) both;
+        }
+
+        @keyframes spPanelIn {
+          0%   { opacity: 0; transform: translateY(18px) scale(0.985); }
+          100% { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        .sp-panel-head { display: flex; gap: 1rem; align-items: flex-start; margin-bottom: 1.35rem; }
+
+        .sp-panel-icon {
+          width: 60px; height: 60px;
+          flex-shrink: 0;
+          border: 2px solid;
+          border-radius: 18px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 1.8rem;
+          animation: spIconFloat 3s ease-in-out infinite alternate;
+        }
+        @keyframes spIconFloat {
+          0%   { transform: translateY(-3px); }
+          100% { transform: translateY(3px); }
+        }
+
+        .sp-panel-step {
+          font-size: 0.66rem;
+          font-weight: 800;
+          letter-spacing: 1.4px;
+          text-transform: uppercase;
+          margin-bottom: 0.3rem;
+        }
+        .sp-panel-title {
+          font-size: 1.35rem;
+          font-weight: 800;
+          color: #fff;
+          margin: 0 0 0.3rem;
+          line-height: 1.25;
+        }
+        .sp-panel-tag { font-size: 0.88rem; color: #94A3B8; margin: 0; line-height: 1.5; }
+
+        .sp-items {
+          display: grid;
+          grid-template-columns: 1fr;
+          gap: 0.6rem;
+        }
+
+        .sp-item {
+          display: flex;
+          align-items: center;
+          gap: 0.75rem;
+          padding: 0.7rem 0.85rem;
+          border: 1px solid;
+          border-radius: 14px;
+          animation: spItemIn 0.5s cubic-bezier(0.22,1,0.36,1) both;
+        }
+        @keyframes spItemIn {
+          0%   { opacity: 0; transform: translateX(-14px); }
+          100% { opacity: 1; transform: translateX(0); }
+        }
+
+        .sp-item-icon {
+          width: 34px; height: 34px;
+          flex-shrink: 0;
+          border-radius: 10px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 1.05rem;
+        }
+        .sp-item-label { font-size: 0.86rem; font-weight: 600; color: #E2E8F0; }
+
+        .sp-progress {
+          margin-top: 1.35rem;
+          height: 3px;
+          background: rgba(255,255,255,0.08);
+          border-radius: 3px;
+          overflow: hidden;
+        }
+        .sp-progress-fill {
+          display: block;
+          height: 100%;
+          width: 100%;
+          transform-origin: left center;
+          animation: spProgress linear forwards;
+        }
+        .sp-progress-fill.is-paused { animation-play-state: paused; }
+        @keyframes spProgress {
+          from { transform: scaleX(0); }
+          to   { transform: scaleX(1); }
+        }
+
+        /* ---------- Promise ---------- */
+        .sp-promise {
+          position: relative;
+          z-index: 2;
+          max-width: 1080px;
+          margin: 2.5rem auto 0;
+          text-align: center;
+        }
+        .sp-promise-text {
+          font-size: 1.05rem;
+          font-weight: 600;
+          color: #E2E8F0;
+          margin: 0 0 1.25rem;
+          line-height: 1.5;
+        }
+        .sp-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; justify-content: center; }
+
+        .sp-btn {
+          display: inline-flex;
+          align-items: center;
+          gap: 0.45rem;
+          padding: 0.8rem 1.4rem;
+          border-radius: 50px;
+          font-size: 0.9rem;
+          font-weight: 700;
+          text-decoration: none;
+          transition: all 0.3s ease;
+        }
+        .sp-btn-primary {
+          background: linear-gradient(135deg, #DC2626, #EF4444);
+          color: #fff;
+          box-shadow: 0 10px 28px rgba(220,38,38,0.35);
+        }
+        .sp-btn-primary:hover { transform: translateY(-3px); box-shadow: 0 16px 36px rgba(220,38,38,0.45); }
+
+        .sp-btn-ghost {
+          background: rgba(255,255,255,0.06);
+          color: #E2E8F0;
+          border: 1px solid rgba(255,255,255,0.18);
+        }
+        .sp-btn-ghost:hover { background: rgba(255,255,255,0.12); transform: translateY(-3px); }
+
+        /* ============================================
+           TABLET (>= 640px)
+           ============================================ */
+        @media (min-width: 640px) {
+          .sp-items { grid-template-columns: 1fr 1fr; }
+        }
+
+        /* ============================================
+           TABLET / DESKTOP (>= 768px)
+           ============================================ */
+        @media (min-width: 768px) {
+          .sp-section { padding: 5rem 2rem 4rem; }
+          .sp-title { font-size: 2.6rem; }
+          .sp-subtitle { font-size: 1.1rem; }
+          .sp-stats { grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+          .sp-stat { padding: 1.4rem 1.2rem 1.5rem; }
+          .sp-stat-num { font-size: 2.4rem; }
+          .sp-node-dot { width: 58px; height: 58px; }
+          .sp-node-icon { font-size: 1.4rem; }
+          .sp-node-step { font-size: 0.7rem; }
+          .sp-rail-line { top: 29px; }
+          .sp-panel { padding: 2.25rem 2rem 2rem; }
+          .sp-panel-icon { width: 74px; height: 74px; font-size: 2.2rem; }
+          .sp-panel-title { font-size: 1.7rem; }
+          .sp-panel-tag { font-size: 0.98rem; }
+          .sp-promise-text { font-size: 1.2rem; }
+        }
+
+        /* ============================================
+           DESKTOP (>= 1024px)
+           ============================================ */
+        @media (min-width: 1024px) {
+          .sp-panel {
+            display: grid;
+            grid-template-columns: 1fr 1.15fr;
+            gap: 2.5rem;
+            align-items: center;
+            padding: 2.5rem;
+          }
+          .sp-panel-head { margin-bottom: 0; }
+          .sp-progress { grid-column: 1 / -1; margin-top: 1.5rem; }
+          .sp-items { gap: 0.75rem; }
+        }
+
+        /* ============================================
+           REDUCED MOTION
+           ============================================ */
+        @media (prefers-reduced-motion: reduce) {
+          .sp-radar, .sp-live-dot, .sp-panel-icon { animation: none !important; }
+          .sp-panel, .sp-item, .sp-progress-fill { animation: none !important; }
+          .sp-stat { opacity: 1 !important; transform: none !important; }
+        }
+      `}} />
     </section>
   )
+}
+
+/* ============================================================
+   Count-up number — animates once the section is in view
+   ============================================================ */
+function CountUp({ to, start, duration }: { to: number; start: boolean; duration: number }) {
+  const [n, setN] = useState(0)
+
+  useEffect(() => {
+    if (!start) return
+
+    const reduce =
+      typeof window !== 'undefined' &&
+      window.matchMedia &&
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches
+
+    if (reduce) {
+      setN(to)
+      return
+    }
+
+    let frame = 0
+    const t0 = performance.now()
+
+    const tick = (now: number) => {
+      const p = Math.min((now - t0) / duration, 1)
+      // ease-out cubic
+      const eased = 1 - Math.pow(1 - p, 3)
+      setN(Math.round(to * eased))
+      if (p < 1) frame = requestAnimationFrame(tick)
+    }
+
+    frame = requestAnimationFrame(tick)
+    return () => cancelAnimationFrame(frame)
+  }, [start, to, duration])
+
+  return <>{n}</>
 }

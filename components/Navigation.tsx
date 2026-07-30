@@ -49,17 +49,17 @@ export default function Navigation() {
     <nav
       className="nav"
       style={{
-        background: scrolled ? 'rgba(11, 19, 43, 0.98)' : 'rgba(11, 19, 43, 0.92)'
+        background: scrolled ? 'rgba(255, 255, 255, 0.98)' : 'rgba(255, 255, 255, 0.92)'
       }}
     >
       <div className="nav-container">
         <Link
           href="/"
           className="logo"
-          style={{ color: '#FFFFFF', display: 'flex', alignItems: 'center', gap: '0.4rem', textDecoration: 'none' }}
+          style={{ color: 'var(--text-primary)', display: 'flex', alignItems: 'center', gap: '0.4rem', textDecoration: 'none' }}
         >
-          <span style={{ color: 'var(--brand-blue-hover)', fontWeight: 800 }}>Charan</span>
-          <span style={{ color: 'var(--brand-red)', fontWeight: 800 }}>Food Tech</span>
+          <span style={{ color: 'var(--text-primary)', fontWeight: 800 }}>Charan</span>
+          <span style={{ color: '#EF4444', fontWeight: 800 }}>Food Tech</span>
         </Link>
 
         {/* Desktop nav links */}

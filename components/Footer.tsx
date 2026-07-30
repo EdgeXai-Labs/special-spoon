@@ -20,8 +20,8 @@ export default function Footer() {
         {/* Company Info */}
         <div>
           <div style={{ fontSize: '1.25rem', fontWeight: 800, marginBottom: '0.5rem', display: 'flex', gap: '0.4rem' }}>
-            <span style={{ color: 'var(--brand-blue-hover)' }}>Charan</span>
-            <span style={{ color: 'var(--brand-red)' }}>Food Tech</span>
+            <span style={{ color: 'var(--text-primary)' }}>Charan</span>
+            <span style={{ color: '#EF4444' }}>Food Tech</span>
           </div>
           <p style={{ color: 'var(--text-secondary)', lineHeight: 1.5, marginBottom: '1rem' }}>
             Leading manufacturer of industrial food processing machinery and custom equipment solutions.

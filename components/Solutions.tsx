@@ -176,14 +176,14 @@ export default function Solutions() {
   }
 
   return (
-    <section className="section bg-card" style={{ padding: '4rem 1.5rem', background: '#090d16', color: '#fff', overflow: 'hidden' }}>
+    <section className="section bg-card" style={{ padding: '4rem 1.5rem', background: 'var(--bg-dark)', color: 'var(--text-primary)', overflow: 'hidden' }}>
       
       {/* Header */}
       <div className="section-header" style={{ textAlign: 'center', marginBottom: '2.5rem' }}>
-        <h2 className="section-title" style={{ fontSize: '2.5rem', fontWeight: '800', color: '#ffffff' }}>
+        <h2 className="section-title" style={{ fontSize: '2.5rem', fontWeight: '800', color: 'var(--text-primary)' }}>
           Complete Manufacturing Solutions
         </h2>
-        <p className="section-subtitle" style={{ color: '#94a3b8', fontSize: '1.1rem', marginTop: '0.5rem' }}>
+        <p className="section-subtitle" style={{ color: 'var(--text-secondary)', fontSize: '1.1rem', marginTop: '0.5rem' }}>
           We don&apos;t just sell machines. We provide end-to-end manufacturing partnership.
         </p>
       </div>
@@ -204,14 +204,14 @@ export default function Solutions() {
             style={{
               padding: '0.4rem 0.8rem',
               borderRadius: '20px',
-              border: idx === currentStep ? '1px solid #3b82f6' : '1px solid #1e293b',
-              background: idx === currentStep ? 'rgba(59, 130, 246, 0.2)' : '#0f172a',
-              color: idx === currentStep ? '#60a5fa' : '#64748b',
+              border: idx === currentStep ? '1px solid var(--accent)' : '1px solid var(--border)',
+              background: idx === currentStep ? 'rgba(220, 38, 38, 0.1)' : 'var(--bg-card)',
+              color: idx === currentStep ? 'var(--accent)' : 'var(--text-secondary)',
               fontSize: '0.8rem',
               fontWeight: '600',
               cursor: 'pointer',
               transition: 'all 0.3s ease',
-              boxShadow: idx === currentStep ? '0 0 10px rgba(59, 130, 246, 0.3)' : 'none'
+              boxShadow: idx === currentStep ? '0 0 10px rgba(220, 38, 38, 0.15)' : 'none'
             }}
           >
             Step {s.id}
@@ -239,7 +239,7 @@ export default function Solutions() {
           <div className="content-container">
             {/* Stage Badge */}
             <div style={{
-              background: 'linear-gradient(90deg, #2563eb, #3b82f6)',
+              background: 'linear-gradient(90deg, #dc2626, #ef4444)',
               padding: '0.3rem 1.2rem',
               borderRadius: '50px',
               fontSize: '0.85rem',
@@ -248,19 +248,19 @@ export default function Solutions() {
               textTransform: 'uppercase',
               color: '#ffffff',
               marginBottom: '1.5rem',
-              boxShadow: '0 4px 14px rgba(37, 99, 235, 0.4)',
+              boxShadow: '0 4px 14px rgba(220, 38, 38, 0.4)',
               display: 'inline-block'
             }}>
               STAGE {stage.id} OF 12
             </div>
 
             {/* Stage Title */}
-            <h3 style={{ fontSize: '2.2rem', fontWeight: 'bold', color: '#ffffff', marginBottom: '1rem' }}>
+            <h3 style={{ fontSize: '2.2rem', fontWeight: 'bold', color: 'var(--text-primary)', marginBottom: '1rem' }}>
               {stage.title}
             </h3>
 
             {/* Stage Description */}
-            <p style={{ color: '#94a3b8', fontSize: '1.1rem', lineHeight: '1.6', margin: 0 }}>
+            <p style={{ color: 'var(--text-secondary)', fontSize: '1.1rem', lineHeight: '1.6', margin: 0 }}>
               {stage.desc}
             </p>
           </div>
@@ -281,9 +281,9 @@ export default function Solutions() {
           }}
           style={{
             padding: '0.6rem 1.4rem',
-            background: '#1e293b',
-            color: '#fff',
-            border: '1px solid #334155',
+            background: 'var(--bg-elevated)',
+            color: 'var(--text-primary)',
+            border: '1px solid var(--border)',
             borderRadius: '10px',
             cursor: 'pointer',
             fontWeight: '600'
@@ -296,9 +296,9 @@ export default function Solutions() {
           onClick={() => setIsPlaying(!isPlaying)}
           style={{
             padding: '0.6rem 1.4rem',
-            background: isPlaying ? 'rgba(239, 68, 68, 0.2)' : 'rgba(34, 197, 94, 0.2)',
-            color: isPlaying ? '#f87171' : '#4ade80',
-            border: `1px solid ${isPlaying ? '#ef4444' : '#22c55e'}`,
+            background: isPlaying ? 'rgba(220, 38, 38, 0.1)' : 'rgba(22, 163, 74, 0.1)',
+            color: isPlaying ? 'var(--accent)' : 'var(--success)',
+            border: `1px solid ${isPlaying ? 'var(--accent)' : 'var(--success)'}`,
             borderRadius: '10px',
             cursor: 'pointer',
             fontWeight: '600'
@@ -317,13 +317,13 @@ export default function Solutions() {
           }}
           style={{
             padding: '0.6rem 1.4rem',
-            background: '#2563eb',
+            background: '#dc2626',
             color: '#fff',
             border: 'none',
             borderRadius: '10px',
             cursor: 'pointer',
             fontWeight: '600',
-            boxShadow: '0 4px 12px rgba(37, 99, 235, 0.4)'
+            boxShadow: '0 4px 12px rgba(220, 38, 38, 0.4)'
           }}
         >
           Next Stage ➔
@@ -331,7 +331,7 @@ export default function Solutions() {
       </div>
 
       {/* Embedded Dynamic CSS Animations */}
-      <style>{`
+      <style dangerouslySetInnerHTML={{ __html: `
         /* Stage Card Dynamic State Transitions */
         .stage-card {
           position: absolute;
@@ -340,7 +340,7 @@ export default function Solutions() {
           flex-direction: row;
           align-items: stretch;
           background: linear-gradient(145deg, #131c2e 0%, #0d131f 100%);
-          border: 1px solid rgba(59, 130, 246, 0.3);
+          border: 1px solid rgba(239, 68, 68, 0.35);
           border-radius: 24px;
           overflow: hidden;
           box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7), inset 0 1px 1px rgba(255, 255, 255, 0.1);
@@ -448,7 +448,7 @@ export default function Solutions() {
             height: 480px;
           }
         }
-      `}</style>
+      `}} />
     </section>
   )
 }
