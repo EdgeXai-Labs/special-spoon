@@ -24,8 +24,12 @@ export default function Footer() {
             <span style={{ color: '#EF4444' }}>Food Tech</span>
           </div>
           <p style={{ color: 'var(--text-secondary)', lineHeight: 1.5, marginBottom: '1rem' }}>
-            Leading manufacturer of industrial food processing machinery and custom equipment solutions.
-            Engineering excellence since 1990.
+            <strong style={{ color: 'var(--text-primary)' }}>CHARAN FOOD TECH</strong>
+            <br />📍 Krishnagiri Main Road
+            <br />Baisuhalli Village, Dharmapuri
+            <br />Tamil Nadu – 635205
+            <br />📞 <a href="tel:+919150081328" className="footer-link">+91 9150081328</a>
+            <br />✉️ <a href="mailto:hello@charanfoodtech.com" className="footer-link">hello@charanfoodtech.com</a>
           </p>
           <div style={{ display: 'flex', gap: '1rem' }}>
             <a href="#" aria-label="Facebook" style={{ color: 'var(--text-secondary)', fontSize: '1.5rem', transition: 'color 0.3s' }}>📘</a>

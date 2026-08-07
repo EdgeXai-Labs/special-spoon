@@ -1,0 +1,387 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@400;600;700;800;900&display=swap');
+
+:root {
+  --c-orange: #f7941d;
+  --c-orange-deep: #e2740a;
+  --c-cream: #fdf3e3;
+  --c-teal: #17b3a3;
+  --c-teal-dark: #0e7c72;
+  --c-navy: #0c2231;
+  --c-navy-2: #123243;
+  --dur: 4s;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.splash-wrapper {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  background: radial-gradient(
+    circle at 50% 40%,
+    #16394b 0%,
+    #0c2231 55%,
+    #081925 100%
+  );
+  color: #fff;
+  font-family: 'Poppins', system-ui, -apple-system, sans-serif;
+  padding: 1.5rem;
+}
+
+/* subtle dotted texture on the background */
+.splash-wrapper::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(
+    rgba(255, 255, 255, 0.05) 1px,
+    transparent 1px
+  );
+  background-size: 22px 22px;
+  pointer-events: none;
+}
+
+/* Retro animated rays */
+.splash-rays {
+  position: absolute;
+  inset: -60%;
+  background: repeating-conic-gradient(
+    from 0deg,
+    rgba(247, 148, 29, 0.05) 0deg 12deg,
+    transparent 12deg 24deg
+  );
+  animation: spinRays 26s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes spinRays {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.splash-glow {
+  position: absolute;
+  width: 90vmin;
+  height: 90vmin;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(23, 179, 163, 0.16) 0%,
+    rgba(247, 148, 29, 0.06) 40%,
+    transparent 70%
+  );
+  filter: blur(70px);
+  pointer-events: none;
+}
+
+/* Flying particles */
+.particles-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.particle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: var(--size, 5px);
+  height: var(--size, 5px);
+  margin: calc(var(--size, 5px) / -2) 0 0 calc(var(--size, 5px) / -2);
+  border-radius: 50%;
+  background: var(--c, var(--c-orange));
+  box-shadow: 0 0 10px var(--c, var(--c-orange));
+  opacity: 0;
+  animation: particleMove var(--dur) ease-out var(--delay, 0s) forwards;
+}
+
+@keyframes particleMove {
+  0% {
+    opacity: 0;
+    transform: translate(var(--ox), var(--oy)) scale(0);
+  }
+  35% {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+  }
+  80% {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(var(--ox), var(--oy)) scale(0);
+  }
+}
+
+/* ==== Main ORANGE card (matches planpage.png) ==== */
+.splash-card {
+  position: relative;
+  width: min(430px, 90vw);
+  background: linear-gradient(160deg, #f9a12e 0%, #f7941d 45%, #ef8410 100%);
+  border-radius: 30px;
+  padding: 3rem 2rem 3.25rem;
+  box-shadow:
+    0 30px 70px rgba(0, 0, 0, 0.55),
+    0 0 0 6px rgba(255, 255, 255, 0.06);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* dashed cream border inside the card */
+.splash-card::before {
+  content: '';
+  position: absolute;
+  inset: 14px;
+  border: 2px dashed rgba(253, 243, 227, 0.85);
+  border-radius: 22px;
+  pointer-events: none;
+}
+
+/* MACHINERIES vertical side badge */
+.side-badge {
+  position: absolute;
+  left: -14px;
+  top: 50%;
+  margin-top: -60px;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  transform: rotate(180deg);
+  background: var(--c-teal);
+  color: #fff;
+  padding: 0.8rem 0.42rem;
+  font-weight: 800;
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  border-radius: 6px;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.3);
+}
+
+/* ==== Central stage: CFT logo with 4 machine squares around it ==== */
+.logo-stage {
+  position: relative;
+  width: min(320px, 78vw);
+  height: min(320px, 78vw);
+  margin: 0.5rem auto 1.2rem;
+  display: grid;
+  place-items: center;
+}
+
+/* 4 machine photo squares */
+.machine-square {
+  position: absolute;
+  width: 33%;
+  aspect-ratio: 1 / 1;
+  border-radius: 14px;
+  overflow: hidden;
+  background: var(--c-cream);
+  border: 3px solid #fff;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.3);
+}
+
+.machine-square img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.pos-top {
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.pos-bottom {
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.pos-left {
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.pos-right {
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* CENTER: CFT logo inside a RED square frame */
+.cft-frame {
+  position: relative;
+  z-index: 2;
+  width: 40%;
+  aspect-ratio: 1 / 1;
+  background: #e5241f;
+  border-radius: 16px;
+  padding: 8px;
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.4);
+}
+
+.cft-inner {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  background: var(--c-cream);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+
+.cft-mic {
+  margin-top: 2px;
+}
+
+/* Logo letters C F T (inside the red frame) */
+.logo-row {
+  display: flex;
+  gap: 0.28rem;
+}
+
+.logo-letter {
+  width: 26px;
+  height: 30px;
+  display: grid;
+  place-items: center;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.5rem;
+  line-height: 1;
+  color: #fff;
+  background: var(--c-orange-deep);
+  border-radius: 6px;
+  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.2);
+}
+
+/* Brand title */
+.brand-title {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 900;
+  font-size: clamp(2rem, 9vw, 3rem);
+  line-height: 0.98;
+  margin: 0;
+  letter-spacing: 0.01em;
+  display: flex;
+  flex-direction: column;
+  color: var(--c-navy);
+  text-transform: uppercase;
+}
+
+.brand-title .tech {
+  color: var(--c-teal-dark);
+}
+
+/* MACHINERIES teal pill under the brand name */
+.machineries-pill {
+  margin-top: 0.5rem;
+  background: var(--c-teal);
+  color: #fff;
+  font-weight: 800;
+  font-size: 0.8rem;
+  letter-spacing: 0.28em;
+  padding: 0.32rem 1rem 0.32rem 1.28rem;
+  border-radius: 6px;
+  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.22);
+}
+
+.brand-url {
+  color: var(--c-navy);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  font-size: 0.8rem;
+  margin: 0.7rem 0 1.1rem;
+  text-transform: lowercase;
+}
+
+/* Contact info */
+.contact-row {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.7rem;
+  max-width: 100%;
+}
+
+.contact-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  color: var(--c-navy);
+  font-size: 0.84rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.ci-icon {
+  flex: 0 0 auto;
+}
+
+.address {
+  font-style: normal;
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--c-navy);
+  line-height: 1.5;
+  max-width: 80%;
+}
+
+.follow-strip {
+  position: absolute;
+  bottom: -16px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--c-teal);
+  color: #fff;
+  padding: 0.4rem 1.3rem;
+  font-weight: 800;
+  font-size: 0.78rem;
+  letter-spacing: 0.16em;
+  border-radius: 8px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+/* The main scatter → assemble → hold → disappear animation */
+.scatter {
+  opacity: 0;
+  display: inline-block;
+  animation: scatterBuild var(--dur) cubic-bezier(0.25, 0.46, 0.45, 0.94)
+    var(--delay, 0s) forwards;
+  will-change: transform, opacity;
+}
+
+@keyframes scatterBuild {
+  0% {
+    opacity: 0;
+    transform: translate(var(--ox, 0), var(--oy, 0)) rotate(var(--r, 0deg))
+      scale(var(--s, 0));
+  }
+  40% {
+    opacity: 1;
+    transform: translate(0, 0) rotate(0deg) scale(1.05);
+  }
+  50% {
+    transform: translate(0, 0) rotate(0deg) scale(1);
+  }
+  80% {
+    opacity: 1;
+    transform: translate(0, 0) rotate(0deg) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(0, -30px) scale(0.9);
+  }
+}

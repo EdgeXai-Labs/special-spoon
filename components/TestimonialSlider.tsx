@@ -104,8 +104,11 @@ const ROWS = 7
 
 /** Deterministic pseudo-random so server and client render identically */
 function seeded(n: number) {
-  const x = Math.sin(n * 12.9898) * 43758.5453
-  return x - Math.floor(x)
+  let x = Math.imul(n + 0x9e3779b9, 0x85ebca6b)
+  x ^= x >>> 13
+  x = Math.imul(x, 0xc2b2ae35)
+  x ^= x >>> 16
+  return (x >>> 0) / 0x100000000
 }
 
 type Phase = 'building' | 'holding' | 'shattering'

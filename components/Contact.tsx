@@ -7,13 +7,13 @@ import React, { useEffect, useRef, useState } from 'react'
    Replace the placeholder numbers, email and map embed below.
    ============================================================ */
 const COMPANY = {
-  phone1: '+91 XXXXX XXXXX',
+  phone1: '+91 98442 06206',
   phone2: '+91 XXXXX XXXXX',
-  whatsapp: '+91 XXXXX XXXXX',
+  whatsapp: '+91 98442 06206',
   whatsappLink: 'https://wa.me/919999999999',
-  email: 'info@yourcompany.com',
-  salesEmail: 'sales@yourcompany.com',
-  address: ['Your Factory Address Line 1', 'City, State - PIN Code', 'India'],
+  email: 'sales@charanfoodtech.com',
+  salesEmail: 'sales@charanfoodtech.com',
+  address: ['Krishnagiri Main Road', 'Baisuhalli Village, Dharmapuri', 'Tamil Nadu – 635205'],
   mapEmbed: '', // paste a Google Maps embed URL here to replace the placeholder
 }
 
@@ -340,9 +340,8 @@ export default function Contact() {
               <div>
                 <div className="ct-info-label">Working Hours</div>
                 <p className="ct-info-text">
-                  Mon – Sat · 9:00 AM – 6:00 PM
+                  Mon – Sat
                   <br />
-                  Sunday closed
                 </p>
                 <span className="ct-badge">
                   <span className="ct-badge-dot" />
@@ -352,24 +351,6 @@ export default function Contact() {
             </div>
           </div>
 
-          {/* Map */}
-          <div className="ct-map">
-            {COMPANY.mapEmbed ? (
-              <iframe
-                src={COMPANY.mapEmbed}
-                title="Factory location"
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                allowFullScreen
-              />
-            ) : (
-              <div className="ct-map-placeholder">
-                <span className="ct-map-pin">📍</span>
-                <span className="ct-map-text">Google Maps</span>
-                <span className="ct-map-hint">Paste your embed URL in COMPANY.mapEmbed</span>
-              </div>
-            )}
-          </div>
         </aside>
       </div>
 
