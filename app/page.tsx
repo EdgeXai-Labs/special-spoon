@@ -1,7 +1,7 @@
 import Navigation from '@/components/Navigation'
 import Hero from '@/components/Hero'
 import TrustBar from '@/components/TrustBar'
-import Industries from '@/components/Industries'
+// import Industries from '@/components/Industries'
 import Products from '@/components/Products'
 import Solutions from '@/components/Solutions'
 import Benefits from '@/components/Benefits'
@@ -23,7 +23,7 @@ export default function Home() {
       <main>
         <Hero />
         <TrustBar />
-        <Industries />
+        {/* <Industries /> */}
         <Products />
         <Solutions />
         <Benefits />

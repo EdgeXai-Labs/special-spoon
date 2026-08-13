@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600" role="img" aria-label="Machine image coming soon">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#f1f5f9"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="600" fill="url(#bg)"/>
+  <rect x="1" y="1" width="798" height="598" fill="none" stroke="#e2e8f0" stroke-width="2"/>
+
+  <g transform="translate(400 262)" fill="none" stroke="#cbd5e1" stroke-width="10"
+     stroke-linecap="round" stroke-linejoin="round">
+    <rect x="-120" y="-70" width="240" height="150" rx="14"/>
+    <path d="M-120 -20 H120"/>
+    <circle cx="-58" cy="32" r="20"/>
+    <circle cx="58" cy="32" r="20"/>
+    <path d="M-70 -70 V-104 H70 V-70"/>
+  </g>
+
+  <text x="400" y="418" text-anchor="middle"
+        font-family="Segoe UI, Helvetica, Arial, sans-serif"
+        font-size="30" font-weight="700" fill="#94a3b8">
+    Machine Image Coming Soon
+  </text>
+  <text x="400" y="456" text-anchor="middle"
+        font-family="Segoe UI, Helvetica, Arial, sans-serif"
+        font-size="20" fill="#cbd5e1">
+    Contact us for photographs and full specifications
+  </text>
+</svg>

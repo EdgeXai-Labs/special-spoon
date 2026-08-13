@@ -1,45 +1,21 @@
 'use client'
 
 import Image from 'next/image'
+import Link from 'next/link'
 import { useState, useEffect, useRef } from 'react'
+import { getProductsByCategory, PRODUCT_CATEGORIES } from '@/data/products'
 
-const CATEGORIES = ['All', 'Fryers', 'Cutting', 'Forming', 'Processing', 'Automation']
 const SLIDE_DURATION = 4000
 
-const ALL_PRODUCTS = [
-  { image: '/images/CFT_Machinery/Continous fryer Line Process.png',          title: 'Continuous Fryer Line',       category: 'Fryers'     },
-  { image: '/images/CFT_Machinery/Continous fryer Line Process-02.png',       title: 'Fryer Line Process II',       category: 'Fryers'     },
-  { image: '/images/CFT_Machinery/Continous fryer Line Process-03.png',       title: 'Fryer Line Process III',      category: 'Fryers'     },
-  { image: '/images/CFT_Machinery/continus fryer-02.png',                     title: 'Continuous Fryer',            category: 'Fryers'     },
-  { image: '/images/CFT_Machinery/circular batch fryer-with bhoondi.png',     title: 'Circular Batch Fryer',        category: 'Fryers'     },
-  { image: '/images/CFT_Machinery/rectangular batch fryer-02.png',            title: 'Rectangular Batch Fryer',     category: 'Fryers'     },
-  { image: '/images/CFT_Machinery/extruder.png',                              title: 'Extruder Machine',            category: 'Forming'    },
-  { image: '/images/CFT_Machinery/RING MASTERR.png',                          title: 'Ring Master',                 category: 'Forming'    },
-  { image: '/images/CFT_Machinery/sheeting machine.png',                      title: 'Sheeting Machine',            category: 'Forming'    },
-  { image: '/images/CFT_Machinery/ball divider.png',                          title: 'Ball Divider',                category: 'Forming'    },
-  { image: '/images/CFT_Machinery/double stage servo based.png',              title: 'Double Stage Servo Cutter',   category: 'Cutting'    },
-  { image: '/images/CFT_Machinery/Sweet cutting_Single stage servo based.png',title: 'Single Stage Servo Cutter',   category: 'Cutting'    },
-  { image: '/images/CFT_Machinery/hot press with oven.png',                   title: 'Hot Press with Oven',         category: 'Processing' },
-  { image: '/images/CFT_Machinery/hot press.png',                             title: 'Hot Press',                   category: 'Processing' },
-  { image: '/images/CFT_Machinery/Masala Peanut mc.png',                      title: 'Masala Peanut Machine',       category: 'Processing' },
-  { image: '/images/CFT_Machinery/MOONG DHAL.png',                            title: 'Moong Dal Machine',           category: 'Processing' },
-  { image: '/images/CFT_Machinery/KHARA BHOONDI.png',                         title: 'Khara Bhoondi Line',          category: 'Processing' },
-  { image: '/images/CFT_Machinery/Nippattu mc.png',                           title: 'Nippattu Machine',            category: 'Processing' },
-  { image: '/images/CFT_Machinery/seedai machine.png',                        title: 'Seedai Machine',              category: 'Processing' },
-  { image: '/images/CFT_Machinery/gulab jamun.png',                           title: 'Gulab Jamun Machine',         category: 'Processing' },
-  { image: '/images/CFT_Machinery/pick & place1.png',                         title: 'Pick & Place System',         category: 'Automation' },
-]
-
 export default function Products() {
-  const [activeCategory, setActiveCategory] = useState('All')
+  const [activeCategory, setActiveCategory] = useState<(typeof PRODUCT_CATEGORIES)[number]>('All')
   const [currentIndex, setCurrentIndex] = useState(0)
   const [slideDir, setSlideDir] = useState<'right' | 'left'>('right')
   const [isPaused, setIsPaused] = useState(false)
   const thumbsRef = useRef<HTMLDivElement>(null)
+  const hoverCooldownRef = useRef<number>(0)
 
-  const filtered = activeCategory === 'All'
-    ? ALL_PRODUCTS
-    : ALL_PRODUCTS.filter(p => p.category === activeCategory)
+  const filtered = getProductsByCategory(activeCategory)
 
   // Reset on category change
   useEffect(() => {
@@ -75,6 +51,9 @@ export default function Products() {
 
   const goTo = (idx: number) => {
     if (idx === currentIndex) return
+    const now = Date.now()
+    if (now - hoverCooldownRef.current < 220) return
+    hoverCooldownRef.current = now
     setSlideDir(idx > currentIndex ? 'right' : 'left')
     setCurrentIndex(idx)
   }
@@ -103,10 +82,10 @@ export default function Products() {
 
       {/* ── Category Filter Pills ── */}
       <div className="product-filters">
-        {CATEGORIES.map(cat => {
+        {PRODUCT_CATEGORIES.map(cat => {
           const count = cat === 'All'
-            ? ALL_PRODUCTS.length
-            : ALL_PRODUCTS.filter(p => p.category === cat).length
+            ? getProductsByCategory('All').length
+            : getProductsByCategory(cat).length
           return (
             <button
               key={cat}
@@ -126,10 +105,11 @@ export default function Products() {
         onMouseEnter={() => setIsPaused(true)}
         onMouseLeave={() => setIsPaused(false)}
       >
-        {/* Sliding image window — key forces remount → re-triggers CSS animation */}
-        <div
+        <Link
+          href={`/products/${current.slug}`}
           key={`slide-${currentIndex}-${activeCategory}`}
           className={`showcase-window slide-from-${slideDir}`}
+          aria-label={`Open ${current.title} details page`}
         >
           <Image
             src={current.image}
@@ -142,10 +122,14 @@ export default function Products() {
 
           {/* Bottom gradient overlay with name */}
           <div className="showcase-overlay">
-            <span className="showcase-category-badge">{current.category}</span>
+            <div className="showcase-overlay-top">
+              <span className="showcase-category-badge">{current.category}</span>
+              <span className="showcase-view-link">View Details →</span>
+            </div>
             <h3 className="showcase-title">{current.title}</h3>
+            <p className="showcase-description">{current.shortDescription}</p>
           </div>
-        </div>
+        </Link>
 
         {/* ◄ Prev / Next ► */}
         <button className="showcase-nav showcase-prev" onClick={prev} aria-label="Previous">
@@ -181,19 +165,27 @@ export default function Products() {
       <div className="showcase-thumbs" ref={thumbsRef}>
         {filtered.map((product, i) => (
           <button
-            key={i}
+            key={product.slug}
             className={`thumb-btn${i === currentIndex ? ' active' : ''}`}
-            onClick={() => goTo(i)}
-            title={product.title}
-            aria-label={`View ${product.title}`}
+            type="button"
+            onMouseEnter={() => goTo(i)}
+            onFocus={() => goTo(i)}
+            title={`Open ${product.title}`}
+            aria-label={`Show ${product.title}`}
           >
-            <Image
-              src={product.image}
-              alt={product.title}
-              fill
-              sizes="90px"
-              style={{ objectFit: 'contain' }}
-            />
+            <span className="thumb-image-wrap">
+              <Image
+                src={product.image}
+                alt={product.title}
+                fill
+                sizes="120px"
+                style={{ objectFit: 'contain' }}
+              />
+            </span>
+            <span className="thumb-meta">
+              <span className="thumb-title">{product.title}</span>
+              <span className="thumb-category">{product.category}</span>
+            </span>
           </button>
         ))}
       </div>
@@ -201,7 +193,10 @@ export default function Products() {
       {/* ── Call to Action ── */}
       <div className="showcase-cta">
         <p className="showcase-cta-label">Interested in <strong>{current.title}</strong>?</p>
-        <a href="#contact" className="btn btn-primary">Get a Quote →</a>
+        <div className="showcase-cta-actions">
+          <Link href={`/products/${current.slug}`} className="btn btn-secondary">View Product</Link>
+          <a href="#contact" className="btn btn-primary">Get a Quote →</a>
+        </div>
       </div>
     </section>
   )
