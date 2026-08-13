@@ -8,7 +8,7 @@ import Benefits from '@/components/Benefits'
 // import ManufacturingProcess from '@/components/ManufacturingProcess'
 import Comparison from '@/components/Comparison'
 import Support from '@/components/Support'
-import CustomMachine from '@/components/CustomMachine'
+import TrustedBrands from '@/components/TrustedBrands'
 import TestimonialSlider from '@/components/TestimonialSlider'
 import Testimonials from '@/components/Testimonials'
 import FAQ from '@/components/FAQ'
@@ -30,7 +30,7 @@ export default function Home() {
         {/* <ManufacturingProcess /> */}
         <Comparison />
         <Support />
-        <CustomMachine />
+        <TrustedBrands />
         <TestimonialSlider />
         <Testimonials />
         <FAQ />
