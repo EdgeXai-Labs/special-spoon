@@ -55,8 +55,8 @@ export default function Benefits() {
   const getSatelliteStyle = (index: number) => {
     const total = benefits.length
     const angle = (index / total) * 2 * Math.PI - Math.PI / 2
-    const radiusX = 420 // Wider horizontal radius to keep all pills visible
-    const radiusY = 220 // Taller vertical radius for proper orbit spread
+    const radiusX = 370 // Wider horizontal radius to keep all pills visible
+    const radiusY = 165 // Taller vertical radius for proper orbit spread
 
     const x = Math.cos(angle) * radiusX
     const y = Math.sin(angle) * radiusY
@@ -76,7 +76,7 @@ export default function Benefits() {
     <section 
       className="section bg-dark benefits-section"
       style={{
-        padding: '3rem 1rem',
+        padding: '1.75rem 1rem',
         background: 'radial-gradient(circle at center, #F8FAFC 0%, #E2E8F0 100%)',
         color: 'var(--text-primary)',
         overflow: 'hidden',
@@ -84,11 +84,11 @@ export default function Benefits() {
       }}
     >
       {/* Header */}
-      <div className="section-header" style={{ textAlign: 'center', marginBottom: '3rem', position: 'relative', zIndex: 10 }}>
-        <h2 className="section-title" style={{ fontSize: '2.5rem', fontWeight: '800', color: 'var(--text-primary)' }}>
+      <div className="section-header" style={{ textAlign: 'center', marginBottom: '1.5rem', position: 'relative', zIndex: 10 }}>
+        <h2 className="section-title" style={{ fontSize: '2rem', fontWeight: '800', color: 'var(--text-primary)' }}>
           Why Choose Our Machines
         </h2>
-        <p className="section-subtitle" style={{ color: 'var(--text-secondary)', fontSize: '1.1rem', marginTop: '0.5rem' }}>
+        <p className="section-subtitle" style={{ color: 'var(--text-secondary)', fontSize: '1rem', marginTop: '0.4rem' }}>
           Measurable improvements in productivity, cost, and quality
         </p>
       </div>
@@ -100,7 +100,7 @@ export default function Benefits() {
           position: 'relative',
           width: '100%',
           maxWidth: '1100px',
-          height: '600px',
+          height: '440px',
           margin: '0 auto',
           display: 'flex',
           alignItems: 'center',
@@ -166,8 +166,8 @@ export default function Benefits() {
           className={`center-core-hub ${animPhase}`}
           style={{
             position: 'absolute',
-            width: '380px',
-            padding: '2.5rem 2rem',
+            width: '340px',
+            padding: '1.75rem 1.75rem',
             background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 250, 252, 0.98) 100%)',
             backdropFilter: 'blur(16px)',
             borderRadius: '28px',

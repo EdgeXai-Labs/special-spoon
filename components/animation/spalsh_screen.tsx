@@ -200,12 +200,24 @@ const SplashScreen: React.FC<{ onComplete?: () => void }> = ({ onComplete }) => 
         </div>
 
         {/* website */}
-        <p
+        <div
           className="brand-url scatter"
           style={sc('0', '30vh', '0deg', '0', '0.64s')}
         >
-          www.charanfoodtech.com
-        </p>
+          <span className="brand-url-text">www.charanfoodtech.com</span>
+          <span className="brand-url-arrow" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="14" height="14">
+              <path
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2.4"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M5 12h14M13 6l6 6-6 6"
+              />
+            </svg>
+          </span>
+        </div>
 
         {/* Contact row */}
         <div className="contact-row">

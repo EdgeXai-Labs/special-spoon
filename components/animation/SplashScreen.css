@@ -298,12 +298,36 @@
 }
 
 .brand-url {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
   color: var(--c-navy);
   font-weight: 700;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.1em;
   font-size: 0.8rem;
   margin: 0.7rem 0 1.1rem;
   text-transform: lowercase;
+  padding: 0.4rem 0.5rem 0.4rem 1.15rem;
+  background: var(--c-cream);
+  border: 2px solid var(--c-teal);
+  border-radius: 999px;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.22);
+}
+
+.brand-url-text {
+  line-height: 1;
+}
+
+.brand-url-arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--c-teal);
+  color: #fff;
+  flex: 0 0 auto;
 }
 
 /* Contact info */

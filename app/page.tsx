@@ -25,10 +25,10 @@ export default function Home() {
         <TrustBar />
         {/* <Industries /> */}
         <Products />
-        <Solutions />
+        {/* <Solutions /> */}
         <Benefits />
         {/* <ManufacturingProcess /> */}
-        <Comparison />
+        {/* <Comparison /> */}
         <Support />
         <TrustedBrands />
         <TestimonialSlider />

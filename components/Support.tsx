@@ -216,23 +216,7 @@ export default function Support() {
         </div>
       </div>
 
-      {/* ---------- Downtime comparison ---------- */}
-      <div className="sp-compare">
-        <div className="sp-compare-row">
-          <span className="sp-compare-label">Typical supplier</span>
-          <div className="sp-compare-track">
-            <span className="sp-compare-bar sp-bad" />
-          </div>
-          <span className="sp-compare-value sp-bad-text">3–5 days lost</span>
-        </div>
-        <div className="sp-compare-row">
-          <span className="sp-compare-label">With our service team</span>
-          <div className="sp-compare-track">
-            <span className="sp-compare-bar sp-good" />
-          </div>
-          <span className="sp-compare-value sp-good-text">Same day, mostly</span>
-        </div>
-      </div>
+  
 
       {/* ---------- Lifecycle journey ---------- */}
       <div className="sp-journey">
@@ -241,45 +225,7 @@ export default function Support() {
           <h3 className="sp-block-title">We Stay With You Throughout</h3>
         </div>
 
-        {/* Stage rail */}
-        <div className="sp-rail">
-          <div className="sp-rail-line">
-            <div
-              className="sp-rail-fill"
-              style={{
-                width: `${((activeStage + 1) / stages.length) * 100}%`,
-                background: `linear-gradient(90deg, #DC2626, ${active.color})`,
-              }}
-            />
-          </div>
 
-          {stages.map((st, i) => {
-            const isActive = i === activeStage
-            const isDone = i < activeStage
-            return (
-              <button
-                key={st.key}
-                className={`sp-node ${isActive ? 'is-active' : ''} ${isDone ? 'is-done' : ''}`}
-                onClick={() => setActiveStage(i)}
-                aria-label={st.title}
-              >
-                <span
-                  className="sp-node-dot"
-                  style={{
-                    borderColor: isActive || isDone ? st.color : 'var(--border)',
-                    background: isActive ? `${st.color}12` : isDone ? st.color : '#FFFFFF',
-                    boxShadow: isActive ? `0 0 0 6px ${st.color}14, 0 8px 22px ${st.color}33` : '0 2px 8px rgba(15,23,42,0.05)',
-                  }}
-                >
-                  <span className="sp-node-icon">{isDone ? '✓' : st.icon}</span>
-                </span>
-                <span className="sp-node-step" style={{ color: isActive ? st.color : undefined }}>
-                  {st.step}
-                </span>
-              </button>
-            )
-          })}
-        </div>
 
         {/* Active stage panel */}
         <div
