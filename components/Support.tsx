@@ -309,7 +309,7 @@ export default function Support() {
         .sp-section {
           position: relative;
           overflow: hidden;
-          padding: 3.5rem 1rem 3rem;
+          padding: 2.5rem 1rem;
           background:
             radial-gradient(ellipse at 20% 0%, rgba(220,38,38,0.05) 0%, transparent 55%),
             radial-gradient(circle at center, #F8FAFC 0%, #E2E8F0 100%);
@@ -344,7 +344,7 @@ export default function Support() {
         }
 
         /* ---------- Header ---------- */
-        .sp-header { position: relative; z-index: 2; text-align: center; margin-bottom: 2.5rem; }
+        .sp-header { position: relative; z-index: 2; text-align: center; margin-bottom: 1.25rem; }
 
         .sp-live {
           display: inline-flex;
@@ -411,7 +411,7 @@ export default function Support() {
           grid-template-columns: repeat(2, 1fr);
           gap: 0.75rem;
           max-width: 1080px;
-          margin: 0 auto 3.5rem;
+          margin: 0 auto 1.75rem;
         }
 
         .sp-stat {
@@ -460,7 +460,7 @@ export default function Support() {
           position: relative;
           z-index: 2;
           max-width: 1080px;
-          margin: 0 auto 2.5rem;
+          margin: 0 auto 1.75rem;
         }
 
         .sp-clock {
@@ -563,7 +563,7 @@ export default function Support() {
           position: relative;
           z-index: 2;
           max-width: 1080px;
-          margin: 0 auto 3.5rem;
+          margin: 0 auto 2.5rem;
           padding: 1.25rem 1.1rem;
           border: 1px solid var(--border);
           border-radius: 20px;
@@ -786,7 +786,7 @@ export default function Support() {
           position: relative;
           z-index: 2;
           max-width: 1080px;
-          margin: 2.5rem auto 0;
+          margin: 1.25rem auto 0;
           text-align: center;
         }
         .sp-promise-text {
@@ -841,7 +841,7 @@ export default function Support() {
            TABLET / DESKTOP (>= 768px)
            ============================================ */
         @media (min-width: 768px) {
-          .sp-section { padding: 5rem 2rem 4rem; }
+          .sp-section { padding: 2.75rem 2rem; }
           .sp-title { font-size: 2.6rem; }
           .sp-subtitle { font-size: 1.1rem; }
           .sp-block-title { font-size: 1.7rem; }

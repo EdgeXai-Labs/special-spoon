@@ -7,9 +7,13 @@ export const viewport: Viewport = {
 }
 
 export const metadata: Metadata = {
-  title: 'Your Company Name - Industrial Food Processing Machinery',
+  title: 'Charan Food Tech - Industrial Food Processing Machinery',
   description: 'We design, manufacture, customize and install industrial food processing machinery that improves productivity, reduces operating costs and delivers consistent product quality.',
   keywords: 'food processing machinery, potato chips line, namkeen line, industrial fryer, food manufacturing equipment, custom machinery',
+  icons: {
+    icon: '/images/CFT_logo.svg',
+    apple: '/images/CFT_logo.svg',
+  },
 }
 
 export default function RootLayout({

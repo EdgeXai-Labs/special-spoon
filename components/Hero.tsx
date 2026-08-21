@@ -5,6 +5,8 @@ import { useEffect, useState } from 'react'
 const HERO_SLIDES = [
   {
     id: 'core',
+    backgroundImage: '/images/CFT_Machinery/Continous fryer Line Process-02.png',
+    backgroundPosition: 'center',
     titlePrefix: 'Engineering Better',
     titleHighlight: 'Food Manufacturing',
     description:
@@ -14,7 +16,9 @@ const HERO_SLIDES = [
   },
   {
     id: 'support',
-    titlePrefix: 'Stronger & Improved',
+    backgroundImage: 'https://images.unsplash.com/photo-1534536281715-e28d76689b4d?auto=format&fit=crop&w=1920&q=85',
+    backgroundPosition: 'center 42%',
+    titlePrefix: 'Responsive, Reliable',
     titleHighlight: 'Customer Support',
     description:
       'From quick remote diagnosis to on-site assistance, our support desk is built for faster response, clearer communication, and minimal production downtime.',
@@ -44,7 +48,14 @@ export default function Hero() {
 
   return (
     <section id="home" className="hero">
-      <div className="hero-bg"></div>
+      <div
+        key={`background-${HERO_SLIDES[activeSlide].id}`}
+        className="hero-bg hero-bg-slide"
+        style={{
+          backgroundImage: `linear-gradient(rgba(8, 15, 28, 0.5), rgba(8, 15, 28, 0.58)), url('${HERO_SLIDES[activeSlide].backgroundImage}')`,
+          backgroundPosition: HERO_SLIDES[activeSlide].backgroundPosition,
+        }}
+      />
       <div className="hero-content">
         <div className="hero-slider-window" key={HERO_SLIDES[activeSlide].id}>
           <h1>
@@ -65,7 +76,7 @@ export default function Hero() {
                 href={HERO_SLIDES[activeSlide].secondary.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn btn-secondary"
+                className="btn btn-secondary hero-btn-secondary"
               >
                 {HERO_SLIDES[activeSlide].secondary.label}
               </a>
@@ -73,7 +84,7 @@ export default function Hero() {
               <a
                 href={`#${HERO_SLIDES[activeSlide].secondary.target}`}
                 onClick={(e) => handleNavClick(e, HERO_SLIDES[activeSlide].secondary.target as string)}
-                className="btn btn-secondary"
+                className="btn btn-secondary hero-btn-secondary"
               >
                 {HERO_SLIDES[activeSlide].secondary.label}
               </a>
@@ -95,17 +106,21 @@ export default function Hero() {
 
       <style dangerouslySetInnerHTML={{ __html: `
         .hero {
-          min-height: 88vh;
-          background-image:
-            linear-gradient(rgba(8, 15, 28, 0.76), rgba(8, 15, 28, 0.76)),
-            url('/images/CFT_Machinery/Continous fryer Line Process-02.png');
+          min-height: clamp(440px, 60svh, 600px);
+          background: #0f172a;
+        }
+
+        .hero-bg-slide {
+          z-index: 0;
           background-size: cover;
-          background-position: center;
           background-repeat: no-repeat;
+          animation: heroBackgroundIn 0.7s ease;
         }
 
         .hero-content {
-          min-height: 88vh;
+          position: relative;
+          z-index: 1;
+          min-height: 0;
           display: flex;
           align-items: center;
           justify-content: center;
@@ -115,6 +130,22 @@ export default function Hero() {
         .hero-slider-window p {
           color: #FFFFFF;
           text-shadow: 0 2px 10px rgba(0, 0, 0, 0.45);
+        }
+
+        .hero-slider-window .hero-btn-secondary {
+          background: rgba(255, 255, 255, 0.14);
+          color: #FFFFFF;
+          border: 1px solid rgba(255, 255, 255, 0.32);
+          box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
+          backdrop-filter: blur(10px);
+          -webkit-backdrop-filter: blur(10px);
+        }
+
+        .hero-slider-window .hero-btn-secondary:hover {
+          background: #FFFFFF;
+          color: #DC2626;
+          border-color: #FFFFFF;
+          box-shadow: 0 16px 34px rgba(0, 0, 0, 0.22);
         }
 
         .hero-slider-window {
@@ -153,6 +184,11 @@ export default function Hero() {
             opacity: 1;
             transform: translateX(0);
           }
+        }
+
+        @keyframes heroBackgroundIn {
+          from { opacity: 0.45; transform: scale(1.025); }
+          to { opacity: 1; transform: scale(1); }
         }
       ` }} />
     </section>

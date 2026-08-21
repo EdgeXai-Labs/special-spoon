@@ -19,10 +19,7 @@ export default function Footer() {
       <div className="footer-grid">
         {/* Company Info */}
         <div>
-          <div style={{ fontSize: '1.25rem', fontWeight: 800, marginBottom: '0.5rem', display: 'flex', gap: '0.4rem' }}>
-            <span style={{ color: 'var(--text-primary)' }}>Charan</span>
-            <span style={{ color: '#EF4444' }}>Food Tech</span>
-          </div>
+          <img src="/images/CFT_FULL_ENCHANCED.png" alt="Charan Food Tech" style={{ height: '100px', width: 'auto', marginBottom: '1rem' }} />
           <p style={{ color: 'var(--text-secondary)', lineHeight: 1.5, marginBottom: '1rem' }}>
             <strong style={{ color: 'var(--text-primary)' }}>CHARAN FOOD TECH</strong>
             <br />📍 Krishnagiri Main Road

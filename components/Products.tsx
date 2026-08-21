@@ -13,7 +13,6 @@ export default function Products() {
   const [slideDir, setSlideDir] = useState<'right' | 'left'>('right')
   const [isPaused, setIsPaused] = useState(false)
   const thumbsRef = useRef<HTMLDivElement>(null)
-  const hoverCooldownRef = useRef<number>(0)
 
   const filtered = getProductsByCategory(activeCategory)
 
@@ -51,9 +50,6 @@ export default function Products() {
 
   const goTo = (idx: number) => {
     if (idx === currentIndex) return
-    const now = Date.now()
-    if (now - hoverCooldownRef.current < 220) return
-    hoverCooldownRef.current = now
     setSlideDir(idx > currentIndex ? 'right' : 'left')
     setCurrentIndex(idx)
   }
@@ -162,13 +158,18 @@ export default function Products() {
       </div>
 
       {/* ── Thumbnail Strip ── */}
-      <div className="showcase-thumbs" ref={thumbsRef}>
+      <div
+        className="showcase-thumbs"
+        ref={thumbsRef}
+        onMouseEnter={() => setIsPaused(true)}
+        onMouseLeave={() => setIsPaused(false)}
+      >
         {filtered.map((product, i) => (
           <button
             key={product.slug}
             className={`thumb-btn${i === currentIndex ? ' active' : ''}`}
             type="button"
-            onMouseEnter={() => goTo(i)}
+            onClick={() => goTo(i)}
             onFocus={() => goTo(i)}
             title={`Open ${product.title}`}
             aria-label={`Show ${product.title}`}

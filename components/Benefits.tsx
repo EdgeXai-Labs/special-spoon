@@ -279,15 +279,15 @@ export default function Benefits() {
 
         /* Desktop: full orbital stage */
         .benefits-orbit-stage {
-          height: 600px;
+          height: 430px;
           overflow: visible;
         }
 
         /* Orbit rings (desktop only) */
         .orbit-ring {
           position: absolute;
-          width: 840px;
-          height: 440px;
+          width: 760px;
+          height: 390px;
           border: 1px dashed rgba(51, 65, 85, 0.5);
           border-radius: 50%;
           transform: rotateX(12deg);
@@ -297,8 +297,8 @@ export default function Benefits() {
 
         .orbit-ring-outer {
           position: absolute;
-          width: 980px;
-          height: 520px;
+          width: 820px;
+          height: 420px;
           border: 1px solid rgba(59, 130, 246, 0.12);
           border-radius: 50%;
           transform: rotateX(12deg);
@@ -401,7 +401,7 @@ export default function Benefits() {
            ======================== */
         @media (min-width: 768px) and (max-width: 1023px) {
           .benefits-orbit-stage {
-            height: 500px;
+            height: 380px;
           }
         }
       `}} />

@@ -305,7 +305,7 @@ export default function TestimonialSlider() {
         .ts-section {
           position: relative;
           overflow: hidden;
-          padding: 3.5rem 1rem 3rem;
+          padding: 2.5rem 1rem;
           background: radial-gradient(circle at center, #F8FAFC 0%, #E2E8F0 100%);
         }
 
@@ -321,7 +321,7 @@ export default function TestimonialSlider() {
           position: relative;
           z-index: 2;
           text-align: center;
-          margin-bottom: 2.5rem;
+          margin-bottom: 1.25rem;
         }
 
         .ts-eyebrow {
@@ -365,7 +365,7 @@ export default function TestimonialSlider() {
            they never travel sideways */
         .ts-slot {
           position: relative;
-          min-height: 380px;
+          min-height: 310px;
           display: flex;
         }
 
@@ -523,7 +523,7 @@ export default function TestimonialSlider() {
           display: flex;
           justify-content: center;
           gap: 0.5rem;
-          margin-top: 2rem;
+          margin-top: 1.25rem;
         }
         .ts-pagedot {
           width: 10px; height: 10px;
@@ -540,11 +540,11 @@ export default function TestimonialSlider() {
            TABLET & UP — the two cards sit side by side
            ============================================ */
         @media (min-width: 768px) {
-          .ts-section { padding: 5rem 2rem 4rem; }
+          .ts-section { padding: 2.75rem 2rem; }
           .ts-title { font-size: 2.5rem; }
           .ts-subtitle { font-size: 1.1rem; }
           .ts-stage { grid-template-columns: 1fr 1fr; gap: 2rem; }
-          .ts-slot { min-height: 420px; }
+          .ts-slot { min-height: 340px; }
           .ts-card { padding: 2.25rem 2rem 1.75rem; }
           .ts-quote { font-size: 1.05rem; }
           .ts-quote-mark { font-size: 7rem; }

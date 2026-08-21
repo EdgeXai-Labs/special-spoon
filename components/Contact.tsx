@@ -361,7 +361,7 @@ export default function Contact() {
         .ct-section {
           position: relative;
           overflow: hidden;
-          padding: 3.5rem 1rem 3.5rem;
+          padding: 2.5rem 1rem;
           background:
             radial-gradient(ellipse at 80% 0%, rgba(220,38,38,0.05) 0%, transparent 55%),
             radial-gradient(circle at center, #F8FAFC 0%, #E2E8F0 100%);
@@ -392,7 +392,7 @@ export default function Contact() {
         }
 
         /* ---------- Header ---------- */
-        .ct-header { position: relative; z-index: 2; text-align: center; margin-bottom: 2.5rem; }
+        .ct-header { position: relative; z-index: 2; text-align: center; margin-bottom: 1.25rem; }
 
         .ct-eyebrow {
           display: inline-flex;
@@ -876,7 +876,7 @@ export default function Contact() {
            TABLET / DESKTOP (>= 768px)
            ============================================ */
         @media (min-width: 768px) {
-          .ct-section { padding: 5rem 2rem 4.5rem; }
+          .ct-section { padding: 2.75rem 2rem; }
           .ct-title { font-size: 2.6rem; }
           .ct-subtitle { font-size: 1.1rem; }
           .ct-panel { padding: 2.25rem 2rem; }

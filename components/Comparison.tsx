@@ -198,7 +198,7 @@ export default function Comparison() {
         .cp-section {
           position: relative;
           overflow: hidden;
-          padding: 3.5rem 1rem 3rem;
+          padding: 2.5rem 1rem;
           background:
             radial-gradient(ellipse at 50% 100%, rgba(22,163,74,0.06) 0%, transparent 60%),
             radial-gradient(circle at center, #F8FAFC 0%, #E2E8F0 100%);
@@ -210,7 +210,7 @@ export default function Comparison() {
         .cp-glow-right { right: -100px; background: rgba(22,163,74,0.13); }
 
         /* ---------- Header ---------- */
-        .cp-header { position: relative; z-index: 2; text-align: center; margin-bottom: 2.25rem; }
+        .cp-header { position: relative; z-index: 2; text-align: center; margin-bottom: 1.25rem; }
 
         .cp-eyebrow {
           display: inline-block;
@@ -500,7 +500,7 @@ export default function Comparison() {
            TABLET (>= 768px)
            ============================================ */
         @media (min-width: 768px) {
-          .cp-section { padding: 5rem 2rem 4rem; }
+          .cp-section { padding: 2.75rem 2rem; }
           .cp-title { font-size: 2.5rem; }
           .cp-subtitle { font-size: 1.1rem; }
           .cp-arena { padding: 2.25rem 2rem 2rem; }

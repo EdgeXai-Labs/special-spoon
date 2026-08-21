@@ -39,10 +39,10 @@ export default function Navigation() {
   const navItems: { label: string; id: string; href?: string }[] = [
     { label: 'Home', id: 'home' },
     { label: 'About', id: 'about', href: '/about' },
-    { label: 'Products', id: 'products' },
+    { label: 'Products', id: 'products', href: '/products' },
     { label: 'Industries', id: 'industries' },
-    { label: 'Support', id: 'support' },
-    { label: 'Contact', id: 'contact' },
+    { label: 'Support', id: 'support', href: '/support' },
+    { label: 'Contact', id: 'contact', href: '/contact' },
   ]
 
   return (
@@ -53,13 +53,8 @@ export default function Navigation() {
       }}
     >
       <div className="nav-container">
-        <Link
-          href="/"
-          className="logo"
-          style={{ color: 'var(--text-primary)', display: 'flex', alignItems: 'center', gap: '0.4rem', textDecoration: 'none' }}
-        >
-          <span style={{ color: 'var(--text-primary)', fontWeight: 800 }}>Charan</span>
-          <span style={{ color: '#EF4444', fontWeight: 800 }}>Food Tech</span>
+        <Link href="/" className="logo">
+          <img src="/images/CFT_FULL_ENCHANCED.png" alt="Charan Food Tech" style={{ height: '58px', width: 'auto' }} />
         </Link>
 
         {/* Desktop nav links */}
