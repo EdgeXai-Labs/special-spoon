@@ -152,6 +152,42 @@ export default function Hero() {
           animation: heroSlideIn 0.55s ease;
         }
 
+        @media (max-width: 767px) {
+          .hero {
+            min-height: 500px;
+            height: auto;
+            padding: 92px 1rem 1.5rem;
+          }
+
+          .hero-content {
+            width: 100%;
+          }
+
+          .hero-slider-window h1 {
+            font-size: clamp(1.75rem, 8vw, 2.15rem);
+            margin-bottom: 0.75rem;
+          }
+
+          .hero-slider-window p {
+            font-size: 0.92rem;
+            line-height: 1.5;
+            margin-bottom: 1rem;
+          }
+
+          .hero-buttons {
+            gap: 0.6rem;
+          }
+
+          .hero-buttons .btn {
+            padding: 0.75rem 1rem;
+            font-size: 0.88rem;
+          }
+
+          .hero-slide-dots {
+            margin-top: 0.75rem;
+          }
+        }
+
         .hero-slide-dots {
           display: flex;
           gap: 0.5rem;

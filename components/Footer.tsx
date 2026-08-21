@@ -18,8 +18,8 @@ export default function Footer() {
     <footer className="footer">
       <div className="footer-grid">
         {/* Company Info */}
-        <div>
-          <img src="/images/CFT_FULL_ENCHANCED.png" alt="Charan Food Tech" style={{ height: '100px', width: 'auto', marginBottom: '1rem' }} />
+        <div className="footer-company-info">
+          <img className="footer-logo" src="/images/CFT_FULL_ENCHANCED.png" alt="Charan Food Tech" />
           <p style={{ color: 'var(--text-secondary)', lineHeight: 1.5, marginBottom: '1rem' }}>
             <strong style={{ color: 'var(--text-primary)' }}>CHARAN FOOD TECH</strong>
             <br />📍 Krishnagiri Main Road
@@ -37,7 +37,7 @@ export default function Footer() {
         </div>
 
         {/* Products */}
-        <div>
+        <div className="footer-nav-group">
           <h4 style={{ color: 'var(--accent)', fontSize: '1.1rem', marginBottom: '0.75rem' }}>Products</h4>
           <ul style={{ listStyle: 'none', lineHeight: 1.8 }}>
             {['Potato Chips Line', 'Banana Chips Line', 'Namkeen Line', 'Automatic Fryer', 'Custom Machinery'].map(
@@ -53,7 +53,7 @@ export default function Footer() {
         </div>
 
         {/* Company */}
-        <div>
+        <div className="footer-nav-group">
           <h4 style={{ color: 'var(--accent)', fontSize: '1.1rem', marginBottom: '0.75rem' }}>Company</h4>
           <ul style={{ listStyle: 'none', lineHeight: 1.8 }}>
             <li><Link href="/about" className="footer-link">About Us</Link></li>
@@ -65,7 +65,7 @@ export default function Footer() {
         </div>
 
         {/* Support */}
-        <div>
+        <div className="footer-nav-group">
           <h4 style={{ color: 'var(--accent)', fontSize: '1.1rem', marginBottom: '0.75rem' }}>Support</h4>
           <ul style={{ listStyle: 'none', lineHeight: 1.8 }}>
             {['Installation', 'Training', 'Spare Parts', 'AMC', 'FAQs'].map((item) => (
