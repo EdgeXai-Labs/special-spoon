@@ -10,7 +10,6 @@ import Comparison from '@/components/Comparison'
 import Support from '@/components/Support'
 import TrustedBrands from '@/components/TrustedBrands'
 import TestimonialSlider from '@/components/TestimonialSlider'
-import Testimonials from '@/components/Testimonials'
 import FAQ from '@/components/FAQ'
 import Contact from '@/components/Contact'
 import Footer from '@/components/Footer'
@@ -32,7 +31,6 @@ export default function Home() {
         <Support />
         <TrustedBrands />
         <TestimonialSlider />
-        <Testimonials />
         <FAQ />
         <Contact />
       </main>

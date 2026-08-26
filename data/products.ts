@@ -392,8 +392,7 @@ const PRODUCT_SEEDS: ProductSeed[] = [
     },
   },
   {
-    // TODO: replace with '/images/CFT_Machinery/encrusting machine.png' once the photo is added to public/images/CFT_Machinery
-    image: '/images/machine-placeholder.svg',
+    image: '/images/CFT_Machinery/RING MASTERR.png',
     title: 'Encrusting Machine',
     category: 'Forming',
     shortDescription: 'Automated encrusting system integrating filling, forming and delivery for filled products.',
