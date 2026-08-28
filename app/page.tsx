@@ -4,10 +4,12 @@ import TrustBar from '@/components/TrustBar'
 // import Industries from '@/components/Industries'
 import Products from '@/components/Products'
 import Solutions from '@/components/Solutions'
-import Benefits from '@/components/Benefits'
+// import Benefits from '@/components/Benefits' // OLD: Commented out
+import WhyChooseMachines from '@/components/WhyChooseMachines' // NEW: Modern section
 // import ManufacturingProcess from '@/components/ManufacturingProcess'
 import Comparison from '@/components/Comparison'
 import Support from '@/components/Support'
+import Gallery from '@/components/Gallery'
 import TrustedBrands from '@/components/TrustedBrands'
 import TestimonialSlider from '@/components/TestimonialSlider'
 import FAQ from '@/components/FAQ'
@@ -25,13 +27,15 @@ export default function Home() {
         {/* <Industries /> */}
         <Products />
         {/* <Solutions /> */}
-        <Benefits />
+        {/* <Benefits /> OLD: 3D orbital animation section */}
+        <WhyChooseMachines /> {/* NEW: Professional machine showcase section */}
         {/* <ManufacturingProcess /> */}
         {/* <Comparison /> */}
-        <Support />
+        <Gallery /> {/* NEW: Reels-style video gallery */}
         <TrustedBrands />
         <TestimonialSlider />
-        <FAQ />
+        <Support />
+        {/* <FAQ /> */}
         <Contact />
       </main>
       <Footer />

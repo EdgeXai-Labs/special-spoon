@@ -1,0 +1,663 @@
+/* ============================================================
+   CHARAN FOOD TECH — CUSTOMER SUPPORT SECTION
+   Compact "End-to-End Machine Support Lifecycle"
+   Scoped under .charan-support-section
+   ============================================================ */
+
+.charan-support-section {
+  --cs-red: #D71920;
+  --cs-navy: #101B32;
+  --cs-text: #172033;
+  --cs-muted: #68738A;
+  --cs-bg: #F7F9FC;
+  --cs-white: #FFFFFF;
+  --cs-line: rgba(16, 27, 50, 0.1);
+  --cs-line-soft: rgba(16, 27, 50, 0.06);
+  --cs-green: #15803D;
+
+  position: relative;
+  overflow: hidden;
+  padding: clamp(2.5rem, 5vw, 3.75rem) clamp(1rem, 4vw, 2.5rem);
+  background: var(--cs-bg);
+  color: var(--cs-text);
+}
+
+/* Thin industrial rule at the top of the band */
+.charan-support-section::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 1px;
+  background: var(--cs-line);
+}
+
+.charan-support-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+/* ============================================================
+   1. HEADER — compact, two-column on desktop
+   ============================================================ */
+.charan-support-header {
+  display: grid;
+  gap: 0.85rem 2.5rem;
+  align-items: end;
+  margin-bottom: clamp(1.5rem, 3vw, 2rem);
+}
+
+.charan-support-header-main {
+  min-width: 0;
+}
+
+.charan-support-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--cs-red);
+  margin-bottom: 0.6rem;
+}
+
+.charan-support-eyebrow::before {
+  content: '';
+  width: 26px;
+  height: 2px;
+  background: var(--cs-red);
+}
+
+.charan-support-title {
+  font-size: clamp(1.65rem, 3.4vw, 2.5rem);
+  font-weight: 800;
+  line-height: 1.14;
+  letter-spacing: -0.02em;
+  color: var(--cs-navy);
+  margin: 0;
+}
+
+.charan-support-title span {
+  color: var(--cs-red);
+}
+
+.charan-support-lede {
+  font-size: clamp(0.9rem, 1.15vw, 1rem);
+  line-height: 1.6;
+  color: var(--cs-muted);
+  margin: 0;
+  max-width: 42ch;
+}
+
+.charan-support-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  align-self: start;
+  padding: 0.4rem 0.75rem;
+  border: 1px solid rgba(21, 128, 61, 0.24);
+  border-radius: 6px;
+  background: rgba(21, 128, 61, 0.07);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--cs-green);
+  white-space: nowrap;
+}
+
+.charan-support-status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--cs-green);
+  animation: charanSupportPing 2s ease-out infinite;
+}
+
+@keyframes charanSupportPing {
+  0%   { box-shadow: 0 0 0 0 rgba(21, 128, 61, 0.5); }
+  70%  { box-shadow: 0 0 0 8px rgba(21, 128, 61, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(21, 128, 61, 0); }
+}
+
+/* ============================================================
+   2. STATISTICS — single flat strip, no floating cards
+   ============================================================ */
+.charan-support-stats {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  border: 1px solid var(--cs-line);
+  border-radius: 14px;
+  background: var(--cs-white);
+  box-shadow: 0 2px 10px rgba(16, 27, 50, 0.04);
+  overflow: hidden;
+  margin-bottom: clamp(1.75rem, 3.5vw, 2.25rem);
+}
+
+.charan-support-stat {
+  position: relative;
+  padding: 0.95rem 1rem 1rem;
+  border-right: 1px solid var(--cs-line-soft);
+  border-bottom: 1px solid var(--cs-line-soft);
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.55s ease, transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.charan-support-stat:nth-child(2n) { border-right: 0; }
+.charan-support-stat:nth-last-child(-n + 2) { border-bottom: 0; }
+
+.charan-support-section.is-visible .charan-support-stat {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.charan-support-stat-value {
+  display: flex;
+  align-items: baseline;
+  gap: 0.05rem;
+  font-size: clamp(1.5rem, 2.6vw, 2rem);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--cs-navy);
+  font-variant-numeric: tabular-nums;
+}
+
+.charan-support-stat-suffix {
+  font-size: 0.6em;
+  font-weight: 800;
+  color: var(--cs-red);
+}
+
+.charan-support-stat-label {
+  margin-top: 0.4rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--cs-text);
+  line-height: 1.25;
+}
+
+.charan-support-stat-sub {
+  margin-top: 0.1rem;
+  font-size: 0.7rem;
+  color: var(--cs-muted);
+  line-height: 1.35;
+}
+
+.charan-support-stat-rule {
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  height: 2px;
+  width: 0;
+  background: var(--cs-red);
+  transition: width 1s ease 0.35s;
+}
+
+.charan-support-section.is-visible .charan-support-stat-rule { width: 38px; }
+
+/* ============================================================
+   3. LIFECYCLE TIMELINE
+   ============================================================ */
+.charan-support-lifecycle {
+  margin-bottom: clamp(1.5rem, 3vw, 2rem);
+}
+
+.charan-support-blocktitle {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  margin: 0 0 clamp(1.1rem, 2.2vw, 1.5rem);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--cs-navy);
+}
+
+.charan-support-blocktitle::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--cs-line);
+}
+
+.charan-support-steps {
+  --cs-node: 40px;
+  --cs-step-gap: 1.15rem;
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+}
+
+.charan-support-step {
+  position: relative;
+  display: grid;
+  grid-template-columns: var(--cs-node) minmax(0, 1fr);
+  column-gap: 0.9rem;
+  padding: 0 0 var(--cs-step-gap);
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.charan-support-step:last-child { padding-bottom: 0; }
+
+.charan-support-section.is-visible .charan-support-step {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Connector: vertical on mobile, node-centre to node-centre */
+.charan-support-step-connector {
+  position: absolute;
+  left: calc(var(--cs-node) / 2 - 1px);
+  top: var(--cs-node);
+  bottom: 0;
+  width: 2px;
+  border-radius: 2px;
+  background: var(--cs-line);
+  overflow: hidden;
+}
+
+.charan-support-step:last-child .charan-support-step-connector { display: none; }
+
+.charan-support-step-connector::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--cs-red);
+  transform: scaleY(0);
+  transform-origin: top center;
+  transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1) var(--cs-delay, 0ms);
+}
+
+.charan-support-section.is-visible .charan-support-step-connector::after {
+  transform: scaleY(1);
+}
+
+.charan-support-step-node {
+  position: relative;
+  z-index: 1;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--cs-line);
+  border-radius: 12px;
+  background: var(--cs-white);
+  color: var(--cs-red);
+  box-shadow: 0 2px 8px rgba(16, 27, 50, 0.05);
+}
+
+.charan-support-step-node svg {
+  width: 18px;
+  height: 18px;
+  stroke-width: 1.9;
+}
+
+.charan-support-step-body { min-width: 0; }
+
+.charan-support-step-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--cs-red);
+  margin-bottom: 0.2rem;
+}
+
+.charan-support-step-num {
+  color: var(--cs-muted);
+}
+
+.charan-support-step-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--cs-navy);
+  line-height: 1.3;
+  margin: 0 0 0.15rem;
+}
+
+.charan-support-step-desc {
+  font-size: 0.8rem;
+  line-height: 1.45;
+  color: var(--cs-muted);
+  margin: 0;
+}
+
+/* ============================================================
+   4. SUPPORT SERVICE PANEL — "We stay with you" + 4 services
+   ============================================================ */
+.charan-support-panel {
+  display: grid;
+  grid-template-columns: 1fr;
+  border: 1px solid var(--cs-line);
+  border-radius: 16px;
+  background: var(--cs-white);
+  box-shadow: 0 4px 18px rgba(16, 27, 50, 0.05);
+  overflow: hidden;
+  margin-bottom: clamp(1.5rem, 3vw, 2rem);
+}
+
+.charan-support-panel-intro {
+  padding: clamp(1.15rem, 2.4vw, 1.6rem);
+  background: var(--cs-navy);
+  color: #fff;
+}
+
+.charan-support-panel-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #FF6B71;
+  margin-bottom: 0.55rem;
+}
+
+.charan-support-panel-title {
+  font-size: clamp(1.1rem, 1.9vw, 1.4rem);
+  font-weight: 800;
+  line-height: 1.24;
+  letter-spacing: -0.01em;
+  margin: 0 0 0.5rem;
+  color: #fff;
+}
+
+.charan-support-panel-text {
+  font-size: 0.85rem;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0 0 0.9rem;
+}
+
+.charan-support-panel-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.charan-support-panel-tags li {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.28rem 0.55rem;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 6px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: rgba(255, 255, 255, 0.86);
+}
+
+.charan-support-panel-tags svg {
+  width: 12px;
+  height: 12px;
+  stroke-width: 2.4;
+  color: #FF6B71;
+  flex-shrink: 0;
+}
+
+/* 2 x 2 service grid */
+.charan-support-services {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.charan-support-service {
+  padding: clamp(0.85rem, 1.8vw, 1.2rem);
+  border-right: 1px solid var(--cs-line-soft);
+  border-bottom: 1px solid var(--cs-line-soft);
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.charan-support-service:nth-child(2n) { border-right: 0; }
+.charan-support-service:nth-last-child(-n + 2) { border-bottom: 0; }
+
+.charan-support-section.is-visible .charan-support-service {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.charan-support-service-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 9px;
+  background: rgba(215, 25, 32, 0.08);
+  color: var(--cs-red);
+  margin-bottom: 0.6rem;
+}
+
+.charan-support-service-icon svg {
+  width: 16px;
+  height: 16px;
+  stroke-width: 2;
+}
+
+.charan-support-service-title {
+  font-size: 0.86rem;
+  font-weight: 700;
+  color: var(--cs-navy);
+  line-height: 1.3;
+  margin: 0 0 0.2rem;
+}
+
+.charan-support-service-desc {
+  font-size: 0.76rem;
+  line-height: 1.45;
+  color: var(--cs-muted);
+  margin: 0;
+}
+
+/* ============================================================
+   5. CTA — compact single row
+   ============================================================ */
+.charan-support-cta {
+  display: grid;
+  gap: 0.9rem;
+  align-items: center;
+  padding: clamp(1rem, 2.2vw, 1.35rem) clamp(1.1rem, 2.4vw, 1.6rem);
+  border: 1px solid var(--cs-line);
+  border-left: 3px solid var(--cs-red);
+  border-radius: 12px;
+  background: var(--cs-white);
+}
+
+.charan-support-cta-text {
+  font-size: clamp(0.9rem, 1.3vw, 1.02rem);
+  font-weight: 700;
+  line-height: 1.45;
+  color: var(--cs-navy);
+  margin: 0;
+}
+
+.charan-support-cta-text small {
+  display: block;
+  margin-top: 0.2rem;
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--cs-muted);
+}
+
+.charan-support-cta-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.charan-support-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  padding: 0.7rem 1.15rem;
+  border-radius: 10px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: transform 0.25s ease, box-shadow 0.25s ease,
+    background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+}
+
+.charan-support-btn svg {
+  width: 16px;
+  height: 16px;
+  stroke-width: 2.1;
+}
+
+.charan-support-btn-primary {
+  background: var(--cs-red);
+  color: #fff;
+  border: 1px solid var(--cs-red);
+  box-shadow: 0 6px 16px rgba(215, 25, 32, 0.22);
+}
+
+.charan-support-btn-primary:hover {
+  background: #B8141A;
+  border-color: #B8141A;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 22px rgba(215, 25, 32, 0.28);
+}
+
+.charan-support-btn-ghost {
+  background: var(--cs-white);
+  color: var(--cs-navy);
+  border: 1px solid var(--cs-line);
+}
+
+.charan-support-btn-ghost:hover {
+  border-color: var(--cs-navy);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(16, 27, 50, 0.1);
+}
+
+/* ============================================================
+   RESPONSIVE — >= 640px (large phone / small tablet)
+   ============================================================ */
+@media (min-width: 640px) {
+  .charan-support-stats { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .charan-support-stat { border-bottom: 0; }
+  .charan-support-stat:nth-child(2n) { border-right: 1px solid var(--cs-line-soft); }
+  .charan-support-stat:last-child { border-right: 0; }
+
+  .charan-support-cta {
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 1.25rem;
+  }
+}
+
+/* ============================================================
+   RESPONSIVE — >= 768px (tablet): horizontal timeline
+   ============================================================ */
+@media (min-width: 768px) {
+  .charan-support-header {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+
+  .charan-support-header-main { grid-column: 1; }
+  .charan-support-status { grid-column: 2; grid-row: 1; align-self: center; }
+  .charan-support-lede { grid-column: 1 / -1; }
+
+  /* Timeline becomes horizontal */
+  .charan-support-steps {
+    --cs-col-gap: clamp(0.9rem, 2vw, 1.75rem);
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    column-gap: var(--cs-col-gap);
+  }
+
+  .charan-support-step {
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: 0.65rem;
+    padding: 0;
+  }
+
+  /* Connector runs right from the node centre into the next column */
+  .charan-support-step-connector {
+    left: var(--cs-node);
+    right: calc(-1 * var(--cs-col-gap));
+    top: calc(var(--cs-node) / 2 - 1px);
+    bottom: auto;
+    width: auto;
+    height: 2px;
+  }
+
+  .charan-support-step-connector::after {
+    transform: scaleX(0);
+    transform-origin: left center;
+  }
+
+  .charan-support-section.is-visible .charan-support-step-connector::after {
+    transform: scaleX(1);
+  }
+
+  .charan-support-step-body { padding-right: 0.5rem; }
+
+  /* Panel becomes two-column */
+  .charan-support-panel {
+    grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+  }
+}
+
+/* ============================================================
+   RESPONSIVE — >= 1024px (desktop)
+   ============================================================ */
+@media (min-width: 1024px) {
+  .charan-support-header {
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr) auto;
+    align-items: end;
+  }
+
+  .charan-support-header-main { grid-column: 1; }
+  .charan-support-lede { grid-column: 2; grid-row: 1; padding-bottom: 0.2rem; }
+  .charan-support-status { grid-column: 3; grid-row: 1; align-self: end; margin-bottom: 0.25rem; }
+
+  .charan-support-panel {
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+  }
+
+  .charan-support-step-title { font-size: 1rem; }
+  .charan-support-step-desc { font-size: 0.82rem; }
+}
+
+/* ============================================================
+   REDUCED MOTION
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  .charan-support-section *,
+  .charan-support-section *::before,
+  .charan-support-section *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .charan-support-stat,
+  .charan-support-step,
+  .charan-support-service {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .charan-support-step-connector::after { transform: none !important; }
+  .charan-support-stat-rule { width: 38px !important; }
+}
