@@ -7,16 +7,16 @@ import React, { useEffect, useRef, useState } from 'react'
    Replace the placeholder numbers, email and map embed below.
    ============================================================ */
 const COMPANY = {
-  phone1: '+91 98442 06206',
+  phone1: '+91 9150081328',
   phone2: '+91 XXXXX XXXXX',
-  whatsapp: '+91 98442 06206',
-  whatsappLink: 'https://wa.me/919999999999',
+  whatsapp: '+91 9150081328',
+  whatsappLink: 'https://wa.me/919150081328',
   email: 'sales@charanfoodtech.com',
   salesEmail: 'sales@charanfoodtech.com',
   address: ['Krishnagiri Main Road', 'Baisuhalli Village, Dharmapuri', 'Tamil Nadu – 635205'],
   mapEmbed: '', // paste a Google Maps embed URL here to replace the placeholder
 }
-
+ 
 /* Step 1 — what do they want to make */
 const machineTypes = [
   { key: 'chips', icon: '🥔', label: 'Potato Chips Line' },
