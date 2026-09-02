@@ -28,7 +28,6 @@ export default function Home() {
         <Products />
         {/* <Solutions /> */}
         {/* <Benefits /> OLD: 3D orbital animation section */}
-        <WhyChooseMachines /> {/* NEW: Professional machine showcase section */}
         {/* <ManufacturingProcess /> */}
         {/* <Comparison /> */}
         <Gallery /> {/* NEW: Reels-style video gallery */}
@@ -37,6 +36,7 @@ export default function Home() {
         <Support />
         {/* <FAQ /> */}
         <Contact />
+        <WhyChooseMachines /> {/* NEW: Professional machine showcase section */}
       </main>
       <Footer />
     </SplashGate>
