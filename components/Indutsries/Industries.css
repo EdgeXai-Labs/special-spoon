@@ -1,0 +1,739 @@
+@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=DM+Sans:wght@400;500;600;700&family=Montserrat:wght@500;600;700;800&display=swap");
+
+:root {
+  --industries-red: var(--brand-red, #dc2626);
+  --industries-red-light: var(--brand-red-hover, #ef4444);
+  --industries-red-dark: #b91c1c;
+  --orange: var(--industries-red);
+  --orange-dark: var(--industries-red-dark);
+  --ink: #111b29;
+  --muted: #53606d;
+  --cream: #fff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #fff;
+  color: var(--ink);
+  font-family: "DM Sans", Arial, sans-serif;
+}
+
+.industries-page {
+  min-height: 100vh;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 45% 18%, rgba(220, 38, 38, 0.08), transparent 24%),
+    linear-gradient(180deg, #fff 0%, #fff 62%, #f8fafc 100%),
+    #fff;
+}
+
+/* ---------------- HERO ---------------- */
+
+.hero {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(360px, 42%) minmax(520px, 1fr);
+  grid-template-rows: auto 1fr;
+  column-gap: clamp(24px, 4vw, 72px);
+  min-height: 430px;
+  padding: 31px 3.7% 18px;
+}
+
+.brand {
+  position: relative;
+  grid-column: 1 / -1;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.brand-mark {
+  position: relative;
+  width: 73px;
+  height: 60px;
+  color: #26313c;
+}
+
+.gear {
+  position: absolute;
+  top: -10px;
+  left: 0;
+  font-size: 51px;
+  line-height: 1;
+}
+
+.wheat {
+  position: absolute;
+  top: 4px;
+  left: 35px;
+  color: var(--industries-red);
+  font-size: 41px;
+  transform: rotate(-30deg);
+}
+
+.brand-name {
+  font-family: "Montserrat", sans-serif;
+  font-size: 25px;
+  font-weight: 800;
+  letter-spacing: -1.2px;
+  color: #34404c;
+}
+
+.brand-name span {
+  color: var(--industries-red);
+}
+
+.brand-tagline {
+  margin-top: -2px;
+  color: #3f4852;
+  font-size: 13px;
+  letter-spacing: 0.2px;
+}
+
+.hero-copy {
+  position: relative;
+  grid-column: 1;
+  grid-row: 2;
+  z-index: 2;
+  max-width: 640px;
+  margin-top: 83px;
+}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 6px;
+}
+
+.eyebrow span {
+  display: block;
+  width: 47px;
+  height: 2px;
+  background: var(--industries-red);
+}
+
+.hero h1 {
+  margin: 13px 0 8px;
+  font-family: "Montserrat", sans-serif;
+  font-size: clamp(42px, 4.05vw, 66px);
+  line-height: 1.04;
+  letter-spacing: -2.8px;
+  font-weight: 800;
+}
+
+.hero h1 em {
+  color: var(--industries-red);
+  font-style: normal;
+}
+
+.hero-copy > p {
+  margin: 12px 0;
+  color: #465360;
+  font-size: 18px;
+  line-height: 1.55;
+}
+
+/* right illustrated visual */
+.hero-art {
+  position: relative;
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  align-self: stretch;
+  width: 100%;
+  min-height: 395px;
+  overflow: hidden;
+}
+
+.hero-art::before {
+  position: absolute;
+  top: -60px;
+  left: 0;
+  width: min(48vw, 520px);
+  height: 470px;
+  content: "";
+  border-radius: 50%;
+  background: linear-gradient(135deg, #eeeeeb, #fbfaf7 72%);
+}
+
+.food-collage {
+  position: absolute;
+  top: 54px;
+  left: 6%;
+  display: flex;
+  align-items: flex-start;
+  gap: clamp(6px, 1vw, 12px);
+  height: 318px;
+}
+
+.collage-food {
+  width: 134px;
+  height: 318px;
+  background-position: center;
+  background-size: cover;
+  border: 7px solid #fff;
+  box-shadow: 0 2px 9px rgba(0, 0, 0, 0.06);
+}
+
+.food-sweets {
+  margin-top: 68px;
+  height: 251px;
+  border-radius: 100px 0 0 0;
+}
+
+.food-bakery {
+  border-radius: 0 0 75px 0;
+}
+
+.food-namkeen {
+  margin-top: 110px;
+  height: 208px;
+  border-radius: 0 70px 0 0;
+}
+
+.food-chips {
+  margin-top: 28px;
+  height: 250px;
+  border-radius: 70px 0 0 0;
+}
+
+.art-label {
+  position: absolute;
+  z-index: 2;
+  font-family: "Caveat", cursive;
+  color: #171d27;
+  font-size: 30px;
+  line-height: 0.84;
+  transform: rotate(-11deg);
+}
+
+.traditional {
+  top: 44px;
+  left: 4%;
+}
+
+.modern {
+  top: 85px;
+  left: 43%;
+}
+
+.global {
+  right: 14%;
+  bottom: 18px;
+  font-size: 31px;
+}
+
+.orange-orbit {
+  position: absolute;
+  z-index: 1;
+  top: -198px;
+  right: -148px;
+  width: 455px;
+  height: 490px;
+  padding: 282px 0 0 101px;
+  border-radius: 50%;
+  color: white;
+  background: linear-gradient(145deg, var(--industries-red-light) 0%, var(--industries-red) 52%, var(--industries-red-dark) 100%);
+}
+
+.orange-orbit p {
+  margin: 0;
+  font-family: "Montserrat", sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.8;
+  letter-spacing: 4px;
+}
+
+.orange-orbit span {
+  display: block;
+  width: 43px;
+  height: 2px;
+  margin-top: 19px;
+  background: #fff;
+}
+
+.right-message {
+  position: absolute;
+  right: 8%;
+  bottom: 58px;
+  color: #48515b;
+  font-family: "Montserrat", sans-serif;
+  font-size: 8px;
+  line-height: 2.8;
+  letter-spacing: 3px;
+}
+
+/* ---------------- CARDS ---------------- */
+
+.category-grid {
+  position: relative;
+  z-index: 3;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 13px;
+  padding: 0 2.1%;
+}
+
+.food-card {
+  min-width: 0;
+  overflow: hidden;
+  border-radius: 29px 29px 12px 12px;
+  background: #fff;
+  box-shadow: 0 3px 12px rgba(20, 27, 35, 0.1);
+}
+
+.card-image {
+  height: 196px;
+  background-position: center;
+  background-size: cover;
+}
+
+.card-body {
+  position: relative;
+  min-height: 184px;
+  padding: 18px 24px 18px;
+}
+
+.category-icon {
+  position: absolute;
+  top: -41px;
+  left: 15px;
+  display: grid;
+  width: 44px;
+  height: 44px;
+  place-items: center;
+  border: 3px solid #fff;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 5px 16px rgba(220, 38, 38, 0.14);
+}
+
+.category-icon svg,
+.feature svg,
+.explore-link svg,
+.expert-button svg {
+  fill: none;
+  stroke: var(--industries-red);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.8;
+}
+
+.category-icon svg {
+  width: 35px;
+  height: 35px;
+}
+
+.food-card h2 {
+  margin: 0 0 8px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 17px;
+  line-height: 1.2;
+  font-weight: 800;
+  letter-spacing: -0.7px;
+}
+
+.food-card p {
+  min-height: 75px;
+  margin: 0;
+  color: #4e5964;
+  font-size: 15px;
+  line-height: 1.27;
+}
+
+.explore-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  margin-top: 10px;
+  color: var(--industries-red);
+  font-size: 16px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.explore-link svg {
+  width: 19px;
+  height: 19px;
+}
+
+/* ---------------- BOTTOM AREA ---------------- */
+
+.bottom-banner {
+  display: grid;
+  grid-template-columns: 31% 69%;
+  min-height: 216px;
+  margin-top: 29px;
+  background: #f8fafc;
+}
+
+.factory-panel {
+  position: relative;
+  min-height: 216px;
+  overflow: hidden;
+  background-image:
+    url("https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1100&q=85");
+  background-position: center;
+  background-size: cover;
+}
+
+.factory-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(220, 38, 38, 0.94) 0%, rgba(239, 68, 68, 0.62) 34%, rgba(15, 23, 42, 0.5) 70%),
+    rgba(12, 20, 26, 0.35);
+}
+
+.factory-panel::after {
+  position: absolute;
+  z-index: 1;
+  top: -100px;
+  right: -100px;
+  width: 190px;
+  height: 420px;
+  content: "";
+  border-radius: 50%;
+  background: #fff;
+  transform: rotate(25deg);
+}
+
+.factory-content {
+  position: absolute;
+  z-index: 2;
+  top: 72px;
+  left: 66px;
+  color: #fff;
+  font-family: "Montserrat", sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.12;
+  letter-spacing: -0.8px;
+}
+
+.global-panel {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  min-height: 216px;
+  padding: 43px 3.8% 0 2%;
+}
+
+.map-area {
+  width: 29%;
+  min-width: 195px;
+  height: 105px;
+  padding-top: 30px;
+  background:
+    radial-gradient(ellipse at 44% 45%, #dfdfdc 0 15%, transparent 16%),
+    radial-gradient(ellipse at 25% 37%, #e4e4e1 0 11%, transparent 12%),
+    radial-gradient(ellipse at 71% 48%, #dfdfdc 0 15%, transparent 16%);
+  opacity: 0.8;
+}
+
+.world-map {
+  color: var(--industries-red);
+  font-size: 13px;
+  letter-spacing: 29px;
+  white-space: nowrap;
+}
+
+.feature {
+  width: 18%;
+  min-width: 130px;
+  min-height: 100px;
+  padding: 1px 20px;
+  border-left: 1px solid #d4d4d1;
+  text-align: center;
+}
+
+.feature svg {
+  width: 39px;
+  height: 39px;
+}
+
+.feature p {
+  margin: 6px 0;
+  color: #17202a;
+  font-size: 14px;
+  line-height: 1.23;
+}
+
+.expert-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 13px;
+  min-width: 273px;
+  margin-left: auto;
+  padding: 17px 22px;
+  border-radius: 40px;
+  color: #fff;
+  background: linear-gradient(90deg, var(--industries-red), var(--industries-red-light));
+  box-shadow: 0 8px 18px rgba(220, 38, 38, 0.2);
+  font-family: "Montserrat", sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.expert-button svg {
+  width: 22px;
+  height: 22px;
+  stroke: #fff;
+}
+
+.footer-line {
+  position: absolute;
+  right: 4%;
+  bottom: 21px;
+  color: #333c47;
+  font-family: "Montserrat", sans-serif;
+  font-size: 8px;
+  font-weight: 600;
+  letter-spacing: 3px;
+}
+
+.footer-line i {
+  display: inline-block;
+  width: 1px;
+  height: 9px;
+  margin: 0 10px;
+  background: #8b8e92;
+  vertical-align: middle;
+}
+
+/* ---------------- RESPONSIVE ---------------- */
+
+@media (max-width: 1200px) {
+  .hero {
+    grid-template-columns: minmax(330px, 44%) minmax(420px, 1fr);
+    column-gap: 18px;
+  }
+
+  .hero h1 {
+    font-size: clamp(39px, 4.2vw, 54px);
+  }
+
+  .hero-art {
+    opacity: 0.9;
+  }
+
+  .food-collage {
+    left: 2%;
+    transform: scale(0.86);
+    transform-origin: top left;
+  }
+
+  .orange-orbit {
+    right: -205px;
+  }
+
+  .right-message {
+    right: 3%;
+  }
+
+  .category-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .card-image {
+    height: 210px;
+  }
+
+  .global-panel {
+    padding-right: 2%;
+  }
+
+  .expert-button {
+    min-width: auto;
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 980px) {
+  .hero {
+    display: block;
+    min-height: 690px;
+    padding-bottom: 0;
+  }
+
+  .hero-copy {
+    max-width: 700px;
+  }
+
+  .hero-art {
+    min-height: 330px;
+    margin-top: 24px;
+  }
+
+  .hero-art::before {
+    left: 2%;
+    width: 520px;
+    height: 390px;
+  }
+
+  .food-collage {
+    top: 26px;
+    left: 7%;
+    transform: scale(0.9);
+  }
+
+  .orange-orbit {
+    top: -245px;
+    right: -135px;
+    transform: scale(0.9);
+  }
+
+  .right-message {
+    right: 6%;
+    bottom: 44px;
+  }
+}
+
+@media (max-width: 760px) {
+  .hero {
+    min-height: 585px;
+    padding: 23px 22px 0;
+  }
+
+  .brand-name {
+    font-size: 20px;
+  }
+
+  .hero-copy {
+    margin-top: 55px;
+  }
+
+  .hero h1 {
+    font-size: 37px;
+    letter-spacing: -2px;
+  }
+
+  .hero-copy > p {
+    font-size: 16px;
+  }
+
+  .desktop-break {
+    display: none;
+  }
+
+  .hero-art {
+    top: auto;
+    width: 100%;
+    min-height: 250px;
+    opacity: 0.75;
+  }
+
+  .hero-art::before,
+  .orange-orbit,
+  .right-message,
+  .art-label {
+    display: none;
+  }
+
+  .food-collage {
+    top: 15px;
+    left: 15px;
+    height: 210px;
+    transform: scale(0.64);
+    transform-origin: top left;
+  }
+
+  .category-grid {
+    grid-template-columns: 1fr;
+    padding: 0 20px;
+  }
+
+  .food-card {
+    display: grid;
+    grid-template-columns: 42% 58%;
+    border-radius: 20px;
+  }
+
+  .card-image {
+    height: 100%;
+    min-height: 220px;
+  }
+
+  .card-body {
+    min-height: 220px;
+    padding: 30px 18px 15px;
+  }
+
+  .category-icon {
+    top: -20px;
+    left: -20px;
+    width: 54px;
+    height: 54px;
+  }
+
+  .category-icon svg {
+    width: 28px;
+  }
+
+  .food-card h2 {
+    font-size: 16px;
+  }
+
+  .food-card p {
+    min-height: auto;
+    font-size: 13px;
+  }
+
+  .bottom-banner {
+    grid-template-columns: 1fr;
+  }
+
+  .factory-panel {
+    min-height: 180px;
+  }
+
+  .factory-content {
+    top: 56px;
+    left: 35px;
+    font-size: 21px;
+  }
+
+  .global-panel {
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 27px 20px 56px;
+  }
+
+  .map-area {
+    display: none;
+  }
+
+  .feature {
+    width: calc(33.33% - 10px);
+    min-width: 0;
+    padding: 0 6px;
+  }
+
+  .feature p {
+    font-size: 11px;
+  }
+
+  .expert-button {
+    width: 100%;
+    margin: 8px 0 0;
+  }
+
+  .footer-line {
+    right: 20px;
+    bottom: 17px;
+    font-size: 6px;
+    letter-spacing: 2px;
+  }
+}

@@ -56,6 +56,28 @@ export default function TrustBar() {
   return (
     <section className="trust-bar" aria-label="Company trust highlights">
       <div className="trust-shell">
+        {/* Introduction Section */}
+        <div className="trust-intro">
+          <div className="trust-intro-badge">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 21s-7-3.8-7-9.5V6.5L12 3l7 3.5v5C19 17.2 12 21 12 21Z" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round" />
+              <path d="M9 12.5 11 14.5l4-4.5" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+            <span>End-to-End SPM Solutions</span>
+          </div>
+          <h2 className="trust-intro-title">
+            Comprehensive Solutions from Concept to Commissioning
+          </h2>
+          <p className="trust-intro-description">
+            Charan Food Tech delivers comprehensive Special Purpose Machine (SPM) solutions from concept to commissioning. 
+            Our end-to-end services encompass <strong>project planning</strong>, <strong>engineering and system design</strong>, 
+            <strong>machine fabrication and manufacturing</strong>, <strong>automation</strong>, <strong>installation</strong>, 
+            <strong>testing</strong>, and <strong>commissioning</strong>—ensuring reliable, efficient, and customized solutions 
+            tailored to meet your specific production requirements.
+          </p>
+        </div>
+
+        {/* Trust Items Grid */}
         <div className="trust-grid">
           {trustItems.map((item) => (
             <div key={`${item.accent}-${item.label}`} className="trust-item">

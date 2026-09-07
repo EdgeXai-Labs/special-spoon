@@ -40,7 +40,7 @@ export default function Navigation() {
     { label: 'Home', id: 'home' },
     { label: 'About', id: 'about', href: '/about' },
     { label: 'Products', id: 'products', href: '/products' },
-    { label: 'Industries', id: 'industries' },
+    { label: 'Industries', id: 'industries', href: '/industries' },
     { label: 'Support', id: 'support', href: '/support' },
     { label: 'Contact', id: 'contact', href: '/contact' },
   ]

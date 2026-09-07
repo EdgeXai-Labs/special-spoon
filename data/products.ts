@@ -1,4 +1,4 @@
-export type ProductCategory = 'Fryers' | 'Cutting' | 'Forming' | 'Processing' | 'Automation'
+export type ProductCategory = 'Fryers' | 'Cutting' | 'Forming' | 'Processing' | 'Automation' | 'Conveyors'
 
 export interface ProductSpecRow {
   model: string
@@ -79,7 +79,7 @@ export interface Product {
   details?: ProductDetails
 }
 
-export const PRODUCT_CATEGORIES = ['All', 'Fryers', 'Cutting', 'Forming', 'Processing', 'Automation'] as const
+export const PRODUCT_CATEGORIES = ['All', 'Fryers', 'Cutting', 'Forming', 'Processing', 'Automation', 'Conveyors'] as const
 
 type ProductFilter = (typeof PRODUCT_CATEGORIES)[number]
 
@@ -132,6 +132,12 @@ const CATEGORY_CONTENT: Record<
     overview: (title) => `${title} helps modern manufacturing teams improve productivity with dependable automation, better material handling and integration-ready operation.`,
     highlights: ['Improved handling accuracy', 'Reliable automation support', 'Production line integration'],
     applications: ['Pick and place operations', 'Packaging support', 'Automated transfer workflows'],
+  },
+  Conveyors: {
+    shortDescription: (title) => `${title} engineered for reliable material handling, smooth product transfer and seamless production line integration.`,
+    overview: (title) => `${title} is designed for efficient material transport in food processing facilities, providing smooth operation, durable construction and flexible configuration options.`,
+    highlights: ['Robust conveyor construction', 'Smooth product transfer', 'Flexible line integration'],
+    applications: ['Product transfer lines', 'Packaging operations', 'Multi-stage processing'],
   },
 }
 
@@ -873,6 +879,510 @@ const PRODUCT_SEEDS: ProductSeed[] = [
       ],
     },
   },
+  // New Machines from CFT_Machineries_2_compressed folder
+  {
+    image: '/images/CFT_Machineries_2_compressed/ball divider.png',
+    title: 'Ball Divider',
+    category: 'Processing',
+    shortDescription: 'Automated dough ball dividing system for consistent portioning and uniform product sizing.',
+    overview:
+      'The Ball Divider is designed for automated dough dividing operations, ensuring consistent portioning and uniform ball sizing for bakery and confectionery production lines.',
+    details: {
+      tagline: 'Precision Dividing for Consistent Dough Portions',
+      keyFeatures: [
+        'Automated dough dividing for uniform portions',
+        'Adjustable portion sizes for different products',
+        'Food-grade stainless steel construction',
+        'High-speed operation for increased throughput',
+        'Easy to clean and maintain',
+        'Consistent ball weight and size',
+      ],
+      applications: ['Bread production', 'Bun manufacturing', 'Pastry preparation', 'Sweet making', 'Dough-based snacks'],
+    },
+  },
+  {
+    image: '/images/CFT_Machineries_2_compressed/COLD PRESS MACHINE.png',
+    title: 'Cold Press Machine',
+    category: 'Processing',
+    shortDescription: 'Cold press oil extraction system for pure, chemical-free oil production with maximum nutrient retention.',
+    overview:
+      'The Cold Press Machine is engineered for oil extraction from seeds and nuts without heat, preserving natural nutrients, flavor, and aroma for premium quality oil production.',
+    details: {
+      tagline: 'Pure Oil Extraction with Maximum Nutrient Retention',
+      keyFeatures: [
+        'Cold press technology for nutrient preservation',
+        'Chemical-free extraction process',
+        'Multiple seed and nut compatibility',
+        'High oil extraction efficiency',
+        'Food-grade SS construction',
+        'Easy operation and maintenance',
+      ],
+      applications: [
+        'Coconut oil production',
+        'Groundnut oil extraction',
+        'Sesame oil processing',
+        'Sunflower oil production',
+        'Premium oil manufacturing',
+      ],
+    },
+  },
+  {
+    image: '/images/CFT_Machineries_2_compressed/Dough mixer-1.png',
+    title: 'Dough Mixer',
+    category: 'Processing',
+    shortDescription: 'Industrial dough mixing system for uniform mixing, consistent texture, and optimized production workflow.',
+    overview:
+      'The Dough Mixer is a high-capacity mixing system designed for bakery and snack production lines, delivering uniform mixing, consistent dough texture, and reliable batch-to-batch performance.',
+    details: {
+      tagline: 'Industrial Mixing for Consistent Dough Quality',
+      keyFeatures: [
+        'High-capacity mixing bowl for industrial production',
+        'Variable speed control for different dough types',
+        'Robust mixing mechanism for uniform consistency',
+        'Stainless steel construction for food safety',
+        'Overload protection and safety features',
+        'Easy cleaning and maintenance access',
+      ],
+      applications: ['Bread dough', 'Chapati dough', 'Pizza base preparation', 'Biscuit dough', 'Snack dough mixing'],
+    },
+  },
+  {
+    image: '/images/CFT_Machineries_2_compressed/medu vada-1.png',
+    title: 'Medu Vada Machine',
+    category: 'Forming',
+    shortDescription: 'Automated medu vada forming machine for consistent shape, size, and high-volume production.',
+    overview:
+      'The Medu Vada Machine is designed for automated forming of traditional South Indian medu vada with consistent hole formation, uniform sizing, and high-speed production capability.',
+    details: {
+      tagline: 'Traditional Taste with Modern Automation',
+      keyFeatures: [
+        'Automated vada forming with consistent hole shape',
+        'Adjustable size and thickness settings',
+        'High-speed production for commercial kitchens',
+        'Food-grade construction with easy cleaning',
+        'Uniform product quality batch after batch',
+        'Reduced manual labor and improved hygiene',
+      ],
+      applications: ['Medu vada production', 'Quick service restaurants', 'Hotel kitchens', 'Catering operations', 'Snack manufacturing'],
+    },
+  },
+  {
+    image: '/images/CFT_Machineries_2_compressed/MURUKKU MC.png',
+    title: 'Murukku Machine',
+    category: 'Forming',
+    shortDescription: 'Automated murukku forming machine for traditional spiral shapes with consistent quality and high throughput.',
+    overview:
+      'The Murukku Machine is engineered for automated production of traditional South Indian murukku with perfect spiral formation, consistent thickness, and high-volume output capability.',
+    details: {
+      tagline: 'Authentic Murukku Formation at Industrial Scale',
+      keyFeatures: [
+        'Automated spiral forming for traditional murukku shapes',
+        'Multiple die options for different murukku varieties',
+        'Consistent product weight and size',
+        'High-speed continuous operation',
+        'Food-grade SS construction',
+        'Easy die changeover for product variety',
+      ],
+      applications: [
+        'Murukku production',
+        'Chakli manufacturing',
+        'Traditional snack lines',
+        'Festival season production',
+        'Export quality murukku',
+      ],
+    },
+  },
+  {
+    image: '/images/CFT_Machineries_2_compressed/parota slicer1.png',
+    title: 'Parota Slicer',
+    category: 'Cutting',
+    shortDescription: 'Precision parota slicing machine for uniform strips, consistent sizing, and hygienic food processing.',
+    overview:
+      'The Parota Slicer is designed for automated slicing of parotas and flatbreads into uniform strips, ensuring consistent product quality, reduced manual handling, and improved production efficiency.',
+    details: {
+      tagline: 'Precision Slicing for Uniform Parota Strips',
+      keyFeatures: [
+        'Automated slicing for consistent strip width',
+        'Adjustable cutting size for different products',
+        'High-speed operation with minimal product waste',
+        'Stainless steel cutting blades for clean cuts',
+        'Food-grade construction for hygiene',
+        'Easy blade maintenance and replacement',
+      ],
+      applications: [
+        'Parota kothu preparation',
+        'Restaurant kitchen operations',
+        'Catering services',
+        'Cloud kitchens',
+        'Ready-to-cook product preparation',
+      ],
+    },
+  },
+  {
+    image: '/images/CFT_Machineries_2_compressed/servo based ultrasonic cutter1.png',
+    title: 'Servo-Based Ultrasonic Cutter',
+    category: 'Cutting',
+    shortDescription: 'Advanced ultrasonic cutting technology for clean cuts, minimal waste, and precise product portioning.',
+    overview:
+      'The Servo-Based Ultrasonic Cutter combines servo precision with ultrasonic cutting technology for clean, accurate cuts on soft and sticky products without deformation or compression.',
+    details: {
+      tagline: 'Precision Ultrasonic Technology for Perfect Cuts',
+      keyFeatures: [
+        'Ultrasonic cutting for clean, deformation-free cuts',
+        'Servo-driven precision for accurate positioning',
+        'Minimal product waste and blade sticking',
+        'Suitable for soft, sticky, and delicate products',
+        'High-speed cutting with consistent quality',
+        'Easy cleaning and blade maintenance',
+      ],
+      applications: [
+        'Cake and pastry cutting',
+        'Sweet and confectionery portioning',
+        'Cheese and soft food slicing',
+        'Layered product cutting',
+        'Bakery production lines',
+      ],
+    },
+  },
+  {
+    image: '/images/CFT_Machineries_2_compressed/somosa sheeting1.png',
+    title: 'Samosa Sheeting Machine',
+    category: 'Processing',
+    shortDescription: 'Automated dough sheeting system for uniform samosa sheets with consistent thickness and quality.',
+    overview:
+      'The Samosa Sheeting Machine is designed for automated production of uniform samosa sheets with precise thickness control, consistent quality, and high-volume production capability.',
+    details: {
+      tagline: 'Uniform Sheeting for Perfect Samosas Every Time',
+      keyFeatures: [
+        'Automated dough sheeting with precise thickness control',
+        'Consistent sheet dimensions for uniform samosas',
+        'Adjustable thickness settings for different products',
+        'Food-grade stainless steel rollers',
+        'High production capacity with continuous operation',
+        'Easy operation and maintenance',
+      ],
+      applications: [
+        'Samosa production',
+        'Spring roll sheets',
+        'Pastry sheet preparation',
+        'Empanada manufacturing',
+        'Traditional snack production',
+      ],
+    },
+  },
+  {
+    image: '/images/CFT_Machineries_2_compressed/Stamping mc1.png',
+    title: 'Stamping Machine',
+    category: 'Forming',
+    shortDescription: 'Automated stamping system for consistent product shapes, uniform sizing, and high-speed production.',
+    overview:
+      'The Stamping Machine is engineered for automated stamping and cutting operations, delivering consistent product shapes, uniform sizing, and high-speed throughput for various food products.',
+    details: {
+      tagline: 'Precision Stamping for Consistent Product Shapes',
+      keyFeatures: [
+        'Automated stamping with consistent product shapes',
+        'Multiple die options for different product varieties',
+        'High-speed operation for increased productivity',
+        'Uniform product dimensions and weight',
+        'Food-grade construction with easy die changeover',
+        'Minimal product waste and efficient operation',
+      ],
+      applications: [
+        'Biscuit stamping',
+        'Cookie production',
+        'Sweet forming',
+        'Snack shaping',
+        'Dough-based product manufacturing',
+      ],
+    },
+  },
+  {
+    image: '/images/CFT_Machineries_2_compressed/sweet making-02.png',
+    title: 'Sweet Making Machine',
+    category: 'Processing',
+    shortDescription: 'Automated sweet production system for traditional Indian sweets with consistent quality and high output.',
+    overview:
+      'The Sweet Making Machine is designed for automated production of traditional Indian sweets, providing consistent quality, uniform sizing, and high-volume manufacturing capability.',
+    details: {
+      tagline: 'Traditional Sweets with Modern Automation',
+      keyFeatures: [
+        'Automated sweet forming and production',
+        'Consistent product weight and size',
+        'Multiple sweet varieties production capability',
+        'Food-grade stainless steel construction',
+        'High production capacity for commercial operations',
+        'Easy operation and cleaning',
+      ],
+      applications: [
+        'Barfi production',
+        'Laddu manufacturing',
+        'Peda making',
+        'Milk-based sweets',
+        'Traditional confectionery',
+      ],
+    },
+  },
+  {
+    image: '/images/CFT_Machineries_2_compressed/Thattai1.png',
+    title: 'Thattai Machine',
+    category: 'Forming',
+    shortDescription: 'Automated thattai forming machine for traditional South Indian crackers with consistent shape and thickness.',
+    overview:
+      'The Thattai Machine is engineered for automated production of traditional South Indian thattai crackers with consistent circular shape, uniform thickness, and high-volume output.',
+    details: {
+      tagline: 'Traditional Thattai Production at Industrial Scale',
+      keyFeatures: [
+        'Automated forming for consistent circular shapes',
+        'Uniform thickness control across all products',
+        'High-speed production for commercial operations',
+        'Adjustable size settings for different variants',
+        'Food-grade construction with easy maintenance',
+        'Consistent product quality batch after batch',
+      ],
+      applications: [
+        'Thattai production',
+        'Nippattu manufacturing',
+        'Traditional snack lines',
+        'Festival season production',
+        'Export quality snacks',
+      ],
+    },
+  },
+  {
+    image: '/images/CFT_Machineries_2_compressed/TORTILLA MC.png',
+    title: 'Tortilla Machine',
+    category: 'Processing',
+    shortDescription: 'Automated tortilla production system for consistent quality, uniform sizing, and high-volume output.',
+    overview:
+      'The Tortilla Machine is designed for automated production of tortillas and flatbreads with precise thickness control, consistent circular shape, and high-speed manufacturing capability.',
+    details: {
+      tagline: 'Perfect Tortillas with Every Production Run',
+      keyFeatures: [
+        'Automated dough pressing and forming',
+        'Consistent tortilla diameter and thickness',
+        'Integrated heating for cooking process',
+        'High production capacity for commercial operations',
+        'Food-grade stainless steel construction',
+        'Easy operation and minimal training required',
+      ],
+      applications: [
+        'Tortilla production',
+        'Flatbread manufacturing',
+        'Wrap production',
+        'Quick service restaurants',
+        'Food service operations',
+      ],
+    },
+  },
+  // Conveyors from conveyors_compressed folder
+  {
+    image: '/images/conveyors_compressed/chain conyeor.png',
+    title: 'Chain Conveyor',
+    category: 'Conveyors',
+    shortDescription: 'Heavy-duty chain conveyor system for robust material handling and reliable product transport.',
+    overview:
+      'The Chain Conveyor is designed for heavy-duty material handling in food processing lines, providing reliable transport for products requiring sturdy conveying systems with continuous operation capability.',
+    details: {
+      tagline: 'Heavy-Duty Material Handling for Industrial Production',
+      keyFeatures: [
+        'Robust chain-driven conveying system',
+        'High load capacity for heavy products',
+        'Durable construction for continuous operation',
+        'Stainless steel construction options',
+        'Easy maintenance and chain tensioning',
+        'Flexible length configurations',
+      ],
+      applications: [
+        'Heavy product transport',
+        'Industrial food processing',
+        'Multi-stage production lines',
+        'Packaging operations',
+        'Inter-floor material transfer',
+      ],
+    },
+  },
+  {
+    image: '/images/conveyors_compressed/flat conveyor.png',
+    title: 'Flat Belt Conveyor',
+    category: 'Conveyors',
+    shortDescription: 'Versatile flat belt conveyor for smooth product transport and flexible line integration.',
+    overview:
+      'The Flat Belt Conveyor is a versatile material handling solution designed for smooth product transport in food processing facilities, offering reliable operation, easy cleaning, and seamless integration with existing equipment.',
+    details: {
+      tagline: 'Smooth and Reliable Product Transport',
+      keyFeatures: [
+        'Food-grade belt material for safe product contact',
+        'Variable speed control for process flexibility',
+        'Easy belt removal for cleaning',
+        'Adjustable height and length options',
+        'Smooth product handling without damage',
+        'Compatible with various product types',
+      ],
+      applications: [
+        'Product transfer between stages',
+        'Inspection and sorting lines',
+        'Packaging operations',
+        'Bakery and confectionery lines',
+        'General material handling',
+      ],
+    },
+  },
+  {
+    image: '/images/conveyors_compressed/modular conveyor.png',
+    title: 'Modular Conveyor',
+    category: 'Conveyors',
+    shortDescription: 'Modular belt conveyor system for flexible configuration and easy maintenance.',
+    overview:
+      'The Modular Conveyor features interlocking plastic belt modules for flexible configuration, easy cleaning, and long service life in food processing environments.',
+    details: {
+      tagline: 'Flexible Configuration with Easy Maintenance',
+      keyFeatures: [
+        'Interlocking modular belt design',
+        'Easy damaged-section replacement',
+        'Superior drainage and cleaning access',
+        'High chemical and temperature resistance',
+        'Flexible curve and incline configurations',
+        'Long service life with minimal maintenance',
+      ],
+      applications: [
+        'Food processing lines',
+        'Bakery and snack production',
+        'Packaging and filling operations',
+        'Inspection and quality control',
+        'Multi-directional product flow',
+      ],
+    },
+  },
+  {
+    image: '/images/conveyors_compressed/motorised roller.png',
+    title: 'Motorized Roller Conveyor',
+    category: 'Conveyors',
+    shortDescription: 'Motorized roller system for efficient carton and box handling with smooth product flow.',
+    overview:
+      'The Motorized Roller Conveyor provides efficient handling of cartons, boxes, and packaged products with smooth roller-driven transport and reliable performance for packaging operations.',
+    details: {
+      tagline: 'Efficient Handling for Packaged Products',
+      keyFeatures: [
+        'Motorized rollers for consistent product movement',
+        'Low friction surface for smooth flow',
+        'Suitable for cartons and packaged goods',
+        'Adjustable speed control',
+        'Robust construction for continuous operation',
+        'Easy integration with automation systems',
+      ],
+      applications: [
+        'Packaging line transport',
+        'Carton conveying systems',
+        'Warehouse distribution',
+        'Sorting and accumulation',
+        'End-of-line operations',
+      ],
+    },
+  },
+  {
+    image: '/images/conveyors_compressed/roller.png',
+    title: 'Gravity Roller Conveyor',
+    category: 'Conveyors',
+    shortDescription: 'Non-powered gravity roller system for efficient manual and gravity-assisted product movement.',
+    overview:
+      'The Gravity Roller Conveyor is a cost-effective, non-powered conveying solution for manual handling areas, providing smooth roller-assisted product movement without electrical power requirements.',
+    details: {
+      tagline: 'Cost-Effective Manual Handling Solution',
+      keyFeatures: [
+        'Non-powered gravity-assisted movement',
+        'Low initial and operating costs',
+        'Smooth roller surface for easy product flow',
+        'Durable steel or stainless steel construction',
+        'Flexible length and width configurations',
+        'Easy installation and maintenance',
+      ],
+      applications: [
+        'Manual packing stations',
+        'Loading and unloading areas',
+        'Storage and warehouse operations',
+        'Inspection and quality control zones',
+        'Inter-department product transfer',
+      ],
+    },
+  },
+  {
+    image: '/images/conveyors_compressed/screw type coneyor.png',
+    title: 'Screw Conveyor',
+    category: 'Conveyors',
+    shortDescription: 'Enclosed screw conveyor for bulk material handling and powder transport applications.',
+    overview:
+      'The Screw Conveyor is designed for efficient bulk material handling, providing enclosed transport of powders, granules, and semi-solid products with minimal dust and contamination.',
+    details: {
+      tagline: 'Enclosed Bulk Material Transport',
+      keyFeatures: [
+        'Enclosed design for dust-free operation',
+        'Suitable for powders and granular materials',
+        'Stainless steel construction for food safety',
+        'Multiple inlet and outlet configurations',
+        'Variable speed control for flow rate adjustment',
+        'Easy maintenance and cleaning access',
+      ],
+      applications: [
+        'Flour and powder handling',
+        'Grain and spice transport',
+        'Ingredient feeding systems',
+        'Waste removal operations',
+        'Bulk material transfer',
+      ],
+    },
+  },
+  {
+    image: '/images/conveyors_compressed/table top chain coneyor.png',
+    title: 'Table Top Chain Conveyor',
+    category: 'Conveyors',
+    shortDescription: 'Hygienic table top chain conveyor for food-grade product handling with easy cleaning.',
+    overview:
+      'The Table Top Chain Conveyor features a flat, food-grade chain surface ideal for direct product contact in food processing lines, offering hygienic design, easy cleaning, and reliable operation.',
+    details: {
+      tagline: 'Hygienic Design for Food-Grade Applications',
+      keyFeatures: [
+        'Food-grade plastic or stainless steel chain',
+        'Flat surface for stable product support',
+        'Easy cleaning and sanitation access',
+        'Low friction for smooth product movement',
+        'Suitable for wet and dry environments',
+        'Flexible curve and straight configurations',
+      ],
+      applications: [
+        'Food processing lines',
+        'Bottling and filling operations',
+        'Baking and cooking lines',
+        'Inspection and labeling stations',
+        'Direct product contact conveying',
+      ],
+    },
+  },
+  {
+    image: '/images/conveyors_compressed/z type coneyor.png',
+    title: 'Z-Type Conveyor',
+    category: 'Conveyors',
+    shortDescription: 'Vertical Z-type bucket conveyor for space-efficient elevation of bulk materials.',
+    overview:
+      'The Z-Type Conveyor is designed for vertical material elevation in compact spaces, featuring a Z-shaped configuration with bucket carriers for efficient bulk material transport between different floor levels.',
+    details: {
+      tagline: 'Space-Efficient Vertical Material Elevation',
+      keyFeatures: [
+        'Compact Z-shaped design for space saving',
+        'Gentle product handling to minimize damage',
+        'Food-grade buckets and construction',
+        'Multiple height configurations available',
+        'Enclosed design for hygiene and safety',
+        'Low maintenance with easy access points',
+      ],
+      applications: [
+        'Inter-floor product transfer',
+        'Bulk material elevation',
+        'Ingredient feeding systems',
+        'Packaging line integration',
+        'Space-constrained production facilities',
+      ],
+    },
+  },
 ]
 
 function slugify(value: string) {
@@ -913,6 +1423,12 @@ const CATEGORY_WHY_CHOOSE: Record<ProductCategory, ProductCardItem[]> = {
     { title: 'Consistent Handling', description: 'Repeatable placement and transfer accuracy.' },
     { title: 'Reduced Manual Dependency', description: 'Automates repetitive handling tasks.' },
     { title: 'Flexible Integration', description: 'Configured around existing production lines.' },
+  ],
+  Conveyors: [
+    { title: 'Reliable Material Handling', description: 'Smooth and continuous product transport.' },
+    { title: 'Flexible Configuration', description: 'Customizable lengths and widths for your line.' },
+    { title: 'Low Maintenance', description: 'Durable construction for long-term operation.' },
+    { title: 'Seamless Integration', description: 'Connects easily with existing equipment.' },
   ],
 }
 
@@ -956,6 +1472,11 @@ const CATEGORY_PROCESS: Record<ProductCategory, ProductProcessStep[]> = {
     { step: 'Infeed', description: 'Products enter the automated handling system' },
     { step: 'Positioning', description: 'Products are aligned and positioned accurately' },
     { step: 'Transfer', description: 'Products are transferred to the next line stage' },
+  ],
+  Conveyors: [
+    { step: 'Loading', description: 'Products are loaded onto the conveyor system' },
+    { step: 'Transport', description: 'Smooth and controlled material movement' },
+    { step: 'Transfer', description: 'Products delivered to the next processing stage' },
   ],
 }
 
@@ -1026,7 +1547,7 @@ function buildDetails(product: ProductSeed, resolved: Omit<Product, 'details'>):
     keyMetrics,
     specTable,
     workingProcess:
-      base.workingProcess.length > 0 ? base.workingProcess : CATEGORY_PROCESS[resolved.category],
+      base.workingProcess && base.workingProcess.length > 0 ? base.workingProcess : CATEGORY_PROCESS[resolved.category],
     featureCards: base.featureCards ?? toFeatureCards(base.keyFeatures),
     construction: base.construction ?? DEFAULT_CONSTRUCTION,
     performanceBenefits:
