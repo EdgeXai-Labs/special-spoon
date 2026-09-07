@@ -91,7 +91,7 @@ type ProductSeed = {
   overview?: string
   highlights?: string[]
   applications?: string[]
-  details?: ProductDetails
+  details?: Partial<ProductDetails>
 }
 
 const CATEGORY_CONTENT: Record<
@@ -1492,12 +1492,13 @@ function toFeatureCards(features: string[]): ProductCardItem[] {
 
 /** Ensure every product exposes all 13 sections of the page structure. */
 function buildDetails(product: ProductSeed, resolved: Omit<Product, 'details'>): ProductDetails {
-  const base: ProductDetails = product.details ?? {
+  const base: ProductDetails = {
     tagline: resolved.shortDescription,
     overview: resolved.overview,
     keyFeatures: resolved.highlights,
     applications: resolved.applications,
     workingProcess: [],
+    ...product.details,
   }
 
   const models = base.models && base.models.length > 0 ? base.models : undefined
