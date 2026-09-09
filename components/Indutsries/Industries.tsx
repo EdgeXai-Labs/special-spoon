@@ -13,8 +13,7 @@ const categories: Category[] = [
     title: "Sweets",
     description:
       "Hygienic and efficient solutions for traditional and modern sweet manufacturing.",
-    image:
-      "https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=900&q=85",
+    image: "/images/Indutries/Compresed_snaks_indutries.png",
     icon: "sweet",
   },
   {
@@ -29,16 +28,14 @@ const categories: Category[] = [
     title: "Namkeens",
     description:
       "Automated solutions for a wide range of savoury snacks with consistent taste and texture.",
-    image:
-      "https://images.unsplash.com/photo-1601050690117-94f5f6fa8bd5?auto=format&fit=crop&w=900&q=85",
+    image: "/images/Indutries/Compresed_numkins_indutries.png",
     icon: "namkeen",
   },
   {
     title: "Chips",
     description:
       "High-performance systems for potato, banana and multigrain chips.",
-    image:
-      "https://images.unsplash.com/photo-1566478989037-eec170784d0b?auto=format&fit=crop&w=900&q=85",
+    image: "/images/Indutries/Compresed_chips_indutries.png",
     icon: "chips",
   },
   {
@@ -187,7 +184,7 @@ export default function Industries() {
               className="collage-food food-sweets"
               style={{
                 backgroundImage:
-                  "url(https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=800&q=85)",
+                  "url(/images/Indutries/Compresed_snaks_indutries.png)",
               }}
             />
             <div
@@ -201,14 +198,14 @@ export default function Industries() {
               className="collage-food food-namkeen"
               style={{
                 backgroundImage:
-                  "url(https://images.unsplash.com/photo-1601050690117-94f5f6fa8bd5?auto=format&fit=crop&w=800&q=85)",
+                  "url(/images/Indutries/Compresed_numkins_indutries.png)",
               }}
             />
             <div
               className="collage-food food-chips"
               style={{
                 backgroundImage:
-                  "url(https://images.unsplash.com/photo-1566478989037-eec170784d0b?auto=format&fit=crop&w=800&q=85)",
+                  "url(/images/Indutries/Compresed_chips_indutries.png)",
               }}
             />
           </div>

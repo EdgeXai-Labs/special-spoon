@@ -78,7 +78,7 @@ export default function TrustBar() {
         </div>
 
         {/* Trust Items Grid */}
-        <div className="trust-grid">
+        {/* <div className="trust-grid">
           {trustItems.map((item) => (
             <div key={`${item.accent}-${item.label}`} className="trust-item">
               <div className="trust-item-icon">
@@ -88,7 +88,7 @@ export default function TrustBar() {
               <div className="trust-item-text">{item.label}</div>
             </div>
           ))}
-        </div>
+        </div> */}
       </div>
     </section>
   )

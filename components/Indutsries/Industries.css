@@ -278,7 +278,7 @@ body {
   position: relative;
   z-index: 3;
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 13px;
   padding: 0 2.1%;
 }
@@ -544,7 +544,7 @@ body {
   }
 
   .category-grid {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
   .card-image {
@@ -651,44 +651,57 @@ body {
   }
 
   .category-grid {
-    grid-template-columns: 1fr;
-    padding: 0 20px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+    padding: 0 10px;
   }
 
   .food-card {
-    display: grid;
-    grid-template-columns: 42% 58%;
-    border-radius: 20px;
+    display: block;
+    border-radius: 16px;
   }
 
   .card-image {
-    height: 100%;
-    min-height: 220px;
+    height: 118px;
+    min-height: 0;
   }
 
   .card-body {
-    min-height: 220px;
-    padding: 30px 18px 15px;
+    min-height: 185px;
+    padding: 24px 10px 12px;
   }
 
   .category-icon {
-    top: -20px;
-    left: -20px;
-    width: 54px;
-    height: 54px;
+    top: -24px;
+    left: 10px;
+    width: 42px;
+    height: 42px;
   }
 
   .category-icon svg {
-    width: 28px;
+    width: 24px;
   }
 
   .food-card h2 {
-    font-size: 16px;
+    font-size: 13px;
+    letter-spacing: -0.4px;
   }
 
   .food-card p {
     min-height: auto;
-    font-size: 13px;
+    font-size: 11px;
+    line-height: 1.35;
+  }
+
+  .explore-link {
+    gap: 5px;
+    margin-top: 8px;
+    font-size: 11px;
+  }
+
+  .explore-link svg {
+    width: 13px;
+    height: 13px;
   }
 
   .bottom-banner {
