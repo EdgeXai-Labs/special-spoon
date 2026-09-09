@@ -11,8 +11,8 @@ const COMPANY = {
   phone2: '+91 XXXXX XXXXX',
   whatsapp: '+91 9150081327',
   whatsappLink: 'https://wa.me/919150081327',
-  email: 'sales@charanfoodtech.com',
-  salesEmail: 'sales@charanfoodtech.com',
+  email: 'hello@charanfoodtech.com',
+  salesEmail: 'hello@charanfoodtech.com',
   address: ['Krishnagiri Main Road', 'Baisuhalli Village, Dharmapuri', 'Tamil Nadu – 635205'],
   mapEmbed: '', // paste a Google Maps embed URL here to replace the placeholder
 }
