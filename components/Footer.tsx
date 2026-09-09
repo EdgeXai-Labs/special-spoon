@@ -25,7 +25,7 @@ export default function Footer() {
             <br />📍 Krishnagiri Main Road
             <br />Baisuhalli Village, Dharmapuri
             <br />Tamil Nadu – 635205
-            <br />📞 <a href="tel:+919150081328" className="footer-link">+91 9150081328</a>
+            <br />📞 <a href="tel:+919150081327" className="footer-link">+91 9150081327</a>
             <br />✉️ <a href="mailto:hello@charanfoodtech.com" className="footer-link">hello@charanfoodtech.com</a>
           </p>
           <div style={{ display: 'flex', gap: '1rem' }}>

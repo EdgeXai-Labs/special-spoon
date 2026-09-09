@@ -232,11 +232,11 @@ export default function SupportPage() {
               <h2>Downtime Costs Money</h2>
               <p>Our job is to make sure you never lose a shift</p>
               <div className="support-cta-actions">
-                <a href="tel:+919150081328" className="btn btn-primary btn-large">
+                <a href="tel:+919150081327" className="btn btn-primary btn-large">
                   📞 Call Service Desk
                 </a>
                 <a
-                  href="https://wa.me/919150081328"
+                  href="https://wa.me/919150081327"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn btn-secondary btn-large"
@@ -255,7 +255,7 @@ export default function SupportPage() {
                 <div className="contact-method-icon">📞</div>
                 <h3>Phone Support</h3>
                 <p>Direct line to technical team</p>
-                <a href="tel:+919150081328" className="contact-link">+91 9150081328</a>
+                <a href="tel:+919150081327" className="contact-link">+91 9150081327</a>
               </div>
               <div className="contact-method">
                 <div className="contact-method-icon">✉️</div>
@@ -267,7 +267,7 @@ export default function SupportPage() {
                 <div className="contact-method-icon">💬</div>
                 <h3>WhatsApp</h3>
                 <p>Quick support with media sharing</p>
-                <a href="https://wa.me/919150081328" className="contact-link" target="_blank" rel="noopener noreferrer">
+                <a href="https://wa.me/919150081327" className="contact-link" target="_blank" rel="noopener noreferrer">
                   Start Chat
                 </a>
               </div>

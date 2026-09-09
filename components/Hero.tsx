@@ -25,7 +25,7 @@ const HERO_SLIDES = [
     description:
       'From quick remote diagnosis to on-site assistance, our support desk is built for faster response, clearer communication, and minimal production downtime.',
     primary: { label: 'Contact Support', target: 'support' },
-    secondary: { label: 'WhatsApp Team', href: 'https://wa.me/919999999999' },
+    secondary: { label: 'WhatsApp Team', href: 'https://wa.me/919150081327' },
   },
   {
     id: 'affordable',
@@ -49,7 +49,7 @@ const HERO_SLIDES = [
     description:
       'From quick remote diagnosis to on-site assistance, our support desk is built for faster response, clearer communication, and minimal production downtime.',
     primary: { label: 'Contact Support', target: 'support' },
-    secondary: { label: 'WhatsApp Team', href: 'https://wa.me/919999999999' },
+    secondary: { label: 'WhatsApp Team', href: 'https://wa.me/919150081327' },
   },
   {
     id: 'qualities',

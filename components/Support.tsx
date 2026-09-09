@@ -18,8 +18,8 @@ import './Support.css'
 /* ============================================================
    CONTACT ACTIONS — EDIT HERE
    ============================================================ */
-const PHONE_HREF = 'tel:+919999999999'
-const WHATSAPP_HREF = 'https://wa.me/919999999999'
+const PHONE_HREF = 'tel:+919150081327'
+const WHATSAPP_HREF = 'https://wa.me/919150081327'
 
 /* ============================================================
    1. SUPPORT STATISTICS — EDIT HERE

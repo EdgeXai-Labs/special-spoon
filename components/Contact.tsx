@@ -7,10 +7,10 @@ import React, { useEffect, useRef, useState } from 'react'
    Replace the placeholder numbers, email and map embed below.
    ============================================================ */
 const COMPANY = {
-  phone1: '+91 9150081328',
+  phone1: '+91 9150081327',
   phone2: '+91 XXXXX XXXXX',
-  whatsapp: '+91 9150081328',
-  whatsappLink: 'https://wa.me/919150081328',
+  whatsapp: '+91 9150081327',
+  whatsappLink: 'https://wa.me/919150081327',
   email: 'sales@charanfoodtech.com',
   salesEmail: 'sales@charanfoodtech.com',
   address: ['Krishnagiri Main Road', 'Baisuhalli Village, Dharmapuri', 'Tamil Nadu – 635205'],
@@ -37,7 +37,7 @@ const scales = [
 
 /* Instant-contact channels */
 const channels = [
-  { icon: '📞', label: 'Call Us', value: COMPANY.phone1, href: 'tel:+919999999999', tint: '#DC2626' },
+  { icon: '📞', label: 'Call Us', value: COMPANY.phone1, href: 'tel:+919150081327', tint: '#DC2626' },
   { icon: '💬', label: 'WhatsApp', value: COMPANY.whatsapp, href: COMPANY.whatsappLink, tint: '#16A34A' },
   { icon: '📧', label: 'Email', value: COMPANY.email, href: `mailto:${COMPANY.email}`, tint: '#D97706' },
 ]

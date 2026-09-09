@@ -10,7 +10,7 @@ import PlanPage from './animation/animationpage2'
  * duration elapses, the actual page content fades in.
  */
 const SPLASH_MS = 2000
-const WHATSAPP_LINK = 'https://wa.me/919150081328'
+const WHATSAPP_LINK = 'https://wa.me/919150081327'
 
 const SplashGate: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [showSplash, setShowSplash] = useState(true)
