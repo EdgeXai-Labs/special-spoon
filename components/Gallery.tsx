@@ -16,21 +16,20 @@ const REELS: Reel[] = [
     tag: 'Showreel',
   },
   {
-    src: '/clips/Final_Scene_–_sec__Fade.mp4',
+    src: '/clips/product_item_vedio_1.mp4',
     title: 'Precision Engineering, Down to the Micron',
     tag: 'Engineering',
-  },
-  {
-    src: '/clips/Scene_—_Automation_Product.mp4',
-    title: 'Food Processing Built for Scale',
-    tag: 'Processing',
   },
   {
     src: '/clips/4-1.mp4',
     title: 'Complete Food Processing Lines',
     tag: 'Turnkey',
   },
-
+  {
+    src: '/clips/product_item_vedio_2.mp4',
+    title: 'Food Processing Built for Scale',
+    tag: 'Processing',
+  }
 ]
 
 function PlayIcon() {

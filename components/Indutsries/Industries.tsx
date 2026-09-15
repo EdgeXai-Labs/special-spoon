@@ -1,4 +1,6 @@
-import React from "react";
+'use client'
+
+import React, { useState } from "react";
 import "./Industries.css";
 
 type Category = {
@@ -53,6 +55,29 @@ const categories: Category[] = [
     image:
       "https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?auto=format&fit=crop&w=900&q=85",
     icon: "ready",
+  },
+];
+
+const sweetsGallery = [
+  {
+    src: "/images/Items_image/product_item_image_1 (1).png",
+    alt: "Sweet item image 1",
+  },
+  {
+    src: "/images/Items_image/product_item_image_2 (1).png",
+    alt: "Sweet item image 2",
+  },
+  {
+    src: "/images/Items_image/product_item_image_3 (1).png",
+    alt: "Sweet item image 3",
+  },
+  {
+    src: "/images/Items_image/product_item_image_4 (1).png",
+    alt: "Sweet item image 4",
+  },
+  {
+    src: "/images/Items_image/product_item_image_5.jpeg",
+    alt: "Sweet item image 5",
   },
 ];
 
@@ -152,6 +177,9 @@ const FeatureIcon = ({
 };
 
 export default function Industries() {
+  const [galleryOpen, setGalleryOpen] = useState(false);
+  const [previewImage, setPreviewImage] = useState<{ src: string; alt: string } | null>(null);
+
   return (
     <main className="industries-page">
       <section className="hero">
@@ -241,13 +269,94 @@ export default function Industries() {
               <Icon type={category.icon} />
               <h2>{category.title}</h2>
               <p>{category.description}</p>
-              <a href="#explore" className="explore-link">
+              <button
+                type="button"
+                className="explore-link"
+                onClick={() => setGalleryOpen(true)}
+              >
                 Explore <Arrow />
-              </a>
+              </button>
             </div>
           </article>
         ))}
       </section>
+
+      {galleryOpen && (
+        <div
+          className="gallery-modal-backdrop"
+          role="presentation"
+          onClick={() => setGalleryOpen(false)}
+        >
+          <div
+            className="gallery-modal"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Sweet item gallery"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="gallery-modal-header">
+              <div>
+                <p className="gallery-modal-eyebrow">Sweets</p>
+                <h3>Item Gallery</h3>
+              </div>
+              <button
+                type="button"
+                className="gallery-modal-close"
+                onClick={() => setGalleryOpen(false)}
+                aria-label="Close gallery"
+              >
+                ×
+              </button>
+            </div>
+
+            <div className="gallery-modal-grid">
+              {sweetsGallery.map((image) => (
+                <figure
+                  className="gallery-modal-item"
+                  key={image.src}
+                  role="button"
+                  tabIndex={0}
+                  onClick={() => setPreviewImage(image)}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                      e.preventDefault()
+                      setPreviewImage(image)
+                    }
+                  }}
+                >
+                  <img src={image.src} alt={image.alt} />
+                </figure>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
+
+      {previewImage && (
+        <div
+          className="image-preview-backdrop"
+          role="presentation"
+          onClick={() => setPreviewImage(null)}
+        >
+          <div
+            className="image-preview-modal"
+            role="dialog"
+            aria-modal="true"
+            aria-label={previewImage.alt}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              type="button"
+              className="image-preview-close"
+              onClick={() => setPreviewImage(null)}
+              aria-label="Close image preview"
+            >
+              ×
+            </button>
+            <img src={previewImage.src} alt={previewImage.alt} />
+          </div>
+        </div>
+      )}
 
       <section className="bottom-banner">
         <div className="factory-panel">
