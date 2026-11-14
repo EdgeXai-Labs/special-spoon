@@ -61,7 +61,7 @@ const panelPoints: PanelPoint[] = [
 const benefits: BenefitItem[] = [
   {
     id: 1,
-    image: "images/why_to_choose_section_images/1.png",
+    image: "https://wsbbiybajpomynnjbcpk.supabase.co/storage/v1/object/public/CFT_Machinery/why_to_choose_section_images/1.png",
     imageAlt: "Heavy-duty food processing machine construction",
     icon: <ShieldCheck size={22} strokeWidth={2} />,
     title: "Robust & Reliable Build",
@@ -70,7 +70,7 @@ const benefits: BenefitItem[] = [
   },
   {
     id: 2,
-    image: "/images/why_to_choose_section_images/2.png",
+    image: "https://wsbbiybajpomynnjbcpk.supabase.co/storage/v1/object/public/CFT_Machinery/why_to_choose_section_images/2.png",
     imageAlt: "High productivity food processing line",
     icon: <TrendingUp size={22} strokeWidth={2} />,
     title: "Higher Productivity",
@@ -79,7 +79,7 @@ const benefits: BenefitItem[] = [
   },
   {
     id: 3,
-    image: "/images/why_to_choose_section_images/3.png",
+    image: "https://wsbbiybajpomynnjbcpk.supabase.co/storage/v1/object/public/CFT_Machinery/why_to_choose_section_images/3.png",
     imageAlt: "Consistent product quality in food manufacturing",
     icon: <BadgeCheck size={22} strokeWidth={2} />,
     title: "Consistent Product Quality",
@@ -88,7 +88,7 @@ const benefits: BenefitItem[] = [
   },
   {
     id: 4,
-    image: "/images/why_to_choose_section_images/4.png",
+    image: "https://wsbbiybajpomynnjbcpk.supabase.co/storage/v1/object/public/CFT_Machinery/why_to_choose_section_images/4.png",
     imageAlt: "Food-grade hygienic processing machinery",
     icon: <Leaf size={22} strokeWidth={2} />,
     title: "Food Safety First",
@@ -97,7 +97,7 @@ const benefits: BenefitItem[] = [
   },
   {
     id: 5,
-    image: "/images/why_to_choose_section_images/5.png",
+    image: "https://wsbbiybajpomynnjbcpk.supabase.co/storage/v1/object/public/CFT_Machinery/why_to_choose_section_images/5.png",
     imageAlt: "Easy to operate food processing controls",
     icon: <Settings size={22} strokeWidth={2} />,
     title: "Easy to Operate",
@@ -106,7 +106,7 @@ const benefits: BenefitItem[] = [
   },
   {
     id: 6,
-    image: "/images/why_to_choose_section_images/6.png",
+    image: "https://wsbbiybajpomynnjbcpk.supabase.co/storage/v1/object/public/CFT_Machinery/why_to_choose_section_images/6.png",
     imageAlt: "End-to-end support and service for food machinery",
     icon: <Headphones size={22} strokeWidth={2} />,
     title: "End-to-End Support",
@@ -338,7 +338,7 @@ export default function WhyChooseMachines() {
         {/* Machine image */}
         <div className="why-machines-showcase__machine">
           <img
-            src="/images/why_to_choose_section_images/ChatGPT Image Hot press with oven.png"
+            src="https://wsbbiybajpomynnjbcpk.supabase.co/storage/v1/object/public/CFT_Machinery/why_to_choose_section_images/ChatGPT%20Image%20Hot%20press%20with%20oven.png"
             alt="Charan Food Tech industrial food processing machinery — stainless steel, heavy-duty build"
             className="why-machines-showcase__machine-img"
             loading="eager"
@@ -427,7 +427,7 @@ export default function WhyChooseMachines() {
           {/* Background image overlay */}
           <div className="why-machines-cta__bg" aria-hidden="true">
             <img
-              src="/images/CFT_Machinery/Continous fryer Line Process-03.png"
+              src="https://wsbbiybajpomynnjbcpk.supabase.co/storage/v1/object/public/CFT_Machinery/CFT_Machinery/Continous%20fryer%20Line%20Process-03.png"
               alt=""
               className="why-machines-cta__bg-img"
               aria-hidden="true"

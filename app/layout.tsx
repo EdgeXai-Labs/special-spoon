@@ -11,8 +11,8 @@ export const metadata: Metadata = {
   description: 'We design, manufacture, customize and install industrial food processing machinery that improves productivity, reduces operating costs and delivers consistent product quality.',
   keywords: 'food processing machinery, potato chips line, namkeen line, industrial fryer, food manufacturing equipment, custom machinery',
   icons: {
-    icon: '/images/CFT_logo.svg',
-    apple: '/images/CFT_logo.svg',
+    icon: 'https://wsbbiybajpomynnjbcpk.supabase.co/storage/v1/object/public/CFT_Machinery/CFT_logo.svg',
+    apple: 'https://wsbbiybajpomynnjbcpk.supabase.co/storage/v1/object/public/CFT_Machinery/CFT_logo.svg',
   },
 }
 

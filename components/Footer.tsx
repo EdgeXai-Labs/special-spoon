@@ -19,7 +19,7 @@ export default function Footer() {
       <div className="footer-grid">
         {/* Company Info */}
         <div className="footer-company-info">
-          <img className="footer-logo" src="/images/CFT_FULL_ENCHANCED.png" alt="Charan Food Tech" />
+          <img className="footer-logo" src="https://wsbbiybajpomynnjbcpk.supabase.co/storage/v1/object/public/CFT_Machinery/CFT_FULL_ENCHANCED.png" alt="Charan Food Tech" />
           <p style={{ color: 'var(--text-secondary)', lineHeight: 1.5, marginBottom: '1rem' }}>
             <strong style={{ color: 'var(--text-primary)' }}>CHARAN FOOD TECH</strong>
             <br />📍 Krishnagiri Main Road
@@ -29,10 +29,10 @@ export default function Footer() {
             <br />✉️ <a href="mailto:hello@charanfoodtech.com" className="footer-link">hello@charanfoodtech.com</a>
           </p>
           <div style={{ display: 'flex', gap: '1rem' }}>
-            <a href="#" aria-label="Facebook" style={{ color: 'var(--text-secondary)', fontSize: '1.5rem', transition: 'color 0.3s' }}>📘</a>
-            <a href="#" aria-label="Instagram" style={{ color: 'var(--text-secondary)', fontSize: '1.5rem', transition: 'color 0.3s' }}>📷</a>
+            <a href="https://www.facebook.com/cftmachinery/" aria-label="Facebook" style={{ color: 'var(--text-secondary)', fontSize: '1.5rem', transition: 'color 0.3s' }}>📘</a>
+            <a href="https://www.instagram.com/cftmachinery_" aria-label="Instagram" style={{ color: 'var(--text-secondary)', fontSize: '1.5rem', transition: 'color 0.3s' }}>📷</a>
             <a href="#" aria-label="LinkedIn" style={{ color: 'var(--text-secondary)', fontSize: '1.5rem', transition: 'color 0.3s' }}>🔗</a>
-            <a href="#" aria-label="YouTube" style={{ color: 'var(--text-secondary)', fontSize: '1.5rem', transition: 'color 0.3s' }}>📹</a>
+            <a href="https://www.youtube.com/cftmachinery" aria-label="YouTube" style={{ color: 'var(--text-secondary)', fontSize: '1.5rem', transition: 'color 0.3s' }}>📹</a>
           </div>
         </div>
 

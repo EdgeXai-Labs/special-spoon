@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react'
 const HERO_SLIDES = [
   {
     id: 'core',
-    backgroundImage: '/images/CFT_Machinery/Continous fryer Line Process-02.png',
+    backgroundImage: 'https://wsbbiybajpomynnjbcpk.supabase.co/storage/v1/object/public/CFT_Machinery/CFT_Machinery/Continous%20fryer%20Line%20Process-02.png',
     backgroundPosition: 'center',
     eyebrow: 'Food Machinery',
     titlePrefix: 'Engineering Better',
@@ -17,7 +17,7 @@ const HERO_SLIDES = [
   },
   {
     id: 'support',
-    backgroundImage: '/images/Smiling Customer Support Team reduced size.jpg',
+    backgroundImage: 'https://wsbbiybajpomynnjbcpk.supabase.co/storage/v1/object/public/CFT_Machinery/Smiling%20Customer%20Support%20Team%20reduced%20size.jpg',
     backgroundPosition: 'center',
     eyebrow: 'Customer Support',
     titlePrefix: 'Responsive, Reliable',
@@ -29,7 +29,7 @@ const HERO_SLIDES = [
   },
   {
     id: 'affordable',
-    backgroundImage: '/images/CFT_Machinery/Continous fryer Line Process-02.png',
+    backgroundImage: 'https://wsbbiybajpomynnjbcpk.supabase.co/storage/v1/object/public/CFT_Machinery/CFT_Machinery/Continous%20fryer%20Line%20Process-02.png',
     backgroundPosition: 'center',
     eyebrow: 'Affordable',
     titlePrefix: 'High Efficiency &',
@@ -41,7 +41,7 @@ const HERO_SLIDES = [
   },
   {
     id: 'goal',
-    backgroundImage: '/images/CFT_Machinery/rectangular batch fryer-02.png',
+    backgroundImage: 'https://wsbbiybajpomynnjbcpk.supabase.co/storage/v1/object/public/CFT_Machinery/CFT_Machinery/rectangular%20batch%20fryer-02.png',
     backgroundPosition: 'center 42%',
     eyebrow: 'Our Goal',
     titlePrefix: '24×7',
@@ -53,7 +53,7 @@ const HERO_SLIDES = [
   },
   {
     id: 'qualities',
-    backgroundImage: '/images/CFT_Machinery/Nippattu mc.png',
+    backgroundImage: 'https://wsbbiybajpomynnjbcpk.supabase.co/storage/v1/object/public/CFT_Machinery/CFT_Machinery/Nippattu%20mc.png',
     backgroundPosition: 'center 35%',
     eyebrow: 'Qualities',
     titlePrefix: 'Excellent Quality &',

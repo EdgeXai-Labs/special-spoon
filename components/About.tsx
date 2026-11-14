@@ -10,32 +10,9 @@ const TargetIcon = () => (
   </svg>
 )
 
-const MissionIcon = () => (
-  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z" />
-    <path d="M12 6v12" />
-    <path d="M6 12h12" />
-  </svg>
-)
-
 const CheckIcon = () => (
   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="mission-check">
     <polyline points="20 6 9 17 4 12" />
-  </svg>
-)
-
-const CommitmentIcon = () => (
-  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
-    <circle cx="9" cy="7" r="4" />
-    <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
-    <path d="M16 3.13a4 4 0 0 1 0 7.75" />
-  </svg>
-)
-
-const QualityIcon = () => (
-  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
   </svg>
 )
 
@@ -61,10 +38,10 @@ export default function About() {
               Company Profile
             </h3>
             <p>
-              <strong>Charan Food Tech (CFT)</strong> is a well-established company serving the Food Processing Industry since 1998.
+              <strong>Charan Food Tech (CFT)</strong> is a well-established name in the food processing machinery industry since 1998, delivering innovative, reliable, and efficient engineering solutions to meet the evolving needs of food manufacturers.
             </p>
             <p>
-              We specialize in the design, manufacturing, and supply of advanced food processing equipment, including filling, mixing, forming, flattening, frying, and slicing machines, among many others.
+              With decades of industry experience, we specialize in the design, development, manufacturing, and supply of advanced food processing equipment that combines precision engineering, modern technology and practical functionality.
             </p>
             
             <p style={{ fontSize: '1.05rem', marginTop: '2rem', marginBottom: '0.75rem', fontWeight: 700, color: 'var(--text-primary)' }}>
@@ -116,28 +93,14 @@ export default function About() {
           </div>
         </div>
 
-        {/* Vision & Mission Row */}
-        <div className="direction-grid">
-          {/* Vision */}
+        {/* Company vision */}
+        <div className="direction-grid vision-grid">
           <div className="direction-card">
             <div className="direction-card-header">
               <div className="direction-icon-wrap">
                 <TargetIcon />
               </div>
               <h3>Our Vision</h3>
-            </div>
-            <p>
-              To be the world leader in delivering latest and high technology machines and equipments, solutions and services for snack food Industry to value add and enhance the customer delight and to be associated with research opportunities to impoverish value added end-to-end services & products to the snack food industry.
-            </p>
-          </div>
-
-          {/* Mission */}
-          <div className="direction-card">
-            <div className="direction-card-header">
-              <div className="direction-icon-wrap">
-                <MissionIcon />
-              </div>
-              <h3>Our Mission</h3>
             </div>
             <p style={{ marginBottom: '0.5rem' }}>
               Providing tradition of excellence in snack food equipments, exceeding our clients expectations and get recognition locally and globally through:
@@ -192,31 +155,27 @@ export default function About() {
         <div>
           <div className="values-header">
             <h3 style={{ fontSize: '2rem', fontWeight: '800', color: 'var(--text-primary)', marginBottom: '0.5rem' }}>Our Core Values</h3>
-            <p style={{ color: 'var(--text-secondary)', fontSize: '1.05rem', maxWidth: '700px', margin: '0 auto 2.5rem auto' }}>
-              CFT ensures that every choice, decision and action is based upon the following core values to realize our vision through the mission on hand.
-            </p>
           </div>
           <div className="values-grid">
-            {/* Commitment */}
             <div className="value-card value-card-border-red">
-              <h4>
-                <span className="value-icon" style={{ display: 'inline-flex', color: 'var(--brand-red)' }}><CommitmentIcon /></span>
-                Commitment
-              </h4>
-              <p>
-                We are committed to the best quality standard of our equipment and constantly introspect and improve our insight into the market place and the real needs of customers of food industry. We are committed to teamwork and partnership with employees, shareholders, customers and the community.
-              </p>
+              <h4>Integrity</h4>
+              <p>We uphold honesty, transparency, and ethical business practices in every interaction, building lasting trust with our customers, employees, and partners.</p>
             </div>
-
-            {/* Quality */}
-            <div className="value-card value-card-border-blue">
-              <h4>
-                <span className="value-icon" style={{ display: 'inline-flex', color: '#3B82F6' }}><QualityIcon /></span>
-                Quality
-              </h4>
-              <p>
-                We shall constantly strive to improve upon our products and services and shall innovate in doing things better such that total quality is achieved in every sphere of activity.
-              </p>
+            <div className="value-card value-card-border-red">
+              <h4>Quality</h4>
+              <p>We are committed to precision engineering, superior materials, and reliable machinery that delivers consistent performance and lasting value.</p>
+            </div>
+            <div className="value-card value-card-border-red">
+              <h4>Sustainability</h4>
+              <p>We develop energy-efficient and resource-conscious machinery that minimizes waste, optimizes production, and supports a sustainable future.</p>
+            </div>
+            <div className="value-card value-card-border-red">
+              <h4>Safety</h4>
+              <p>We prioritize operator safety, hygienic design, and dependable machine operation to support safe and efficient food production environments.</p>
+            </div>
+            <div className="value-card value-card-border-red">
+              <h4>Client satisfaction</h4>
+              <p>We deliver customer-focused solutions, dependable after-sales support, and customized machinery to exceed expectations and build long-term partnerships.</p>
             </div>
           </div>
         </div>

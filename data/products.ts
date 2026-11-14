@@ -143,7 +143,7 @@ const CATEGORY_CONTENT: Record<
 
 const PRODUCT_SEEDS: ProductSeed[] = [
   {
-    image: '/images/CFT_Machinery/Continous fryer Line Process.png',
+    image: 'https://wsbbiybajpomynnjbcpk.supabase.co/storage/v1/object/public/CFT_Machinery/CFT_Machinery/Continous%20fryer%20Line%20Process.png',
     title: 'Continuous Fryer Line',
     category: 'Fryers',
     shortDescription: 'Continuous Frying. Consistent Quality. High-Volume Production.',
@@ -250,11 +250,11 @@ const PRODUCT_SEEDS: ProductSeed[] = [
       performancePositioning: 'Build for Performance. Engineered for Excellence.',
     },
   },
-  { image: '/images/CFT_Machinery/Continous fryer Line Process-02.png', title: 'Fryer Line Process II', category: 'Fryers' },
-  { image: '/images/CFT_Machinery/Continous fryer Line Process-03.png', title: 'Fryer Line Process III', category: 'Fryers' },
-  { image: '/images/CFT_Machinery/continus fryer-02.png', title: 'Continuous Fryer', category: 'Fryers' },
+  { image: 'https://wsbbiybajpomynnjbcpk.supabase.co/storage/v1/object/public/CFT_Machinery/CFT_Machinery/Continous%20fryer%20Line%20Process-02.png', title: 'Fryer Line Process II', category: 'Fryers' },
+  { image: 'https://wsbbiybajpomynnjbcpk.supabase.co/storage/v1/object/public/CFT_Machinery/CFT_Machinery/Continous%20fryer%20Line%20Process-03.png', title: 'Fryer Line Process III', category: 'Fryers' },
+  { image: 'https://wsbbiybajpomynnjbcpk.supabase.co/storage/v1/object/public/CFT_Machinery/CFT_Machinery/continus%20fryer-02.png', title: 'Continuous Fryer', category: 'Fryers' },
   {
-    image: '/images/CFT_Machinery/circular batch fryer-with bhoondi.png',
+    image: 'https://wsbbiybajpomynnjbcpk.supabase.co/storage/v1/object/public/CFT_Machinery/CFT_Machinery/circular%20batch%20fryer-with%20bhoondi.png',
     title: 'Circular Batch Fryer',
     category: 'Fryers',
     shortDescription: 'Compact circular batch fryer for controlled frying, discharge and de-oiling operations.',
@@ -295,7 +295,7 @@ const PRODUCT_SEEDS: ProductSeed[] = [
     },
   },
   {
-    image: '/images/CFT_Machinery/rectangular batch fryer-02.png',
+    image: 'https://wsbbiybajpomynnjbcpk.supabase.co/storage/v1/object/public/CFT_Machinery/CFT_Machinery/rectangular%20batch%20fryer-02.png',
     title: 'Rectangular Batch Fryer',
     category: 'Fryers',
     shortDescription: 'Reliable Batch Frying for Consistent Snack Production.',
@@ -350,9 +350,9 @@ const PRODUCT_SEEDS: ProductSeed[] = [
       performancePositioning: 'Performance You Can Trust. Quality You Can Depend On.',
     },
   },
-  { image: '/images/CFT_Machinery/extruder.png', title: 'Extruder Machine', category: 'Forming' },
+  { image: 'https://wsbbiybajpomynnjbcpk.supabase.co/storage/v1/object/public/CFT_Machinery/CFT_Machinery/extruder.png', title: 'Extruder Machine', category: 'Forming' },
   {
-    image: '/images/CFT_Machinery/RING MASTERR.png',
+    image: 'https://wsbbiybajpomynnjbcpk.supabase.co/storage/v1/object/public/CFT_Machinery/CFT_Machinery/RING%20MASTERR.png',
     title: 'Ring Master',
     category: 'Forming',
     shortDescription: 'Automated forming machine for high-volume shaped snack production with multi-head configurations.',
@@ -398,7 +398,7 @@ const PRODUCT_SEEDS: ProductSeed[] = [
     },
   },
   {
-    image: '/images/CFT_Machinery/RING MASTERR.png',
+    image: 'https://wsbbiybajpomynnjbcpk.supabase.co/storage/v1/object/public/CFT_Machinery/CFT_Machinery/RING%20MASTERR.png',
     title: 'Encrusting Machine',
     category: 'Forming',
     shortDescription: 'Automated encrusting system integrating filling, forming and delivery for filled products.',
@@ -442,7 +442,7 @@ const PRODUCT_SEEDS: ProductSeed[] = [
     },
   },
   {
-    image: '/images/CFT_Machinery/sheeting machine.png',
+    image: 'https://wsbbiybajpomynnjbcpk.supabase.co/storage/v1/object/public/CFT_Machinery/CFT_Machinery/sheeting%20machine.png',
     title: 'Sheeting, Oil Spray & Dusting Unit',
     category: 'Forming',
     shortDescription: 'Integrated sheeting, hot pressing, oil spray and dust removal system for flat-product preparation.',
@@ -477,9 +477,9 @@ const PRODUCT_SEEDS: ProductSeed[] = [
       models: ['CSOD-2', 'CSOD-4', 'CSOD-6'],
     },
   },
-  { image: '/images/CFT_Machinery/ball divider.png', title: 'Ball Divider', category: 'Forming' },
+  { image: 'https://wsbbiybajpomynnjbcpk.supabase.co/storage/v1/object/public/CFT_Machinery/CFT_Machinery/ball%20divider.png', title: 'Ball Divider', category: 'Forming' },
   {
-    image: '/images/CFT_Machinery/double stage servo based.png',
+    image: 'https://wsbbiybajpomynnjbcpk.supabase.co/storage/v1/object/public/CFT_Machinery/CFT_Machinery/double%20stage%20servo%20based.png',
     title: 'Double Stage Servo Cutter',
     category: 'Cutting',
     shortDescription: 'Two-stage servo cutter combining horizontal and vertical cutting for precise dimensions.',
@@ -516,7 +516,7 @@ const PRODUCT_SEEDS: ProductSeed[] = [
     },
   },
   {
-    image: '/images/CFT_Machinery/Sweet cutting_Single stage servo based.png',
+    image: 'https://wsbbiybajpomynnjbcpk.supabase.co/storage/v1/object/public/CFT_Machinery/CFT_Machinery/Sweet%20cutting_Single%20stage%20servo%20based.png',
     title: 'Single Stage Servo Cutter',
     category: 'Cutting',
     shortDescription: 'Automated horizontal cutting system delivering precise, repeatable product sizing.',
@@ -552,7 +552,7 @@ const PRODUCT_SEEDS: ProductSeed[] = [
     },
   },
   {
-    image: '/images/CFT_Machinery/hot press with oven.png',
+    image: 'https://wsbbiybajpomynnjbcpk.supabase.co/storage/v1/object/public/CFT_Machinery/CFT_Machinery/hot%20press%20with%20oven.png',
     title: 'Hot Press with Oven',
     category: 'Processing',
     shortDescription: 'Integrated pressing and baking line combining hot press and oven for continuous production.',
@@ -588,10 +588,10 @@ const PRODUCT_SEEDS: ProductSeed[] = [
       models: ['COV-1'],
     },
   },
-  { image: '/images/CFT_Machinery/hot press.png', title: 'Hot Press', category: 'Processing' },
+  { image: 'https://wsbbiybajpomynnjbcpk.supabase.co/storage/v1/object/public/CFT_Machinery/CFT_Machinery/hot%20press.png', title: 'Hot Press', category: 'Processing' },
   {
     // TODO: replace with a dedicated 'automatic hot press.png' photo when available
-    image: '/images/CFT_Machinery/hot press.png',
+    image: 'https://wsbbiybajpomynnjbcpk.supabase.co/storage/v1/object/public/CFT_Machinery/CFT_Machinery/hot%20press.png',
     title: 'Automatic Hot Press',
     category: 'Processing',
     shortDescription: 'Automated hot pressing system for consistent flat-product production and oven-ready transfer.',
@@ -627,7 +627,7 @@ const PRODUCT_SEEDS: ProductSeed[] = [
     },
   },
   {
-    image: '/images/CFT_Machinery/Masala Peanut mc.png',
+    image: 'https://wsbbiybajpomynnjbcpk.supabase.co/storage/v1/object/public/CFT_Machinery/CFT_Machinery/Masala%20Peanut%20mc.png',
     title: 'Masala Peanut Machine',
     category: 'Processing',
     shortDescription: 'Seasoning and coating solutions for peanut snack production.',
@@ -692,7 +692,7 @@ const PRODUCT_SEEDS: ProductSeed[] = [
     },
   },
   {
-    image: '/images/CFT_Machinery/MOONG DHAL.png',
+    image: 'https://wsbbiybajpomynnjbcpk.supabase.co/storage/v1/object/public/CFT_Machinery/CFT_Machinery/MOONG%20DHAL.png',
     title: 'Moong Dhal Machine',
     category: 'Processing',
     shortDescription: 'Dedicated machine for automated Moong Dhal processing.',
@@ -718,7 +718,7 @@ const PRODUCT_SEEDS: ProductSeed[] = [
     },
   },
   {
-    image: '/images/CFT_Machinery/KHARA BHOONDI.png',
+    image: 'https://wsbbiybajpomynnjbcpk.supabase.co/storage/v1/object/public/CFT_Machinery/CFT_Machinery/KHARA%20BHOONDI.png',
     title: 'Khara Bhoondi Machine',
     category: 'Processing',
     shortDescription: 'Dedicated machine for automated Khara Boondi production.',
@@ -744,7 +744,7 @@ const PRODUCT_SEEDS: ProductSeed[] = [
     },
   },
   {
-    image: '/images/CFT_Machinery/Nippattu mc.png',
+    image: 'https://wsbbiybajpomynnjbcpk.supabase.co/storage/v1/object/public/CFT_Machinery/CFT_Machinery/Nippattu%20mc.png',
     title: 'Nippattu Machine',
     category: 'Processing',
     shortDescription: 'Automated Nippattu production machine providing consistent forming and output.',
@@ -768,9 +768,9 @@ const PRODUCT_SEEDS: ProductSeed[] = [
       },
     },
   },
-  { image: '/images/CFT_Machinery/seedai machine.png', title: 'Seedai Machine', category: 'Processing' },
+  { image: 'https://wsbbiybajpomynnjbcpk.supabase.co/storage/v1/object/public/CFT_Machinery/CFT_Machinery/seedai%20machine.png', title: 'Seedai Machine', category: 'Processing' },
   {
-    image: '/images/CFT_Machinery/gulab jamun.png',
+    image: 'https://wsbbiybajpomynnjbcpk.supabase.co/storage/v1/object/public/CFT_Machinery/CFT_Machinery/gulab%20jamun.png',
     title: 'Gulab Jamun Machine',
     category: 'Processing',
     shortDescription: 'Automated forming and delivery system for consistent sweet production.',
@@ -803,7 +803,7 @@ const PRODUCT_SEEDS: ProductSeed[] = [
     },
   },
   {
-    image: '/images/CFT_Machinery/pick & place1.png',
+    image: 'https://wsbbiybajpomynnjbcpk.supabase.co/storage/v1/object/public/CFT_Machinery/CFT_Machinery/pick%20%26%20place1.png',
     title: 'Pick & Place System',
     category: 'Automation',
     shortDescription: 'Automated product handling and transfer for high-efficiency packaging lines.',
@@ -881,7 +881,7 @@ const PRODUCT_SEEDS: ProductSeed[] = [
   },
   // New Machines from CFT_Machineries_2_compressed folder
   {
-    image: '/images/CFT_Machineries_2_compressed/ball divider.png',
+    image: 'https://wsbbiybajpomynnjbcpk.supabase.co/storage/v1/object/public/CFT_Machinery/CFT_Machineries_2_compressed/ball%20divider.png',
     title: 'Ball Divider',
     category: 'Processing',
     shortDescription: 'Automated dough ball dividing system for consistent portioning and uniform product sizing.',
@@ -901,7 +901,7 @@ const PRODUCT_SEEDS: ProductSeed[] = [
     },
   },
   {
-    image: '/images/CFT_Machineries_2_compressed/COLD PRESS MACHINE.png',
+    image: 'https://wsbbiybajpomynnjbcpk.supabase.co/storage/v1/object/public/CFT_Machinery/CFT_Machineries_2_compressed/COLD%20PRESS%20MACHINE.png',
     title: 'Cold Press Machine',
     category: 'Processing',
     shortDescription: 'Cold press oil extraction system for pure, chemical-free oil production with maximum nutrient retention.',
@@ -927,7 +927,7 @@ const PRODUCT_SEEDS: ProductSeed[] = [
     },
   },
   {
-    image: '/images/CFT_Machineries_2_compressed/Dough mixer-1.png',
+    image: 'https://wsbbiybajpomynnjbcpk.supabase.co/storage/v1/object/public/CFT_Machinery/CFT_Machineries_2_compressed/Dough%20mixer-1.png',
     title: 'Dough Mixer',
     category: 'Processing',
     shortDescription: 'Industrial dough mixing system for uniform mixing, consistent texture, and optimized production workflow.',
@@ -947,7 +947,7 @@ const PRODUCT_SEEDS: ProductSeed[] = [
     },
   },
   {
-    image: '/images/CFT_Machineries_2_compressed/medu vada-1.png',
+    image: 'https://wsbbiybajpomynnjbcpk.supabase.co/storage/v1/object/public/CFT_Machinery/CFT_Machineries_2_compressed/medu%20vada-1.png',
     title: 'Medu Vada Machine',
     category: 'Forming',
     shortDescription: 'Automated medu vada forming machine for consistent shape, size, and high-volume production.',
@@ -967,7 +967,7 @@ const PRODUCT_SEEDS: ProductSeed[] = [
     },
   },
   {
-    image: '/images/CFT_Machineries_2_compressed/MURUKKU MC.png',
+    image: 'https://wsbbiybajpomynnjbcpk.supabase.co/storage/v1/object/public/CFT_Machinery/CFT_Machineries_2_compressed/MURUKKU%20MC.png',
     title: 'Murukku Machine',
     category: 'Forming',
     shortDescription: 'Automated murukku forming machine for traditional spiral shapes with consistent quality and high throughput.',
@@ -993,7 +993,7 @@ const PRODUCT_SEEDS: ProductSeed[] = [
     },
   },
   {
-    image: '/images/CFT_Machineries_2_compressed/parota slicer1.png',
+    image: 'https://wsbbiybajpomynnjbcpk.supabase.co/storage/v1/object/public/CFT_Machinery/CFT_Machineries_2_compressed/parota%20slicer1.png',
     title: 'Parota Slicer',
     category: 'Cutting',
     shortDescription: 'Precision parota slicing machine for uniform strips, consistent sizing, and hygienic food processing.',
@@ -1019,7 +1019,7 @@ const PRODUCT_SEEDS: ProductSeed[] = [
     },
   },
   {
-    image: '/images/CFT_Machineries_2_compressed/servo based ultrasonic cutter1.png',
+    image: 'https://wsbbiybajpomynnjbcpk.supabase.co/storage/v1/object/public/CFT_Machinery/CFT_Machineries_2_compressed/servo%20based%20ultrasonic%20cutter1.png',
     title: 'Servo-Based Ultrasonic Cutter',
     category: 'Cutting',
     shortDescription: 'Advanced ultrasonic cutting technology for clean cuts, minimal waste, and precise product portioning.',
@@ -1045,7 +1045,7 @@ const PRODUCT_SEEDS: ProductSeed[] = [
     },
   },
   {
-    image: '/images/CFT_Machineries_2_compressed/somosa sheeting1.png',
+    image: 'https://wsbbiybajpomynnjbcpk.supabase.co/storage/v1/object/public/CFT_Machinery/CFT_Machineries_2_compressed/somosa%20sheeting1.png',
     title: 'Samosa Sheeting Machine',
     category: 'Processing',
     shortDescription: 'Automated dough sheeting system for uniform samosa sheets with consistent thickness and quality.',
@@ -1071,7 +1071,7 @@ const PRODUCT_SEEDS: ProductSeed[] = [
     },
   },
   {
-    image: '/images/CFT_Machineries_2_compressed/Stamping mc1.png',
+    image: 'https://wsbbiybajpomynnjbcpk.supabase.co/storage/v1/object/public/CFT_Machinery/CFT_Machineries_2_compressed/Stamping%20mc1.png',
     title: 'Stamping Machine',
     category: 'Forming',
     shortDescription: 'Automated stamping system for consistent product shapes, uniform sizing, and high-speed production.',
@@ -1097,7 +1097,7 @@ const PRODUCT_SEEDS: ProductSeed[] = [
     },
   },
   {
-    image: '/images/CFT_Machineries_2_compressed/sweet making-02.png',
+    image: 'https://wsbbiybajpomynnjbcpk.supabase.co/storage/v1/object/public/CFT_Machinery/CFT_Machineries_2_compressed/sweet%20making-02.png',
     title: 'Sweet Making Machine',
     category: 'Processing',
     shortDescription: 'Automated sweet production system for traditional Indian sweets with consistent quality and high output.',
@@ -1123,7 +1123,7 @@ const PRODUCT_SEEDS: ProductSeed[] = [
     },
   },
   {
-    image: '/images/CFT_Machineries_2_compressed/Thattai1.png',
+    image: 'https://wsbbiybajpomynnjbcpk.supabase.co/storage/v1/object/public/CFT_Machinery/CFT_Machineries_2_compressed/Thattai1.png',
     title: 'Thattai Machine',
     category: 'Forming',
     shortDescription: 'Automated thattai forming machine for traditional South Indian crackers with consistent shape and thickness.',
@@ -1149,7 +1149,7 @@ const PRODUCT_SEEDS: ProductSeed[] = [
     },
   },
   {
-    image: '/images/CFT_Machineries_2_compressed/TORTILLA MC.png',
+    image: 'https://wsbbiybajpomynnjbcpk.supabase.co/storage/v1/object/public/CFT_Machinery/CFT_Machineries_2_compressed/TORTILLA%20MC.png',
     title: 'Tortilla Machine',
     category: 'Processing',
     shortDescription: 'Automated tortilla production system for consistent quality, uniform sizing, and high-volume output.',
@@ -1176,7 +1176,7 @@ const PRODUCT_SEEDS: ProductSeed[] = [
   },
   // Conveyors from conveyors_compressed folder
   {
-    image: '/images/conveyors_compressed/chain conyeor.png',
+    image: 'https://wsbbiybajpomynnjbcpk.supabase.co/storage/v1/object/public/CFT_Machinery/conveyors_compressed/chain%20conyeor.png',
     title: 'Chain Conveyor',
     category: 'Conveyors',
     shortDescription: 'Heavy-duty chain conveyor system for robust material handling and reliable product transport.',
@@ -1202,7 +1202,7 @@ const PRODUCT_SEEDS: ProductSeed[] = [
     },
   },
   {
-    image: '/images/conveyors_compressed/flat conveyor.png',
+    image: 'https://wsbbiybajpomynnjbcpk.supabase.co/storage/v1/object/public/CFT_Machinery/conveyors_compressed/flat%20conveyor.png',
     title: 'Flat Belt Conveyor',
     category: 'Conveyors',
     shortDescription: 'Versatile flat belt conveyor for smooth product transport and flexible line integration.',
@@ -1228,7 +1228,7 @@ const PRODUCT_SEEDS: ProductSeed[] = [
     },
   },
   {
-    image: '/images/conveyors_compressed/modular conveyor.png',
+    image: 'https://wsbbiybajpomynnjbcpk.supabase.co/storage/v1/object/public/CFT_Machinery/conveyors_compressed/modular%20conveyor.png',
     title: 'Modular Conveyor',
     category: 'Conveyors',
     shortDescription: 'Modular belt conveyor system for flexible configuration and easy maintenance.',
@@ -1254,7 +1254,7 @@ const PRODUCT_SEEDS: ProductSeed[] = [
     },
   },
   {
-    image: '/images/conveyors_compressed/motorised roller.png',
+    image: 'https://wsbbiybajpomynnjbcpk.supabase.co/storage/v1/object/public/CFT_Machinery/conveyors_compressed/motorised%20roller.png',
     title: 'Motorized Roller Conveyor',
     category: 'Conveyors',
     shortDescription: 'Motorized roller system for efficient carton and box handling with smooth product flow.',
@@ -1280,7 +1280,7 @@ const PRODUCT_SEEDS: ProductSeed[] = [
     },
   },
   {
-    image: '/images/conveyors_compressed/roller.png',
+    image: 'https://wsbbiybajpomynnjbcpk.supabase.co/storage/v1/object/public/CFT_Machinery/conveyors_compressed/roller.png',
     title: 'Gravity Roller Conveyor',
     category: 'Conveyors',
     shortDescription: 'Non-powered gravity roller system for efficient manual and gravity-assisted product movement.',
@@ -1306,7 +1306,7 @@ const PRODUCT_SEEDS: ProductSeed[] = [
     },
   },
   {
-    image: '/images/conveyors_compressed/screw type coneyor.png',
+    image: 'https://wsbbiybajpomynnjbcpk.supabase.co/storage/v1/object/public/CFT_Machinery/conveyors_compressed/screw%20type%20coneyor.png',
     title: 'Screw Conveyor',
     category: 'Conveyors',
     shortDescription: 'Enclosed screw conveyor for bulk material handling and powder transport applications.',
@@ -1332,7 +1332,7 @@ const PRODUCT_SEEDS: ProductSeed[] = [
     },
   },
   {
-    image: '/images/conveyors_compressed/table top chain coneyor.png',
+    image: 'https://wsbbiybajpomynnjbcpk.supabase.co/storage/v1/object/public/CFT_Machinery/conveyors_compressed/table%20top%20chain%20coneyor.png',
     title: 'Table Top Chain Conveyor',
     category: 'Conveyors',
     shortDescription: 'Hygienic table top chain conveyor for food-grade product handling with easy cleaning.',
@@ -1358,7 +1358,7 @@ const PRODUCT_SEEDS: ProductSeed[] = [
     },
   },
   {
-    image: '/images/conveyors_compressed/z type coneyor.png',
+    image: 'https://wsbbiybajpomynnjbcpk.supabase.co/storage/v1/object/public/CFT_Machinery/conveyors_compressed/z%20type%20coneyor.png',
     title: 'Z-Type Conveyor',
     category: 'Conveyors',
     shortDescription: 'Vertical Z-type bucket conveyor for space-efficient elevation of bulk materials.',
@@ -1584,15 +1584,16 @@ export const PRODUCTS: Product[] = PRODUCT_SEEDS.map((product) => {
 })
 
 /**
- * Dev-only guard: warn loudly if a product references an image that is not present
- * in /public. Missing files are served as the HTML 404 page, which surfaces as the
- * confusing "requested resource isn't a valid image ... received text/html" error.
+ * Dev-only guard: warn if a local product image is not present in /public.
+ * Remote images are checked by the browser and image loader instead.
  */
 if (process.env.NODE_ENV !== 'production' && typeof window === 'undefined') {
   Promise.all([import('node:fs'), import('node:path')])
     .then(([fs, path]) => {
       const missing = PRODUCTS.filter(
-        (product) => !fs.existsSync(path.join(process.cwd(), 'public', product.image))
+        (product) =>
+          !/^https?:\/\//i.test(product.image) &&
+          !fs.existsSync(path.join(process.cwd(), 'public', product.image))
       )
 
       if (missing.length > 0) {

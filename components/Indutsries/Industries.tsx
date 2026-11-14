@@ -15,7 +15,7 @@ const categories: Category[] = [
     title: "Sweets",
     description:
       "Hygienic and efficient solutions for traditional and modern sweet manufacturing.",
-    image: "/images/Indutries/Compresed_snaks_indutries.png",
+    image: "https://wsbbiybajpomynnjbcpk.supabase.co/storage/v1/object/public/CFT_Machinery/Industries/Compresed_snaks_indutries.png",
     icon: "sweet",
   },
   {
@@ -30,14 +30,14 @@ const categories: Category[] = [
     title: "Namkeens",
     description:
       "Automated solutions for a wide range of savoury snacks with consistent taste and texture.",
-    image: "/images/Indutries/Compresed_numkins_indutries.png",
+    image: 'https://wsbbiybajpomynnjbcpk.supabase.co/storage/v1/object/public/CFT_Machinery/Industries/Compresed_numkins_indutries.png',
     icon: "namkeen",
   },
   {
     title: "Chips",
     description:
       "High-performance systems for potato, banana and multigrain chips.",
-    image: "/images/Indutries/Compresed_chips_indutries.png",
+    image: "https://wsbbiybajpomynnjbcpk.supabase.co/storage/v1/object/public/CFT_Machinery/Industries/Compresed_chips_indutries.png",
     icon: "chips",
   },
   {
@@ -60,23 +60,23 @@ const categories: Category[] = [
 
 const sweetsGallery = [
   {
-    src: "/images/Items_image/product_item_image_1 (1).png",
+    src: "https://wsbbiybajpomynnjbcpk.supabase.co/storage/v1/object/public/CFT_Machinery/Items_image/product_item_image_1%20(1).png",
     alt: "Sweet item image 1",
   },
   {
-    src: "/images/Items_image/product_item_image_2 (1).png",
+    src: "https://wsbbiybajpomynnjbcpk.supabase.co/storage/v1/object/public/CFT_Machinery/Items_image/product_item_image_2%20(1).png",
     alt: "Sweet item image 2",
   },
   {
-    src: "/images/Items_image/product_item_image_3 (1).png",
+    src: "https://wsbbiybajpomynnjbcpk.supabase.co/storage/v1/object/public/CFT_Machinery/Items_image/product_item_image_3 (1).png",
     alt: "Sweet item image 3",
   },
   {
-    src: "/images/Items_image/product_item_image_4 (1).png",
+    src: "https://wsbbiybajpomynnjbcpk.supabase.co/storage/v1/object/public/CFT_Machinery/Items_image/product_item_image_4 (1).png",
     alt: "Sweet item image 4",
   },
   {
-    src: "/images/Items_image/product_item_image_5.jpeg",
+    src: "https://wsbbiybajpomynnjbcpk.supabase.co/storage/v1/object/public/CFT_Machinery/Items_image/product_item_image_5.jpeg",
     alt: "Sweet item image 5",
   },
 ];

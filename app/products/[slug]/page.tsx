@@ -2,7 +2,38 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
+import { PackagePlus, Waves, Flame, Droplets, Fan, Settings, ShieldCheck, TrendingUp, Leaf, CookingPot, ArrowDownToLine } from 'lucide-react'
 import { getProductBySlug, PRODUCTS } from '@/data/products'
+
+const continuousFryerWorkflow = [
+  { label: 'Feeding', icon: PackagePlus },
+  { label: 'Submersion', icon: Waves },
+  { label: 'Frying Zone', icon: Flame },
+  { label: 'Discharge & De-oiling', icon: Droplets },
+  { label: 'Cooling', icon: Fan },
+]
+
+const circularBatchFryerWorkflow = [
+  { label: 'Oil Heating', icon: CookingPot },
+  { label: 'Product Loading', icon: PackagePlus },
+  { label: 'Frying Process', icon: Flame },
+  { label: 'Discharge', icon: ArrowDownToLine },
+  { label: 'De-Oiling', icon: Droplets },
+]
+
+const encrustingWorkflow = [
+  { label: 'Put in filling', icon: PackagePlus },
+  { label: 'Put in dough', icon: CookingPot },
+  { label: 'Forming', icon: Settings },
+  { label: 'Delivering', icon: ArrowDownToLine },
+]
+
+const continuousFryerBenefits = [
+  { title: 'Custom Engineered', description: 'Built to match your specific needs', icon: Settings },
+  { title: 'SS 304 / 316', description: 'Food-grade stainless steel for safety', icon: ShieldCheck },
+  { title: 'High Efficiency', description: 'Consistent performance with low maintenance', icon: TrendingUp },
+  { title: 'Energy Saving', description: 'Optimised design for lower running cost', icon: Leaf },
+]
 
 type ProductPageProps = {
   params: {
@@ -41,6 +72,9 @@ export default function ProductDetailPage({ params }: ProductPageProps) {
   ).slice(0, 3)
 
   const details = product.details
+  const isContinuousFryer = product.slug === 'continuous-fryer'
+  const isCircularBatchFryer = product.slug === 'circular-batch-fryer'
+  const hasEncrustingWorkflow = product.slug === 'encrusting-machine' || product.slug === 'ring-master'
 
   return (
     <main className="product-detail-page">
@@ -111,13 +145,39 @@ export default function ProductDetailPage({ params }: ProductPageProps) {
         <>
           {/* SECTION 2 — Product Overview + Key Metrics */}
           <section className="section product-overview-section">
-            <div className="product-overview-grid">
+            {hasEncrustingWorkflow && (
+              <div className="continuous-fryer-workflow batch-fryer-workflow encrusting-workflow">
+                <h3>Work Flow</h3>
+                <ol>
+                  {encrustingWorkflow.map((stage) => (
+                    <li key={stage.label}>
+                      <span className="continuous-fryer-stage-icon"><stage.icon size={27} strokeWidth={1.6} aria-hidden="true" /></span>
+                      <span>{stage.label}</span>
+                    </li>
+                  ))}
+                </ol>
+              </div>
+            )}
+            {isCircularBatchFryer && (
+              <div className="continuous-fryer-workflow batch-fryer-workflow">
+                <h3>Work Flow</h3>
+                <ol>
+                  {circularBatchFryerWorkflow.map((stage) => (
+                    <li key={stage.label}>
+                      <span className="continuous-fryer-stage-icon"><stage.icon size={27} strokeWidth={1.6} aria-hidden="true" /></span>
+                      <span>{stage.label}</span>
+                    </li>
+                  ))}
+                </ol>
+              </div>
+            )}
+            <div className={`product-overview-grid${isContinuousFryer ? ' product-overview-grid-full' : ''}`}>
               <div className="product-overview-copy">
                 <h2>{details.overviewHeadline ?? `About the ${product.title}`}</h2>
                 <p>{details.overview ?? product.overview}</p>
               </div>
 
-              {details.keyMetrics && details.keyMetrics.length > 0 && (
+              {!isContinuousFryer && details.keyMetrics && details.keyMetrics.length > 0 && (
                 <div className="product-metric-grid">
                   {details.keyMetrics.map((metric) => (
                     <div key={metric.label} className="product-metric-card">
@@ -128,6 +188,30 @@ export default function ProductDetailPage({ params }: ProductPageProps) {
                 </div>
               )}
             </div>
+            {isContinuousFryer && (
+              <div className="continuous-fryer-overview">
+                <div className="continuous-fryer-workflow">
+                  <ol>
+                    {continuousFryerWorkflow.map((stage) => (
+                      <li key={stage.label}>
+                        <span className="continuous-fryer-stage-icon"><stage.icon size={27} strokeWidth={1.6} aria-hidden="true" /></span>
+                        <span>{stage.label}</span>
+                      </li>
+                    ))}
+                  </ol>
+                  <h3>Work Flow</h3>
+                </div>
+                <div className="continuous-fryer-benefits">
+                  {continuousFryerBenefits.map((benefit) => (
+                    <div key={benefit.title} className="continuous-fryer-benefit">
+                      <span className="continuous-fryer-benefit-icon"><benefit.icon size={28} strokeWidth={1.6} aria-hidden="true" /></span>
+                      <h3>{benefit.title}</h3>
+                      <p>{benefit.description}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
           </section>
 
           {/* SECTION 3 — Key Features */}

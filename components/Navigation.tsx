@@ -54,7 +54,7 @@ export default function Navigation() {
     >
       <div className="nav-container">
         <Link href="/" className="logo">
-          <img src="/images/CFT_FULL_ENCHANCED.png" alt="Charan Food Tech" style={{ height: '58px', width: 'auto' }} />
+          <img src="https://wsbbiybajpomynnjbcpk.supabase.co/storage/v1/object/public/CFT_Machinery/CFT_FULL_ENCHANCED.png" alt="Charan Food Tech" style={{ height: '58px', width: 'auto' }} />
         </Link>
 
         {/* Desktop nav links */}

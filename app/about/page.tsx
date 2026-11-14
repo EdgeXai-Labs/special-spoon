@@ -7,7 +7,7 @@ import Footer from '@/components/Footer'
 export const metadata: Metadata = {
   title: 'About Us | Charan Food Tech - Food Processing Machinery Manufacturer',
   description:
-    'One of India’s leading manufacturers of food processing machinery and customized industrial equipment. Manufacturing innovation since 1990.',
+    'Charan Food Tech has delivered food processing machinery and customized engineering solutions since 1998.',
 }
 
 export default function AboutPage() {
